@@ -1,7 +1,6 @@
 package com.github.wenhao.tdd.guess.number;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
-import com.github.wenhao.tdd.guess.number.domain.Game;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

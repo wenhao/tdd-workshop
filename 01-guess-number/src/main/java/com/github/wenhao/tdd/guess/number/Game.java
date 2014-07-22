@@ -1,4 +1,6 @@
-package com.github.wenhao.tdd.guess.number.domain;
+package com.github.wenhao.tdd.guess.number;
+
+import com.github.wenhao.tdd.guess.number.domain.Answer;
 
 public class Game
 {
