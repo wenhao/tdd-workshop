@@ -13,6 +13,10 @@ import static com.google.common.collect.Lists.newArrayList;
 
 public class Answer
 {
+    private static final String SEPARATOR = " ";
+    private static final int SIZE = 4;
+    private static final String CORRECT_NUMBER = "A";
+    private static final String MIX_NUMBER = "B";
     private String value;
 
     public Answer(String value)
@@ -27,13 +31,13 @@ public class Answer
 
     public String compare(Answer answer)
     {
-        final List<String> actualNumbers = newArrayList(value.split(" "));
-        final List<String> inputNumbers = newArrayList(answer.value.split(" "));
+        final List<String> actualNumbers = newArrayList(value.split(SEPARATOR));
+        final List<String> inputNumbers = newArrayList(answer.value.split(SEPARATOR));
         return new StringBuilder()
                 .append(correctNumber(actualNumbers, inputNumbers))
-                .append("A")
+                .append(CORRECT_NUMBER)
                 .append(mixNumber(actualNumbers, inputNumbers))
-                .append("B").toString();
+                .append(MIX_NUMBER).toString();
     }
 
     private Integer mixNumber(final List<String> actualNumbers, final List<String> inputNumbers)
@@ -62,7 +66,7 @@ public class Answer
 
     public static void validate(Answer answer)
     {
-        List<String> numbers = newArrayList(answer.value.split(" "));
+        List<String> numbers = newArrayList(answer.value.split(SEPARATOR));
 
         boolean isBetween0And9 = Iterators.all(numbers.iterator(), new Predicate<String>()
         {
@@ -75,7 +79,7 @@ public class Answer
         if (!isBetween0And9) {
             throw new AnswerOutOfRangeException();
         }
-        if (numbers.size() != 4) {
+        if (numbers.size() != SIZE) {
             throw new AnswerLengthInvalidException();
         }
 
