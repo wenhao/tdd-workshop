@@ -14,6 +14,7 @@ public class AnswerGenerator
     public Answer generate()
     {
         Answer answer = Answer.createAnswer(randomIntGenerator.nextInt());
+        Answer.validate(answer);
         return answer;
     }
 }

@@ -42,6 +42,7 @@
                 <configuration>
                     <configLocation>${checkstyle.configLocation}</configLocation>
                     <suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>
+                    <consoleOutput>true</consoleOutput>
                 </configuration>
                 <executions>
                     <execution>
