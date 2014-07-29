@@ -55,4 +55,9 @@ public class Answer
             }
         }).toList().size();
     }
+
+    public Boolean isValid()
+    {
+        return null;
+    }
 }
