@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class GameTest
 {
@@ -15,7 +17,9 @@ public class GameTest
     @Before
     public void setUp() throws Exception
     {
-        game = new Game(Answer.createAnswer("1 2 3 4"));
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(Answer.createAnswer("1 2 3 4"));
+        game = new Game(answerGenerator);
     }
 
     @Test

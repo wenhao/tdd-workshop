@@ -5,9 +5,12 @@ import com.github.wenhao.tdd.guess.number.domain.Answer;
 public class Game
 {
     private Answer answer;
-    public Game(Answer answer)
+    private AnswerGenerator answerGenerator;
+
+    public Game(AnswerGenerator answerGenerator)
     {
-        this.answer = answer;
+        this.answerGenerator = answerGenerator;
+        this.answer = answerGenerator.generate();
     }
 
     public String guess(Answer answer)
