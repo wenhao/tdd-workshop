@@ -1,9 +1,12 @@
 package com.github.wenhao.tdd.guess.number;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
+import com.github.wenhao.tdd.guess.number.domain.GuessResult;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -86,5 +89,21 @@ public class GameTest
 
         // then
         assertThat(result, is("0A4B"));
+    }
+
+    @Test
+    public void should_record_every_guess_result() throws Exception
+    {
+        // given
+        game.guess(Answer.createAnswer("1 2 3 5"));
+        game.guess(Answer.createAnswer("5 6 7 8"));
+
+        // when
+        List<GuessResult> guessResults = game.getHistory();
+
+        // then
+        assertThat(guessResults.size(), is(2));
+        assertThat(guessResults.get(0).getResult(), is("3A0B"));
+        assertThat(guessResults.get(0).getInputAnswer(), is("1 2 3 5"));
     }
 }
