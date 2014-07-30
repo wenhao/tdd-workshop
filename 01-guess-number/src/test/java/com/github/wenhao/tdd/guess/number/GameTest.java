@@ -105,5 +105,7 @@ public class GameTest
         assertThat(guessResults.size(), is(2));
         assertThat(guessResults.get(0).getResult(), is("3A0B"));
         assertThat(guessResults.get(0).getInputAnswer(), is("1 2 3 5"));
+        assertThat(guessResults.get(1).getResult(), is("0A0B"));
+        assertThat(guessResults.get(1).getInputAnswer(), is("5 6 7 8"));
     }
 }
