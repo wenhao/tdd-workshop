@@ -1,6 +1,7 @@
 package com.github.wenhao.tdd.guess.number;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
+import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
 
 public class Game
 {

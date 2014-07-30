@@ -1,4 +1,4 @@
-package com.github.wenhao.tdd.guess.number;
+package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 

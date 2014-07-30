@@ -1,4 +1,4 @@
-package com.github.wenhao.tdd.guess.number;
+package com.github.wenhao.tdd.guess.number.generator;
 
 import com.google.common.base.Joiner;
 

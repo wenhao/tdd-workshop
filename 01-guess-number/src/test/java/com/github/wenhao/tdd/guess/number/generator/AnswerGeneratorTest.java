@@ -1,8 +1,10 @@
-package com.github.wenhao.tdd.guess.number;
+package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
+import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
+import com.github.wenhao.tdd.guess.number.generator.RandomIntGenerator;
 import org.junit.Test;
 
 import java.util.Random;
