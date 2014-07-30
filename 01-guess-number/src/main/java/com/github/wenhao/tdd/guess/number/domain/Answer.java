@@ -1,16 +1,11 @@
 package com.github.wenhao.tdd.guess.number.domain;
 
-import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
-import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
 import com.google.common.base.Predicate;
 
 import java.util.List;
 
-import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_RANGE;
 import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
-import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SIZE;
 import static com.google.common.collect.FluentIterable.from;
-import static com.google.common.collect.Iterators.all;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class Answer
@@ -64,25 +59,9 @@ public class Answer
         }).toList().size();
     }
 
-    public static void validate(Answer answer)
+    public String getValue()
     {
-        List<String> numbers = newArrayList(answer.value.split(ANSWER_SEPARATOR));
-
-        boolean isBetween0And9 = all(numbers.iterator(), new Predicate<String>()
-        {
-            @Override
-            public boolean apply(String number)
-            {
-                return ANSWER_RANGE.contains(Integer.valueOf(number));
-            }
-        });
-        if (!isBetween0And9) {
-            throw new AnswerOutOfRangeException();
-        }
-        if (numbers.size() != ANSWER_SIZE) {
-            throw new AnswerLengthInvalidException();
-        }
-
+        return this.value;
     }
 
 }

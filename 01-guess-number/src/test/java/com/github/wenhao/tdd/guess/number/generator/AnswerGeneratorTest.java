@@ -3,8 +3,8 @@ package com.github.wenhao.tdd.guess.number.generator;
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
-import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
-import com.github.wenhao.tdd.guess.number.generator.RandomIntGenerator;
+import com.github.wenhao.tdd.guess.number.validate.AnswerValidator;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Random;
@@ -16,11 +16,20 @@ import static org.mockito.Mockito.when;
 
 public class AnswerGeneratorTest
 {
+
+    private AnswerValidator answerValidator;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        answerValidator = new AnswerValidator();
+    }
+
     @Test
     public void should_be_able_to_generate_answer() throws Exception
     {
         // given
-        AnswerGenerator answerGenerator = new AnswerGenerator(new RandomIntGenerator(new Random()));
+        AnswerGenerator answerGenerator = new AnswerGenerator(new RandomIntGenerator(new Random()), answerValidator);
 
         // when
         Answer answer = answerGenerator.generate();
@@ -35,7 +44,7 @@ public class AnswerGeneratorTest
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 3 10");
-        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
 
         // when
         answerGenerator.generate();
@@ -47,7 +56,7 @@ public class AnswerGeneratorTest
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 3");
-        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
 
         // when
         answerGenerator.generate();
