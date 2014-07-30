@@ -3,18 +3,18 @@ package com.github.wenhao.tdd.guess.number.domain;
 import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Iterators;
-import com.google.common.collect.Range;
 
 import java.util.List;
 
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_RANGE;
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SIZE;
 import static com.google.common.collect.FluentIterable.from;
+import static com.google.common.collect.Iterators.all;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class Answer
 {
-    private static final String SEPARATOR = " ";
-    private static final int SIZE = 4;
     private static final String CORRECT_NUMBER = "A";
     private static final String MIX_NUMBER = "B";
     private String value;
@@ -31,8 +31,8 @@ public class Answer
 
     public String compare(Answer answer)
     {
-        final List<String> actualNumbers = newArrayList(value.split(SEPARATOR));
-        final List<String> inputNumbers = newArrayList(answer.value.split(SEPARATOR));
+        final List<String> actualNumbers = newArrayList(value.split(ANSWER_SEPARATOR));
+        final List<String> inputNumbers = newArrayList(answer.value.split(ANSWER_SEPARATOR));
         return new StringBuilder()
                 .append(correctNumber(actualNumbers, inputNumbers))
                 .append(CORRECT_NUMBER)
@@ -66,20 +66,20 @@ public class Answer
 
     public static void validate(Answer answer)
     {
-        List<String> numbers = newArrayList(answer.value.split(SEPARATOR));
+        List<String> numbers = newArrayList(answer.value.split(ANSWER_SEPARATOR));
 
-        boolean isBetween0And9 = Iterators.all(numbers.iterator(), new Predicate<String>()
+        boolean isBetween0And9 = all(numbers.iterator(), new Predicate<String>()
         {
             @Override
             public boolean apply(String number)
             {
-                return Range.closed(0, 9).contains(Integer.valueOf(number));
+                return ANSWER_RANGE.contains(Integer.valueOf(number));
             }
         });
         if (!isBetween0And9) {
             throw new AnswerOutOfRangeException();
         }
-        if (numbers.size() != SIZE) {
+        if (numbers.size() != ANSWER_SIZE) {
             throw new AnswerLengthInvalidException();
         }
 

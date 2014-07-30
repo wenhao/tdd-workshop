@@ -5,11 +5,13 @@ import com.google.common.base.Joiner;
 import java.util.Random;
 import java.util.Set;
 
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_RANGE;
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SIZE;
 import static com.google.common.collect.Sets.newHashSet;
 
 public class RandomIntGenerator
 {
-    private static final Integer SIZE = 4;
     private Random random;
 
     public RandomIntGenerator(Random random)
@@ -20,9 +22,9 @@ public class RandomIntGenerator
     public String nextInt()
     {
         Set<Integer> numbers = newHashSet();
-        while (numbers.size() < SIZE) {
-            numbers.add(random.nextInt(10));
+        while (numbers.size() < ANSWER_SIZE) {
+            numbers.add(random.nextInt(ANSWER_RANGE.upperEndpoint()) + ANSWER_RANGE.lowerEndpoint());
         }
-        return Joiner.on(" ").join(numbers);
+        return Joiner.on(ANSWER_SEPARATOR).join(numbers);
     }
 }
