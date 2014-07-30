@@ -1,4 +1,4 @@
-package com.github.wenhao.tdd.guess.number;
+package com.github.wenhao.tdd.guess.number.service;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
@@ -21,23 +21,29 @@ public class Game
         this.guessResults = newArrayList();
     }
 
-    public String guess(Answer answer)
+    public GuessResult guess(Answer answer)
     {
         String result = this.answer.compare(answer);
-        add(answer, result);
-        return result;
+        GuessResult guessResult = createGuessResult(answer, result);
+        guessResults.add(guessResult);
+        return guessResult;
     }
 
-    private void add(Answer answer, String result)
+    private GuessResult createGuessResult(Answer answer, String result)
     {
         GuessResult guessResult = new GuessResult();
         guessResult.setInputAnswer(answer.getValue());
         guessResult.setResult(result);
-        guessResults.add(guessResult);
+        return guessResult;
     }
 
     public List<GuessResult> getHistory()
     {
         return guessResults;
+    }
+
+    public String actualAnswer()
+    {
+        return answer.getValue();
     }
 }

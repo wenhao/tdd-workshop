@@ -1,5 +1,7 @@
 package com.github.wenhao.tdd.guess.number.domain;
 
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.CORRECT_ANSWER;
+
 public class GuessResult
 {
     private String result;
@@ -23,5 +25,10 @@ public class GuessResult
     public void setInputAnswer(String inputAnswer)
     {
         this.inputAnswer = inputAnswer;
+    }
+
+    public Boolean correct()
+    {
+        return result.equals(CORRECT_ANSWER);
     }
 }

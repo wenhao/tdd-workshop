@@ -1,4 +1,4 @@
-package com.github.wenhao.tdd.guess.number;
+package com.github.wenhao.tdd.guess.number.service;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
@@ -33,10 +33,10 @@ public class GameTest
         Answer inputAnswer = Answer.createAnswer("5 6 7 8");
 
         // when
-        String result = game.guess(inputAnswer);
+        GuessResult guessResult = game.guess(inputAnswer);
 
         // then
-        assertThat(result, is("0A0B"));
+        assertThat(guessResult.getResult(), is("0A0B"));
     }
 
     @Test
@@ -46,10 +46,10 @@ public class GameTest
         Answer inputAnswer = Answer.createAnswer("1 2 3 4");
 
         // when
-        String result = game.guess(inputAnswer);
+        GuessResult guessResult = game.guess(inputAnswer);
 
         // then
-        assertThat(result, is("4A0B"));
+        assertThat(guessResult.getResult(), is("4A0B"));
     }
 
     @Test
@@ -59,10 +59,10 @@ public class GameTest
         Answer inputAnswer = Answer.createAnswer("2 4 7 8");
 
         // when
-        String result = game.guess(inputAnswer);
+        GuessResult guessResult = game.guess(inputAnswer);
 
         // then
-        assertThat(result, is("0A2B"));
+        assertThat(guessResult.getResult(), is("0A2B"));
     }
 
     @Test
@@ -72,10 +72,10 @@ public class GameTest
         Answer inputAnswer = Answer.createAnswer("0 3 2 4");
 
         // when
-        String result = game.guess(inputAnswer);
+        GuessResult guessResult = game.guess(inputAnswer);
 
         // then
-        assertThat(result, is("1A2B"));
+        assertThat(guessResult.getResult(), is("1A2B"));
     }
 
     @Test
@@ -85,10 +85,10 @@ public class GameTest
         Answer inputAnswer = Answer.createAnswer("4 3 2 1");
 
         // when
-        String result = game.guess(inputAnswer);
+        GuessResult guessResult = game.guess(inputAnswer);
 
         // then
-        assertThat(result, is("0A4B"));
+        assertThat(guessResult.getResult(), is("0A4B"));
     }
 
     @Test
