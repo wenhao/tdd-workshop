@@ -4,14 +4,20 @@ import com.github.wenhao.tdd.guess.number.domain.Answer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class ConsoleInputCommand implements InputCommand
 {
+
+    private BufferedReader bufferedReader;
+
+    public ConsoleInputCommand(BufferedReader bufferedReader)
+    {
+        this.bufferedReader = bufferedReader;
+    }
+
     @Override
     public Answer input()
     {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         try {
             String answerString = bufferedReader.readLine();
             return Answer.createAnswer(answerString);
