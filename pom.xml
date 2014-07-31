@@ -44,6 +44,7 @@
                     <suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>
                     <logViolationsToConsole>true</logViolationsToConsole>
                     <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
                 </configuration>
                 <executions>
                     <execution>
@@ -89,6 +90,23 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs-maven-plugin.version}</version>
+                <configuration>
+                    <xmlOutput>true</xmlOutput>
+                    <xmlOutputDirectory>target/site</xmlOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -100,6 +118,7 @@
         <cobertura-plugin.version>2.5.2</cobertura-plugin.version>
         <checkstyle.configLocation>config/checkstyle/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.suppressionsLocation>config/checkstyle/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
+        <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     </properties>
 
 

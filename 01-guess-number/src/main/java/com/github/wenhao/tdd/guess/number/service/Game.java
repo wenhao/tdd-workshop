@@ -11,12 +11,10 @@ import static com.google.common.collect.Lists.newArrayList;
 public class Game
 {
     private Answer answer;
-    private AnswerGenerator answerGenerator;
     private List<GuessResult> guessResults;
 
     public Game(AnswerGenerator answerGenerator)
     {
-        this.answerGenerator = answerGenerator;
         this.answer = answerGenerator.generate();
         this.guessResults = newArrayList();
     }
