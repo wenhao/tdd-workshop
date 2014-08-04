@@ -211,8 +211,8 @@ public class AnswerGenerator {
 
 该类的实现调用了Java提供的Random类,但在测试时,我们却可以通过Mock 它的行为,使得返回的结果变为确定的数字:
 ``` java
-@Test(expected = OutOfRangeAnswerException.class)
-public void should_throw_OutOfRangeAnswerException_which_is_not_between_0_and_9() 
+@Test(expected = AnswerOutOfRangeException.class)
+public void should_throw_AnswerOutOfRangeException_which_is_not_between_0_and_9() 
 {
     RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
     when(randomIntGenerator.nextInt()).thenReturn(1, 2, 3, 10);
