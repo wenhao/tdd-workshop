@@ -4,6 +4,7 @@ import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 import java.util.List;
 
@@ -15,6 +16,11 @@ import static com.google.common.collect.Lists.newArrayList;
 
 public class AnswerValidator
 {
+    @Inject
+    public AnswerValidator()
+    {
+    }
+
     public Boolean validate(Answer answer)
     {
         List<String> numbers = newArrayList(answer.getValue().split(ANSWER_SEPARATOR));

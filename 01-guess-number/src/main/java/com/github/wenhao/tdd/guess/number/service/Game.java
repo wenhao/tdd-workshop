@@ -3,6 +3,7 @@ package com.github.wenhao.tdd.guess.number.service;
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
+import com.google.inject.Inject;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class Game
     private Answer answer;
     private List<GuessResult> guessResults;
 
+    @Inject
     public Game(AnswerGenerator answerGenerator)
     {
         this.answer = answerGenerator.generate();

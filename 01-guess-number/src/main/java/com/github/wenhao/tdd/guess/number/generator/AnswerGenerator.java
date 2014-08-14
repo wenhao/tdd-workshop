@@ -2,12 +2,14 @@ package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.validate.AnswerValidator;
+import com.google.inject.Inject;
 
 public class AnswerGenerator
 {
     private RandomIntGenerator randomIntGenerator;
     private AnswerValidator answerValidator;
 
+    @Inject
     public AnswerGenerator(RandomIntGenerator randomIntGenerator, AnswerValidator answerValidator)
     {
         this.randomIntGenerator = randomIntGenerator;

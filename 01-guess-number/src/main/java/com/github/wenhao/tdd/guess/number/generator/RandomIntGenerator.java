@@ -1,6 +1,7 @@
 package com.github.wenhao.tdd.guess.number.generator;
 
 import com.google.common.base.Joiner;
+import com.google.inject.Inject;
 
 import java.util.Random;
 import java.util.Set;
@@ -14,6 +15,7 @@ public class RandomIntGenerator
 {
     private Random random;
 
+    @Inject
     public RandomIntGenerator(Random random)
     {
         this.random = random;

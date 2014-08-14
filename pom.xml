@@ -33,6 +33,11 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -96,6 +101,12 @@
                         <packageLineRate>80</packageLineRate>
                         <packageBranchRate>80</packageBranchRate>
                     </check>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/github/wenhao/**/config/**/*.class</exclude>
+                            <exclude>com/github/wenhao/**/runner/**/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
                     <formats>
                         <format>html</format>
                     </formats>
@@ -136,6 +147,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.6</java.version>
         <guava.version>17.0</guava.version>
+        <guice.version>3.0</guice.version>
 
         <junit.version>4.11</junit.version>
         <mockito-all.version>1.9.5</mockito-all.version>

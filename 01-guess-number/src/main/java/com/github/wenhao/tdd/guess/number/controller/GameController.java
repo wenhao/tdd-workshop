@@ -5,6 +5,7 @@ import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
 import com.github.wenhao.tdd.guess.number.service.Game;
 import com.github.wenhao.tdd.guess.number.view.GameView;
+import com.google.inject.Inject;
 
 import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.MAX_TIMES;
 
@@ -13,6 +14,7 @@ public class GameController
     private Game game;
     private GameView gameView;
 
+    @Inject
     public GameController(Game game, GameView gameView)
     {
         this.game = game;
