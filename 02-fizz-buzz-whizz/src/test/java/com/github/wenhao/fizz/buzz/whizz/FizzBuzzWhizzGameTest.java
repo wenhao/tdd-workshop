@@ -1,12 +1,13 @@
 package com.github.wenhao.fizz.buzz.whizz;
 
+import com.github.wenhao.fizz.buzz.whizz.domain.Student;
 import com.github.wenhao.fizz.buzz.whizz.domain.Teacher;
+import com.github.wenhao.fizz.buzz.whizz.factory.HandlerFactory;
+import com.github.wenhao.fizz.buzz.whizz.handler.BaseHandler;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.FIZZ;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
 
 public class FizzBuzzWhizzGameTest
 {
@@ -17,16 +18,18 @@ public class FizzBuzzWhizzGameTest
     {
         Teacher teacher = new Teacher();
         teacher.say(3,  5,  7);
-        fizzBuzzWhizzGame = new FizzBuzzWhizzGame(teacher);
+
+        BaseHandler handler = HandlerFactory.build(teacher.getWords());
+
+        Student student = new Student(3, handler);
+
+        fizzBuzzWhizzGame = new FizzBuzzWhizzGame();
+        fizzBuzzWhizzGame.setStudents(Arrays.asList(student));
     }
 
     @Test
-    public void should_be_able_to_return_fizz_when_student_count_is_multiple_of_3() throws Exception
+    public void should_be_able_to_count() throws Exception
     {
-        // when
-        String result = fizzBuzzWhizzGame.countOff(3);
-
-        // then
-        assertThat(result, is(FIZZ));
+        fizzBuzzWhizzGame.countOff();
     }
 }
