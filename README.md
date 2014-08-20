@@ -3,3 +3,8 @@
 
 tdd-workshop
 ============
+
+##[01-guess-number](https://github.com/wenhao/tdd-workshop/blob/master/01-guess-number/README.md)
+
+
+##[02-fizz-buzz-whizz](https://github.com/wenhao/tdd-workshop/blob/master/02-fizz-buzz-whizz/README.md)
