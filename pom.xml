@@ -103,6 +103,7 @@
                     </check>
                     <instrumentation>
                         <excludes>
+                            <exclude>com/github/wenhao/**/domain/**/*.class</exclude>
                             <exclude>com/github/wenhao/**/config/**/*.class</exclude>
                             <exclude>com/github/wenhao/**/runner/**/*.class</exclude>
                         </excludes>
