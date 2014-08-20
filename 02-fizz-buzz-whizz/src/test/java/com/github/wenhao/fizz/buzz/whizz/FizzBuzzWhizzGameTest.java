@@ -1,5 +1,6 @@
 package com.github.wenhao.fizz.buzz.whizz;
 
+import com.github.wenhao.fizz.buzz.whizz.domain.Teacher;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +15,9 @@ public class FizzBuzzWhizzGameTest
     @Before
     public void setUp() throws Exception
     {
-        fizzBuzzWhizzGame = new FizzBuzzWhizzGame();
+        Teacher teacher = new Teacher();
+        teacher.say(3,  5,  7);
+        fizzBuzzWhizzGame = new FizzBuzzWhizzGame(teacher);
     }
 
     @Test

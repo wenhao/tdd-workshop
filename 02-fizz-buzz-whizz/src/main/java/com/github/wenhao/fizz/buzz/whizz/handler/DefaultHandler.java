@@ -4,7 +4,7 @@ public class DefaultHandler extends BaseHandler
 {
     public DefaultHandler()
     {
-        super(null);
+        super(null, null);
     }
 
     @Override

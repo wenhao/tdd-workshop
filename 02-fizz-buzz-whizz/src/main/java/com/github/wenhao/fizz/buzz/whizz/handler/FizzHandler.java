@@ -1,18 +1,20 @@
 package com.github.wenhao.fizz.buzz.whizz.handler;
 
+import com.github.wenhao.fizz.buzz.whizz.domain.Words;
+
 import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.FIZZ;
 
 public class FizzHandler extends BaseHandler
 {
-    public FizzHandler(BaseHandler baseHandler)
+    public FizzHandler(BaseHandler baseHandler, Words words)
     {
-        super(baseHandler);
+        super(baseHandler, words);
     }
 
     @Override
     public String handle(Integer number)
     {
-        if (number % 3 == 0) {
+        if (number % getWords().getFirst() == 0) {
             return FIZZ;
         }
         return getNextHandler().handle(number);

@@ -1,12 +1,14 @@
 package com.github.wenhao.fizz.buzz.whizz.handler;
 
+import com.github.wenhao.fizz.buzz.whizz.domain.Words;
+
 import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.BUZZ_WHIZZ;
 
 public class BuzzWhizzHandler extends BaseHandler
 {
-    public BuzzWhizzHandler(BaseHandler baseHandler)
+    public BuzzWhizzHandler(BaseHandler baseHandler, Words words)
     {
-        super(baseHandler);
+        super(baseHandler, words);
     }
 
     @Override
@@ -20,11 +22,11 @@ public class BuzzWhizzHandler extends BaseHandler
 
     private boolean isWhizz(Integer number)
     {
-        return number % 7 == 0;
+        return number % getWords().getThird() == 0;
     }
 
     private boolean isBuzz(Integer number)
     {
-        return number % 5 == 0;
+        return number % getWords().getSecond() == 0;
     }
 }

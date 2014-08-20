@@ -1,5 +1,6 @@
 package com.github.wenhao.fizz.buzz.whizz.handler;
 
+import com.github.wenhao.fizz.buzz.whizz.domain.Words;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,6 +8,8 @@ import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.BUZZ;
 import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.FIZZ;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class SpecialFizzHandlerTest
 {
@@ -16,7 +19,10 @@ public class SpecialFizzHandlerTest
     @Before
     public void setUp() throws Exception
     {
-        specialFizzHandler = new SpecialFizzHandler(new BuzzHandler(null));
+        Words words = mock(Words.class);
+        when(words.getFirst()).thenReturn(3);
+        when(words.getSecond()).thenReturn(5);
+        specialFizzHandler = new SpecialFizzHandler(new BuzzHandler(null, words), words);
     }
 
     @Test
