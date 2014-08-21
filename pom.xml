@@ -25,6 +25,7 @@
     <modules>
         <module>01-guess-number</module>
         <module>02-fizz-buzz-whizz</module>
+        <module>03-mars-rovers</module>
     </modules>
 
     <dependencies>
