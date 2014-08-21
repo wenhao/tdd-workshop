@@ -17,22 +17,23 @@ public class FizzBuzzHandlerTest
 {
 
     private FizzBuzzHandler fizzBuzzHandler;
+    private Words words;
 
     @Before
     public void setUp() throws Exception
     {
-        Words words = mock(Words.class);
+        words = mock(Words.class);
         when(words.getFirst()).thenReturn(3);
         when(words.getSecond()).thenReturn(5);
         when(words.getThird()).thenReturn(7);
-        fizzBuzzHandler = new FizzBuzzHandler(new FizzHandler(new BuzzHandler(new WhizzHandler(null, words), words), words), words);
+        fizzBuzzHandler = new FizzBuzzHandler(new FizzHandler(new BuzzHandler(new WhizzHandler(null))));
     }
 
     @Test
     public void should_be_able_to_return_fizz_buzz_when_student_count_is_multiple_of_3_and_5() throws Exception
     {
         // when
-        String result = fizzBuzzHandler.handle(15);
+        String result = fizzBuzzHandler.handle(15, words);
 
         // then
         assertThat(result, is(FIZZ_BUZZ));
@@ -42,9 +43,9 @@ public class FizzBuzzHandlerTest
     public void should_next_handler_process() throws Exception
     {
         // when
-        String fizz = fizzBuzzHandler.handle(3);
-        String buzz = fizzBuzzHandler.handle(5);
-        String whizz = fizzBuzzHandler.handle(7);
+        String fizz = fizzBuzzHandler.handle(3, words);
+        String buzz = fizzBuzzHandler.handle(5, words);
+        String whizz = fizzBuzzHandler.handle(7, words);
 
         // then
         assertThat(fizz, is(FIZZ));

@@ -15,22 +15,23 @@ public class WhizzHandlerTest
 {
 
     private WhizzHandler whizzHandler;
+    private Words words;
 
     @Before
     public void setUp() throws Exception
     {
-        Words words = mock(Words.class);
+        words = mock(Words.class);
         when(words.getFirst()).thenReturn(3);
         when(words.getSecond()).thenReturn(5);
         when(words.getThird()).thenReturn(7);
-        whizzHandler = new WhizzHandler(new FizzHandler(null, words), words);
+        whizzHandler = new WhizzHandler(new FizzHandler(null));
     }
 
     @Test
     public void should_be_able_to_return_Whizz_when_student_count_is_multiple_of_7() throws Exception
     {
         // when
-        String result = whizzHandler.handle(7);
+        String result = whizzHandler.handle(7, words);
 
         // then
         assertThat(result, is(WHIZZ));
@@ -40,7 +41,7 @@ public class WhizzHandlerTest
     public void should_next_handler_process() throws Exception
     {
         // when
-        String result = whizzHandler.handle(3);
+        String result = whizzHandler.handle(3, words);
 
         // then
         assertThat(result, is(FIZZ));

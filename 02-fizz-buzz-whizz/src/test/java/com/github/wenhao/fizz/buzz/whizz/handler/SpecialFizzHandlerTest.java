@@ -15,21 +15,22 @@ public class SpecialFizzHandlerTest
 {
 
     private SpecialFizzHandler specialFizzHandler;
+    private Words words;
 
     @Before
     public void setUp() throws Exception
     {
-        Words words = mock(Words.class);
+        words = mock(Words.class);
         when(words.getFirst()).thenReturn(3);
         when(words.getSecond()).thenReturn(5);
-        specialFizzHandler = new SpecialFizzHandler(new BuzzHandler(null, words), words);
+        specialFizzHandler = new SpecialFizzHandler(new BuzzHandler(null));
     }
 
     @Test
     public void should_be_able_to_return_fizz_when_student_count_contains_3() throws Exception
     {
         // when
-        String result = specialFizzHandler.handle(35);
+        String result = specialFizzHandler.handle(35, words);
 
         // then
         assertThat(result, is(FIZZ));
@@ -39,7 +40,7 @@ public class SpecialFizzHandlerTest
     public void should_next_handler_process() throws Exception
     {
         // when
-        String result = specialFizzHandler.handle(5);
+        String result = specialFizzHandler.handle(5, words);
 
         // then
         assertThat(result, is(BUZZ));

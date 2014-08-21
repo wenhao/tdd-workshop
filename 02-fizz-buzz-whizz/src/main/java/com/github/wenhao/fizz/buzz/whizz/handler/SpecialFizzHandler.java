@@ -5,17 +5,17 @@ import com.github.wenhao.fizz.buzz.whizz.domain.Words;
 
 public class SpecialFizzHandler extends BaseHandler
 {
-    public SpecialFizzHandler(BaseHandler baseHandler, Words words)
+    public SpecialFizzHandler(BaseHandler baseHandler)
     {
-        super(baseHandler, words);
+        super(baseHandler);
     }
 
     @Override
-    public String handle(Integer number)
+    public String handle(Integer number, Words words)
     {
-        if (String.valueOf(number).contains(getWords().getFirst().toString())) {
+        if (String.valueOf(number).contains(words.getFirst().toString())) {
             return Constants.FIZZ;
         }
-        return getNextHandler().handle(number);
+        return getNextHandler().handle(number, words);
     }
 }

@@ -6,17 +6,17 @@ import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.FIZZ;
 
 public class FizzHandler extends BaseHandler
 {
-    public FizzHandler(BaseHandler baseHandler, Words words)
+    public FizzHandler(BaseHandler baseHandler)
     {
-        super(baseHandler, words);
+        super(baseHandler);
     }
 
     @Override
-    public String handle(Integer number)
+    public String handle(Integer number, Words words)
     {
-        if (number % getWords().getFirst() == 0) {
+        if (number % words.getFirst() == 0) {
             return FIZZ;
         }
-        return getNextHandler().handle(number);
+        return getNextHandler().handle(number, words);
     }
 }

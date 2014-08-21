@@ -15,7 +15,7 @@ public class DefaultHandlerTest
         DefaultHandler defaultHandler = new DefaultHandler();
 
         // when
-        String result = defaultHandler.handle(number);
+        String result = defaultHandler.handle(number, null);
 
         // then
         assertThat(result, is("4"));

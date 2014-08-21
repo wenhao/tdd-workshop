@@ -13,8 +13,8 @@ public class Student
         this.baseHandler = baseHandler;
     }
 
-    public String countOff()
+    public String countOff(Words words)
     {
-        return baseHandler.handle(position);
+        return baseHandler.handle(position, words);
     }
 }

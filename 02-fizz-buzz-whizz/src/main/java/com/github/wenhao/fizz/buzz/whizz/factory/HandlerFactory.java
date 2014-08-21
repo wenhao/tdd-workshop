@@ -1,6 +1,5 @@
 package com.github.wenhao.fizz.buzz.whizz.factory;
 
-import com.github.wenhao.fizz.buzz.whizz.domain.Words;
 import com.github.wenhao.fizz.buzz.whizz.handler.BaseHandler;
 import com.github.wenhao.fizz.buzz.whizz.handler.BuzzHandler;
 import com.github.wenhao.fizz.buzz.whizz.handler.BuzzWhizzHandler;
@@ -18,16 +17,16 @@ public final class HandlerFactory
     {
     }
 
-    public static BaseHandler build(Words words)
+    public static BaseHandler build()
     {
         DefaultHandler defaultHandler = new DefaultHandler();
-        WhizzHandler whizzHandler = new WhizzHandler(defaultHandler, words);
-        BuzzHandler buzzHandler = new BuzzHandler(whizzHandler, words);
-        FizzHandler fizzHandler = new FizzHandler(buzzHandler, words);
-        BuzzWhizzHandler buzzWhizzHandler = new BuzzWhizzHandler(fizzHandler, words);
-        FizzWhizzHandler fizzWhizzHandler = new FizzWhizzHandler(buzzWhizzHandler, words);
-        FizzBuzzHandler fizzBuzzHandler = new FizzBuzzHandler(fizzWhizzHandler, words);
-        FizzBuzzWhizzHandler fizzBuzzWhizzHandler = new FizzBuzzWhizzHandler(fizzBuzzHandler, words);
-        return new SpecialFizzHandler(fizzBuzzWhizzHandler, words);
+        WhizzHandler whizzHandler = new WhizzHandler(defaultHandler);
+        BuzzHandler buzzHandler = new BuzzHandler(whizzHandler);
+        FizzHandler fizzHandler = new FizzHandler(buzzHandler);
+        BuzzWhizzHandler buzzWhizzHandler = new BuzzWhizzHandler(fizzHandler);
+        FizzWhizzHandler fizzWhizzHandler = new FizzWhizzHandler(buzzWhizzHandler);
+        FizzBuzzHandler fizzBuzzHandler = new FizzBuzzHandler(fizzWhizzHandler);
+        FizzBuzzWhizzHandler fizzBuzzWhizzHandler = new FizzBuzzWhizzHandler(fizzBuzzHandler);
+        return new SpecialFizzHandler(fizzBuzzWhizzHandler);
     }
 }

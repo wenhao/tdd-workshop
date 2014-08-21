@@ -6,27 +6,27 @@ import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.FIZZ_BUZZ;
 
 public class FizzBuzzHandler extends BaseHandler
 {
-    public FizzBuzzHandler(BaseHandler baseHandler, Words words)
+    public FizzBuzzHandler(BaseHandler baseHandler)
     {
-        super(baseHandler, words);
+        super(baseHandler);
     }
 
     @Override
-    public String handle(Integer number)
+    public String handle(Integer number, Words words)
     {
-        if (isFizz(number) && isBuzz(number)) {
+        if (isFizz(number, words) && isBuzz(number, words)) {
             return FIZZ_BUZZ;
         }
-        return getNextHandler().handle(number);
+        return getNextHandler().handle(number, words);
     }
 
-    private boolean isBuzz(Integer number)
+    private boolean isBuzz(Integer number, Words words)
     {
-        return number % getWords().getSecond() == 0;
+        return number % words.getSecond() == 0;
     }
 
-    private boolean isFizz(Integer number)
+    private boolean isFizz(Integer number, Words words)
     {
-        return number % getWords().getFirst() == 0;
+        return number % words.getFirst() == 0;
     }
 }

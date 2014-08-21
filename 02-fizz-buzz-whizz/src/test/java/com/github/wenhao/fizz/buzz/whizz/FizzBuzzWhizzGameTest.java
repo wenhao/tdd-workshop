@@ -19,11 +19,12 @@ public class FizzBuzzWhizzGameTest
         Teacher teacher = new Teacher();
         teacher.say(3,  5,  7);
 
-        BaseHandler handler = HandlerFactory.build(teacher.getWords());
+        BaseHandler handler = HandlerFactory.build();
 
         Student student = new Student(3, handler);
 
         fizzBuzzWhizzGame = new FizzBuzzWhizzGame();
+        fizzBuzzWhizzGame.setTeacher(teacher);
         fizzBuzzWhizzGame.setStudents(Arrays.asList(student));
     }
 
