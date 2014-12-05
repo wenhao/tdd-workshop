@@ -9,3 +9,10 @@ tdd-workshop
 
 ##[02-fizz-buzz-whizz](https://github.com/wenhao/tdd-workshop/blob/master/02-fizz-buzz-whizz/README.md)
 
+## Copyright and license
+
+Copyright 2014 Wen Hao
+
+Licensed under [Apache License][1]
+
+[1]: https://github.com/wenhao/tdd-workshop/blob/master/LICENSE
