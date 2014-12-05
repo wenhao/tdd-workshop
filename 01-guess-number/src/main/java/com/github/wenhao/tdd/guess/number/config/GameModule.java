@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.charset.Charset.forName;
 
 public class GameModule extends AbstractModule
 {
@@ -33,6 +33,6 @@ public class GameModule extends AbstractModule
     @Provides
     BufferedReader provideBufferedReader()
     {
-        return new BufferedReader(new InputStreamReader(System.in, UTF_8));
+        return new BufferedReader(new InputStreamReader(System.in, forName("UTF-8")));
     }
 }

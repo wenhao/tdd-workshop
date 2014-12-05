@@ -1,0 +1,54 @@
+configure(allprojects) { project ->
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+
+    group = "com.github.wenhao"
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    compileJava {
+        sourceCompatibility = 1.6
+        targetCompatibility = 1.6
+    }
+
+    dependencies {
+        compile(
+                "com.google.guava:guava:$guavaVersion",
+                "com.google.inject:guice:$guiceVersion"
+        )
+
+        testCompile(
+                "junit:junit:$junitVersion",
+                "org.hamcrest:hamcrest-library:$hamcrestVersion",
+                "org.mockito:mockito-all:$mockitoVersion"
+        )
+
+        task sourcesJar(type: Jar) {
+            from sourceSets.main.allSource
+            classifier = 'sources'
+        }
+
+        task javadocJar(type: Jar, dependsOn: javadoc){
+            classifier = 'javadoc'
+            from javadoc.destinationDir
+        }
+
+        artifacts {
+            archives jar
+            archives sourcesJar
+            archives javadocJar
+        }
+
+        task wrapper(type: Wrapper) {
+            description = "Generates gradlew[.bat] scripts"
+            gradleVersion = "2.2"
+        }
+    }
+
+}
+

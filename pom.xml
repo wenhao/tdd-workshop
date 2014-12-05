@@ -25,7 +25,6 @@
     <modules>
         <module>01-guess-number</module>
         <module>02-fizz-buzz-whizz</module>
-        <module>03-mars-rovers</module>
     </modules>
 
     <dependencies>
@@ -158,7 +157,7 @@
         <cobertura-plugin.version>2.5.2</cobertura-plugin.version>
         <checkstyle.configLocation>config/checkstyle/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.suppressionsLocation>config/checkstyle/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
-        <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
+        <findbugs-maven-plugin.version>2.5.5</findbugs-maven-plugin.version>
     </properties>
 
 

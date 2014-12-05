@@ -9,5 +9,3 @@ tdd-workshop
 
 ##[02-fizz-buzz-whizz](https://github.com/wenhao/tdd-workshop/blob/master/02-fizz-buzz-whizz/README.md)
 
-
-##[03-mars-rovers](https://github.com/wenhao/tdd-workshop/blob/master/03-mars-rovers/README.md)
