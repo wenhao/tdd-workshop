@@ -4,7 +4,7 @@ jdk:
 - openjdk7
 install: true
 script:
-- mvn clean install
+- gradle build
 notifications:
   email:
   - wenhao@126.com

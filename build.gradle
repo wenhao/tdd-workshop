@@ -1,4 +1,4 @@
-configure(allprojects) { project ->
+configure(subprojects) { project ->
     apply plugin: 'idea'
     apply plugin: 'java'
     apply plugin: 'maven'
@@ -50,5 +50,13 @@ configure(allprojects) { project ->
         }
     }
 
+}
+
+project("01-guess-number") { project ->
+    description = "01-guess-number"
+}
+
+project("02-fizz-buzz-whizz") { project ->
+    description = "02-fizz-buzz-whizz"
 }
 
