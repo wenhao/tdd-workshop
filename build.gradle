@@ -60,3 +60,7 @@ project("02-fizz-buzz-whizz") { project ->
     description = "02-fizz-buzz-whizz"
 }
 
+project("03-parking-lot") { project ->
+    description = "03-parking-lot"
+}
+
