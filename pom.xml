@@ -25,6 +25,9 @@
     <modules>
         <module>01-guess-number</module>
         <module>02-fizz-buzz-whizz</module>
+        <module>03-parking-lot</module>
+        <module>04-taxi</module>
+        <module>05-pos</module>
     </modules>
 
     <dependencies>
@@ -68,7 +71,7 @@
                 <version>${checkstyle-plugin.version}</version>
                 <configuration>
                     <configLocation>${checkstyle.configLocation}</configLocation>
-                    <suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>
+                    <!--<suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>-->
                     <logViolationsToConsole>true</logViolationsToConsole>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
@@ -124,30 +127,13 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${findbugs-maven-plugin.version}</version>
-                <configuration>
-                    <xmlOutput>true</xmlOutput>
-                    <xmlOutputDirectory>target/site</xmlOutputDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.6</java.version>
-        <guava.version>17.0</guava.version>
+        <guava.version>18.0</guava.version>
         <guice.version>3.0</guice.version>
 
         <junit.version>4.11</junit.version>
@@ -157,7 +143,6 @@
         <cobertura-plugin.version>2.5.2</cobertura-plugin.version>
         <checkstyle.configLocation>config/checkstyle/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.suppressionsLocation>config/checkstyle/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
-        <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     </properties>
 
 

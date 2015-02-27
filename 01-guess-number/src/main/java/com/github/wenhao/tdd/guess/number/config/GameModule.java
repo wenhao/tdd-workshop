@@ -1,5 +1,11 @@
 package com.github.wenhao.tdd.guess.number.config;
 
+import static java.nio.charset.Charset.forName;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Random;
+
 import com.github.wenhao.tdd.guess.number.command.ConsoleInputCommand;
 import com.github.wenhao.tdd.guess.number.command.InputCommand;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
@@ -10,12 +16,6 @@ import com.github.wenhao.tdd.guess.number.view.GameView;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Random;
-
-import static java.nio.charset.Charset.forName;
 
 public class GameModule extends AbstractModule
 {
@@ -33,6 +33,6 @@ public class GameModule extends AbstractModule
     @Provides
     BufferedReader provideBufferedReader()
     {
-        return new BufferedReader(new InputStreamReader(System.in, UTF_8));
+        return new BufferedReader(new InputStreamReader(System.in, forName("UTF-8")));
     }
 }
