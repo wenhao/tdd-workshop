@@ -12,11 +12,7 @@ public class Pos
         double totalPrice = 0;
 
         for (ShoppingItem shoppingItem : shoppingCart.getShoppingItems()) {
-            if (shoppingItem.getName().equals("ITEM000001")) {
-                totalPrice += shoppingItem.getPrice() * 75 / 100;
-            } else {
-                totalPrice += shoppingItem.getPrice();
-            }
+            totalPrice += shoppingItem.getPrice();
         }
 
         return newReceipt(totalPrice);

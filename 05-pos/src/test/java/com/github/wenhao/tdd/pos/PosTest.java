@@ -3,7 +3,7 @@ package com.github.wenhao.tdd.pos;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import com.github.wenhao.tdd.pos.domain.Good;
+import com.github.wenhao.tdd.pos.domain.Goods;
 import com.github.wenhao.tdd.pos.domain.Receipt;
 import com.github.wenhao.tdd.pos.domain.ShoppingCart;
 import org.junit.Before;
@@ -21,11 +21,11 @@ public class PosTest
     }
 
     @Test
-    public void should_be_able_to_calc_total_price_if_buy_one_product()
+    public void should_be_able_to_calc_total_price_if_buy_one_product_without_promotion()
     {
         // given
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.add(new Good("ITEM000006", 40d), 1);
+        shoppingCart.add(new Goods("ITEM000006", 40d), 1);
 
         // when
         Receipt receipt = pos.checkout(shoppingCart);
@@ -35,11 +35,11 @@ public class PosTest
     }
 
     @Test
-    public void should_be_able_to_calc_total_price_if_buy_one_product_with_multiple_amount()
+    public void should_be_able_to_calc_total_price_if_buy_one_product_with_multiple_amount_without_promotion()
     {
         // given
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.add(new Good("ITEM000006", 40d), 2);
+        shoppingCart.add(new Goods("ITEM000006", 40d), 2);
 
         // when
         Receipt receipt = pos.checkout(shoppingCart);
@@ -49,13 +49,13 @@ public class PosTest
     }
 
     @Test
-    public void should_be_able_to_calc_total_price_if_buy_multiple_products_with_multiple_amount()
+    public void should_be_able_to_calc_total_price_if_buy_multiple_products_with_multiple_amount_without_promotion()
     {
         // given
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.add(new Good("ITEM000006", 40d), 1);
-        shoppingCart.add(new Good("ITEM000007", 50d), 2);
-        shoppingCart.add(new Good("ITEM000006", 40d), 1);
+        shoppingCart.add(new Goods("ITEM000006", 40d), 1);
+        shoppingCart.add(new Goods("ITEM000007", 50d), 2);
+        shoppingCart.add(new Goods("ITEM000006", 40d), 1);
 
         // when
         Receipt receipt = pos.checkout(shoppingCart);
@@ -65,16 +65,31 @@ public class PosTest
     }
 
     @Test
-    public void should_be_able_to_calc_total_price_if_buy_promotion_product()
+    public void should_be_able_to_calc_total_price_if_buy_discount_promotion_product()
     {
         // given
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.add(new Good("ITEM000001", 40d), 1);
+        shoppingCart.add(new Goods("ITEM000001", 40d), 1);
 
         // when
         Receipt receipt = pos.checkout(shoppingCart);
 
         // then
         assertThat(receipt.getTotalPrice(), is(30d));
+    }
+
+    @Test
+    public void should_be_able_to_calc_total_price_if_buy_multiple_discount_promotion_product()
+    {
+        // given
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.add(new Goods("ITEM000001", 40d), 1);
+        shoppingCart.add(new Goods("ITEM000005", 60d), 1);
+
+        // when
+        Receipt receipt = pos.checkout(shoppingCart);
+
+        // then
+        assertThat(receipt.getTotalPrice(), is(84d));
     }
 }

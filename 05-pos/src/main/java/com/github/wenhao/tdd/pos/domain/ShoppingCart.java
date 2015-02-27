@@ -13,9 +13,9 @@ public class ShoppingCart
         shoppingItems = newArrayList();
     }
 
-    public void add(Good good, Integer amount)
+    public void add(Goods goods, Integer amount)
     {
-        shoppingItems.add(new ShoppingItem(good, amount));
+        shoppingItems.add(new ShoppingItem(goods, amount));
     }
 
     public List<ShoppingItem> getShoppingItems()

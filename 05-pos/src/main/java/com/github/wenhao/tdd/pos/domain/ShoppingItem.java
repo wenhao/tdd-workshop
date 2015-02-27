@@ -1,23 +1,33 @@
 package com.github.wenhao.tdd.pos.domain;
 
+import com.github.wenhao.tdd.pos.promotion.DiscountPromotion;
+import com.github.wenhao.tdd.pos.promotion.Promotion;
+
 public class ShoppingItem
 {
-    private final Good good;
+    private final Goods goods;
     private Integer amount;
+    private Promotion promotion;
 
-    public ShoppingItem(Good good, Integer amount)
+    public ShoppingItem(Goods goods, Integer amount)
     {
-        this.good = good;
+        this.goods = goods;
         this.amount = amount;
+        this.promotion = new DiscountPromotion();
     }
 
     public Double getPrice()
     {
-        return this.good.getPrice() * amount;
+        return promotion.getPrice(this);
     }
 
-    public String getName()
+    public Goods getGoods()
     {
-        return this.good.getName();
+        return goods;
+    }
+
+    public Integer getAmount()
+    {
+        return amount;
     }
 }
