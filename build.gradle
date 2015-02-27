@@ -2,6 +2,7 @@ configure(subprojects) { project ->
     apply plugin: 'idea'
     apply plugin: 'java'
     apply plugin: 'maven'
+    apply plugin: 'checkstyle'
 
 
     group = "com.github.wenhao"
@@ -49,6 +50,12 @@ configure(subprojects) { project ->
             gradleVersion = "2.2"
         }
     }
+
+    checkstyle {
+        configFile = file('../config/checkstyle/checkstyle.xml')
+    }
+
+    checkstyleTest.exclude '**/*.*'
 
 }
 
