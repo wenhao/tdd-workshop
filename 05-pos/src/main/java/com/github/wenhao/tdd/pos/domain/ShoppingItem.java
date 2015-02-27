@@ -16,4 +16,8 @@ public class ShoppingItem
         return this.good.getPrice() * amount;
     }
 
+    public String getName()
+    {
+        return this.good.getName();
+    }
 }

@@ -15,4 +15,9 @@ public class Good
     {
         return price;
     }
+
+    public String getName()
+    {
+        return name;
+    }
 }

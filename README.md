@@ -9,6 +9,16 @@ tdd-workshop
 
 ##[02-fizz-buzz-whizz](https://github.com/wenhao/tdd-workshop/blob/master/02-fizz-buzz-whizz/README.md)
 
+
+##[03-parking-lot](https://github.com/wenhao/tdd-workshop/blob/master/03-parking-lot/README.md)
+
+
+##[04-taxi](https://github.com/wenhao/tdd-workshop/blob/master/04-taxi/README.md)
+
+
+##[05-pos](https://github.com/wenhao/tdd-workshop/blob/master/05-pos/README.md)
+
+
 ## Copyright and license
 
 Copyright 2014 Wen Hao

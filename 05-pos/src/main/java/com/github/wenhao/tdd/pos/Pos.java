@@ -6,12 +6,17 @@ import com.github.wenhao.tdd.pos.domain.ShoppingItem;
 
 public class Pos
 {
+
     public Receipt checkout(ShoppingCart shoppingCart)
     {
         double totalPrice = 0;
 
         for (ShoppingItem shoppingItem : shoppingCart.getShoppingItems()) {
-            totalPrice += shoppingItem.getPrice();
+            if (shoppingItem.getName().equals("ITEM000001")) {
+                totalPrice += shoppingItem.getPrice() * 75 / 100;
+            } else {
+                totalPrice += shoppingItem.getPrice();
+            }
         }
 
         return newReceipt(totalPrice);
@@ -20,7 +25,6 @@ public class Pos
     private Receipt newReceipt(double totalPrice)
     {
         Receipt receipt = new Receipt();
-
         receipt.setTotalPrice(totalPrice);
         return receipt;
     }
