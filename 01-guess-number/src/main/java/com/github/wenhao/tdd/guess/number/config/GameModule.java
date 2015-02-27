@@ -33,6 +33,6 @@ public class GameModule extends AbstractModule
     @Provides
     BufferedReader provideBufferedReader()
     {
-        return new BufferedReader(new InputStreamReader(System.in, forName("UTF-8")));
+        return new BufferedReader(new InputStreamReader(System.in, UTF_8));
     }
 }
