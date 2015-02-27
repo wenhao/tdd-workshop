@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableMap;
 
 public class DiscountPromotion implements Promotion
 {
-    private static final Map<String, Double> discountPromotions = ImmutableMap.<String, Double>builder()
+    private static final Map<String, Double> DISCOUNT_PROMOTIONS = ImmutableMap.<String, Double>builder()
             .put("ITEM000001", 0.75)
             .put("ITEM000005", 0.90)
             .build();
@@ -18,16 +18,16 @@ public class DiscountPromotion implements Promotion
     public boolean isApplicable(ShoppingItem shoppingItem)
     {
         Goods goods = shoppingItem.getGoods();
-        return discountPromotions.containsKey(goods.getName());
+        return DISCOUNT_PROMOTIONS.containsKey(goods.getName());
     }
 
     @Override
-    public Double getPrice(ShoppingItem shoppingItem)
+    public Double getDiscount(ShoppingItem shoppingItem)
     {
         Goods goods = shoppingItem.getGoods();
         if (isApplicable(shoppingItem)) {
-            return discountPromotions.get(goods.getName()) * goods.getPrice();
+            return goods.getPrice() * (1 - DISCOUNT_PROMOTIONS.get(goods.getName()));
         }
-        return goods.getPrice() * shoppingItem.getAmount();
+        return 0d;
     }
 }

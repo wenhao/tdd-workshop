@@ -92,4 +92,18 @@ public class PosTest
         // then
         assertThat(receipt.getTotalPrice(), is(84d));
     }
+
+    @Test
+    public void should_be_able_to_calc_total_price_if_buy_second_half_promotion_product()
+    {
+        // given
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.add(new Goods("ITEM000003", 50d), 2);
+
+        // when
+        Receipt receipt = pos.checkout(shoppingCart);
+
+        // then
+        assertThat(receipt.getTotalPrice(), is(75d));
+    }
 }

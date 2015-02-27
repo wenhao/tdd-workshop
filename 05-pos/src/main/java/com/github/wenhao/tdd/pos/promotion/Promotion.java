@@ -6,5 +6,5 @@ public interface Promotion
 {
     boolean isApplicable(ShoppingItem shoppingItem);
 
-    Double getPrice(ShoppingItem shoppingItem);
+    Double getDiscount(ShoppingItem shoppingItem);
 }
