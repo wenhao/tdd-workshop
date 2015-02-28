@@ -6,6 +6,12 @@ public class ShoppingItem
     private Double price;
     private Double amount;
 
+    public ShoppingItem(String name, Double price)
+    {
+        this.name = name;
+        this.price = price;
+    }
+
     public ShoppingItem(String name, double price, Double amount)
     {
         this.name = name;
@@ -32,4 +38,8 @@ public class ShoppingItem
         return price * amount;
     }
 
+    public String getName()
+    {
+        return name;
+    }
 }
