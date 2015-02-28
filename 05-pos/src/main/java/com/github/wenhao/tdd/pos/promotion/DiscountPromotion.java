@@ -1,33 +1,21 @@
 package com.github.wenhao.tdd.pos.promotion;
 
 
-import java.util.Map;
-
-import com.github.wenhao.tdd.pos.domain.Goods;
 import com.github.wenhao.tdd.pos.domain.ShoppingItem;
-import com.google.common.collect.ImmutableMap;
 
-public class DiscountPromotion implements Promotion
+public class DiscountPromotion extends Promotion
 {
-    private static final Map<String, Double> DISCOUNT_PROMOTIONS = ImmutableMap.<String, Double>builder()
-            .put("ITEM000001", 0.75)
-            .put("ITEM000005", 0.90)
-            .build();
+    private final Double discount;
 
-    @Override
-    public boolean isApplicable(ShoppingItem shoppingItem)
+    public DiscountPromotion(ShoppingItem shoppingItem, Double discount)
     {
-        Goods goods = shoppingItem.getGoods();
-        return DISCOUNT_PROMOTIONS.containsKey(goods.getName());
+        super(shoppingItem);
+        this.discount = discount;
     }
 
     @Override
-    public Double getDiscount(ShoppingItem shoppingItem)
+    public Double cost()
     {
-        Goods goods = shoppingItem.getGoods();
-        if (isApplicable(shoppingItem)) {
-            return goods.getPrice() * (1 - DISCOUNT_PROMOTIONS.get(goods.getName()));
-        }
-        return 0d;
+        return super.cost() * discount / 100;
     }
 }

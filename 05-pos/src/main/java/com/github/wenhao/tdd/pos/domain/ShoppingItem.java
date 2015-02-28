@@ -2,22 +2,34 @@ package com.github.wenhao.tdd.pos.domain;
 
 public class ShoppingItem
 {
-    private final Goods goods;
-    private Integer amount;
+    private String name;
+    private Double price;
+    private Double amount;
 
-    public ShoppingItem(Goods goods, Integer amount)
+    public ShoppingItem(String name, double price, Double amount)
     {
-        this.goods = goods;
+        this.name = name;
+        this.price = price;
         this.amount = amount;
     }
 
-    public Goods getGoods()
+    public ShoppingItem()
     {
-        return goods;
     }
 
-    public Integer getAmount()
+    public Double getPrice()
+    {
+        return price;
+    }
+
+    public Double getAmount()
     {
         return amount;
     }
+
+    public Double cost()
+    {
+        return price * amount;
+    }
+
 }

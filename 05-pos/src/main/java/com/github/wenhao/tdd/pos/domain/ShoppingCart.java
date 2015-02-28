@@ -13,14 +13,13 @@ public class ShoppingCart
         shoppingItems = newArrayList();
     }
 
-    public void add(Goods goods, Integer amount)
-    {
-        shoppingItems.add(new ShoppingItem(goods, amount));
-    }
-
     public List<ShoppingItem> getShoppingItems()
     {
         return shoppingItems;
     }
 
+    public void add(String name, double price, Double amount)
+    {
+        shoppingItems.add(new ShoppingItem(name, price, amount));
+    }
 }
