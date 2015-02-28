@@ -1,5 +1,7 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -11,15 +13,13 @@ public class ProductParserTest
     @Test
     public void should_be_able_to_convert_shopping_item()
     {
-        // given
-        String lines = "ITEM000001:40";
-        
         // when
         ProductParser productParser = new ProductParser();
-        Product product = productParser.parse(lines);
+        List<Product> products = productParser.parse("itemlist.txt");
 
         // then
-        assertThat(product.getName(), is("ITEM000001"));
-        assertThat(product.getPrice(), is(40d));
+        assertThat(products.size(), is(3));
+        assertThat(products.get(0).getName(), is("ITEM000001"));
+        assertThat(products.get(0).getPrice(), is(40d));
     }
 }

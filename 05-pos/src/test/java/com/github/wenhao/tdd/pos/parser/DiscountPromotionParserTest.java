@@ -1,5 +1,7 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -11,15 +13,13 @@ public class DiscountPromotionParserTest
     @Test
     public void should_be_able_to_parse_discount_item()
     {
-        // given
-        String line = "ITEM000001:75";
-
         // when
         DiscountPromotionParser discountPromotionParser = new DiscountPromotionParser();
-        DiscountItem discountItem = discountPromotionParser.parse(line);
+        List<DiscountItem> discountItems = discountPromotionParser.parse("discount_promotion.txt");
 
         // then
-        assertThat(discountItem.getName(), is("ITEM000001"));
-        assertThat(discountItem.getRate(), is(75));
+        assertThat(discountItems.size(), is(2));
+        assertThat(discountItems.get(0).getName(), is("ITEM000001"));
+        assertThat(discountItems.get(0).getRate(), is(75));
     }
 }

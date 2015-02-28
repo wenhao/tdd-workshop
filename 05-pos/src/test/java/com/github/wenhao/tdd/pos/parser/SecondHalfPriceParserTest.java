@@ -1,5 +1,7 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,13 +14,13 @@ public class SecondHalfPriceParserTest
     public void should_be_able_to_parse_second_half_price()
     {
         // given
-        String line = "ITEM000001";
-
         // when
+
         SecondHalfPriceParser secondHalfPriceParser = new SecondHalfPriceParser();
-        SecondHalfItem secondHalfItem = secondHalfPriceParser.parse(line);
+        List<SecondHalfItem> secondHalfItems = secondHalfPriceParser.parse("second_half_price_promotion.txt");
 
         // then
-        assertThat(secondHalfItem.getName(), is("ITEM000001"));
+        assertThat(secondHalfItems.size(), is(2));
+        assertThat(secondHalfItems.get(0).getName(), is("ITEM000001"));
     }
 }

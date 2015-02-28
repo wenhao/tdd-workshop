@@ -1,5 +1,7 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,29 +14,28 @@ public class ShoppingCarItemParserTest
     public void should_be_able_to_parse_shopping_car_item()
     {
         // given
-        String lines = "ITEM000001-2";
 
         // when
         ShoppingCarItemParser shoppingCarItemParser = new ShoppingCarItemParser();
-        ShoppingCarItem shoppingCarItem = shoppingCarItemParser.parse(lines);
+        List<ShoppingCarItem> shoppingCarItems = shoppingCarItemParser.parse("cart.txt");
 
         // then
-        assertThat(shoppingCarItem.getName(), is("ITEM000001"));
-        assertThat(shoppingCarItem.getAmount(), is(2));
+        assertThat(shoppingCarItems.size(), is(7));
+        assertThat(shoppingCarItems.get(2).getName(), is("ITEM000001"));
+        assertThat(shoppingCarItems.get(2).getAmount(), is(3));
     }
 
     @Test
     public void should_be_able_to_parse_shopping_car_item_by_using_default()
     {
         // given
-        String lines = "ITEM000001";
 
         // when
         ShoppingCarItemParser shoppingCarItemParser = new ShoppingCarItemParser();
-        ShoppingCarItem shoppingCarItem = shoppingCarItemParser.parse(lines);
+        List<ShoppingCarItem> shoppingCarItems = shoppingCarItemParser.parse("cart.txt");
 
         // then
-        assertThat(shoppingCarItem.getName(), is("ITEM000001"));
-        assertThat(shoppingCarItem.getAmount(), is(1));
+        assertThat(shoppingCarItems.get(0).getName(), is("ITEM000001"));
+        assertThat(shoppingCarItems.get(0).getAmount(), is(1));
     }
 }

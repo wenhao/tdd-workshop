@@ -2,9 +2,9 @@ package com.github.wenhao.tdd.pos.parser;
 
 import com.github.wenhao.tdd.pos.domain.ShoppingCarItem;
 
-public class ShoppingCarItemParser implements Parser<ShoppingCarItem>
+public class ShoppingCarItemParser extends Parser<ShoppingCarItem>
 {
-    public ShoppingCarItem parse(String line)
+    public ShoppingCarItem convert(String line)
     {
         String[] split = line.split("-");
         if (split.length > 1) {
