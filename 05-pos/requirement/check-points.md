@@ -16,7 +16,17 @@ TDD 的一个重要步骤是在分析需求之后, 对其进行任务分解。�
 ```
 2. 在打折的情况下计算单个Item的价格： 一件商品，数量2，打折。
 ```
-因为是针对ShoppingItem打折，所以打折方法在ShoppingItem里。
-驱动出discount方法，Discount类作为参数。
-重构discount数额为构造方法参数。
+驱动出discount，对ShoppingItem进行打折，打折rate可变作为参数。
+```
+3. 在第二件半价的情况下计算单个Item的价格： 一件商品，数量2，打折。
+```
+驱动出secondHalfPrice，对ShoppingItem进行打折。
+```
+4. 重构已有的代码，discount/secondHalfPrice 行为类似，在不同情况适用不同打折策略。
+```
+策略模式。
+```
+5. 多重打折：一件商品，数量2，多重打折。
+```
+多种打折模式可以嵌套在一起，类似装饰模式，重构。
 ```
