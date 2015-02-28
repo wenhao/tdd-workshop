@@ -3,34 +3,36 @@ package com.github.wenhao.tdd.pos;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import com.github.wenhao.tdd.pos.domain.Receipt;
+import com.github.wenhao.tdd.pos.domain.ShoppingCart;
 import com.github.wenhao.tdd.pos.domain.ShoppingItem;
 import com.github.wenhao.tdd.pos.promotion.DiscountPromotion;
 import com.github.wenhao.tdd.pos.promotion.SecondHalfPricePromotion;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PosTest
 {
-    @Test
-    public void should_be_able_to_get_original_price_without_promotion()
-    {
-        // when
-        ShoppingItem shoppingItem = new ShoppingItem("ITEM000001", 40d, 2d);
 
-        // then
-        assertThat(shoppingItem.cost(), is(40d * 2));
+    private Pos pos;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        pos = new Pos();
     }
 
     @Test
-    public void should_be_able_to_get_multiple_promotion()
+    public void should_be_able_to_calc_total_price()
     {
         // given
-        ShoppingItem shoppingItem = new ShoppingItem("ITEM000001", 40d, 2d);
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.add(new DiscountPromotion(new SecondHalfPricePromotion(new ShoppingItem("ITEM000001", 40d, 2d)), 75d));
 
         // when
-        Double cost = new SecondHalfPricePromotion(new DiscountPromotion(shoppingItem, 75d)).cost();
+        Receipt receipt = pos.checkout(shoppingCart);
 
         // then
-        assertThat(cost, is(45d));
+        assertThat(receipt.getTotalPrice(), is(45d));
     }
-
 }

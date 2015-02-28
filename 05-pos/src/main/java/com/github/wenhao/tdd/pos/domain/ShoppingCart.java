@@ -18,8 +18,8 @@ public class ShoppingCart
         return shoppingItems;
     }
 
-    public void add(String name, double price, Double amount)
+    public void add(ShoppingItem shoppingItem)
     {
-        shoppingItems.add(new ShoppingItem(name, price, amount));
+        shoppingItems.add(shoppingItem);
     }
 }
