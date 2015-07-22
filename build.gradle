@@ -24,6 +24,7 @@ configure(subprojects) { project ->
         )
 
         testCompile(
+                "org.assertj:assertj-core:$assertjVersion",
                 "junit:junit:$junitVersion",
                 "org.hamcrest:hamcrest-library:$hamcrestVersion",
                 "org.mockito:mockito-all:$mockitoVersion"
@@ -77,4 +78,8 @@ project("04-taxi") { project ->
 
 project("05-pos") { project ->
     description = "05-pos"
+}
+
+project("06-bank") { project ->
+    description = "06-bank"
 }

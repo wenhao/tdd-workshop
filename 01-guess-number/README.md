@@ -1,7 +1,7 @@
 guess-number
 ============
 
-##[Requirements](https://github.com/wenhao/tdd-workshop/blob/master/01-guess-number/requirement/requirement.md)
+##[Requirements](./requirement/requirement.md)
 
 
-##[Check-points](https://github.com/wenhao/tdd-workshop/blob/master/01-guess-number/requirement/check-points.md)
+##[Check-points](./requirement/check-points.md)
