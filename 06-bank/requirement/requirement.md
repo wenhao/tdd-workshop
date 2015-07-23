@@ -21,3 +21,10 @@ Acceptance Criteria:
 3. should raise error if nickname has special character.
 4. should raise error if dateOfBirth is blank.
 5. should raise error if the nickname already existed.
+
+####Required Tech
+
+1. Story
+2. TDD
+
+#### 
