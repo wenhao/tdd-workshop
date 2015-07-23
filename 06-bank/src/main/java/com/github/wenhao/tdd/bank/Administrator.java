@@ -1,26 +1,21 @@
 package com.github.wenhao.tdd.bank;
 
-import com.github.wenhao.tdd.bank.exception.DuplicateNicknameException;
-import com.github.wenhao.tdd.bank.exception.InvalidNicknameException;
-import com.github.wenhao.tdd.bank.repository.Persistence;
+import com.github.wenhao.tdd.bank.exception.CustomerException;
+import com.github.wenhao.tdd.bank.validator.CustomerValidator;
 
 public class Administrator
 {
-    private Persistence persistence;
+    private CustomerValidator customerValidator;
 
-    public Administrator(Persistence persistence)
+    public Administrator(CustomerValidator customerValidator)
     {
-        this.persistence = persistence;
+        this.customerValidator = customerValidator;
     }
 
-    public Customer create(Customer customer) throws InvalidNicknameException, DuplicateNicknameException
+    public Customer create(Customer customer) throws CustomerException
     {
-        if (!customer.getNickname().matches("([a-z0-9])+")) {
-            throw new InvalidNicknameException();
-        }
-        if (persistence.isExist(customer.getNickname())) {
-            throw new DuplicateNicknameException();
-        }
+        customerValidator.validate(customer.getNickname());
         return customer;
     }
+
 }

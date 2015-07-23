@@ -27,4 +27,6 @@ Acceptance Criteria:
 1. Story
 2. TDD
 
-#### 
+####Check
+
+1. Administrator create method violate SRP & OCP. two validate mechanism violdate OCP principle, probably we can use strategy pattern and active object pattern refator the existing code.
