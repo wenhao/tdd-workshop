@@ -16,7 +16,7 @@ Acceptance Criteria:
 
 #####TODO-List
 
-1. should add customer with valid customer infomation.
+1. should add customer with valid customer information.
 2. should raise error if nickname has uppercase letters.
 3. should raise error if nickname has special character.
 4. should raise error if dateOfBirth is blank.
@@ -30,3 +30,4 @@ Acceptance Criteria:
 ####Check
 
 1. Administrator create method violate SRP & OCP. two validate mechanism violdate OCP principle, probably we can use strategy pattern and active object pattern refator the existing code.
+2. Use abstract class instead of interface.

@@ -2,7 +2,7 @@ package com.github.wenhao.tdd.bank.validator;
 
 import com.github.wenhao.tdd.bank.exception.InvalidNicknameException;
 
-public class SpecialCharacterValidator implements Validator
+public class SpecialCharacterValidator extends Validator
 {
 
     public void validate(String nickname) throws InvalidNicknameException

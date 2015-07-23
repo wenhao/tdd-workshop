@@ -3,7 +3,7 @@ package com.github.wenhao.tdd.bank.validator;
 
 import com.github.wenhao.tdd.bank.exception.CustomerException;
 
-public interface Validator
+public abstract class Validator
 {
-    void validate(String nickname) throws CustomerException;
+    abstract void validate(String nickname) throws CustomerException;
 }
