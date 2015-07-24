@@ -27,6 +27,7 @@ Acceptance Criteria:
 1. Story
 2. TDD
 3. Strategy Pattern
+4. Builder Pattern
 
 ####Check
 

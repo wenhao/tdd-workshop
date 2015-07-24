@@ -21,7 +21,12 @@ Acceptance Criteria:
 
 #####TODO-List
 
-1. 
+1. should deposit money in customer's account
+5. should raise error if input not number when deposit
+2. should withdraw money from the balance
+3. should withdraw all the money
+4. should raise error if overdraw
+5. should raise error if input not number when withdraw
 
 ####Required Tech
 
