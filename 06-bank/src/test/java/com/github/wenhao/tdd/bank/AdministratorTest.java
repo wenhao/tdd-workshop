@@ -7,10 +7,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.github.wenhao.tdd.bank.builder.CustomerBuilder;
+import com.github.wenhao.tdd.bank.builder.CustomerValidatorBuilder;
 import com.github.wenhao.tdd.bank.exception.CustomerException;
 import com.github.wenhao.tdd.bank.exception.DuplicateNicknameException;
 import com.github.wenhao.tdd.bank.exception.InvalidNicknameException;
+import com.github.wenhao.tdd.bank.repository.Persistence;
 import com.github.wenhao.tdd.bank.validator.CustomerValidator;
+import com.github.wenhao.tdd.bank.validator.DuplicateValidator;
+import com.github.wenhao.tdd.bank.validator.SpecialCharacterValidator;
 
 public class AdministratorTest
 {
@@ -23,14 +28,19 @@ public class AdministratorTest
     @Before
     public void setUp()
     {
-        this.administrator = new Administrator(new CustomerValidator());
+        Persistence persistence = new Persistence();
+        CustomerValidator customerValidator = new CustomerValidatorBuilder()
+                .addValidator(new DuplicateValidator(persistence))
+                .addValidator(new SpecialCharacterValidator())
+                .createCustomerValidator();
+        this.administrator = new Administrator(customerValidator, persistence);
     }
 
     @Test
     public void should_add_customer_with_valid_customer_information() throws CustomerException
     {
         // given
-        Customer customerToBeAdd = new Customer().withNickname("jack");
+        Customer customerToBeAdd = new CustomerBuilder().withNickname("jack").createCustomer();
 
         // when
         Customer customer = this.administrator.create(customerToBeAdd);
@@ -45,7 +55,7 @@ public class AdministratorTest
         thrown.expect(InvalidNicknameException.class);
 
         // given
-        Customer customerToBeAdd = new Customer().withNickname("UPPER_jack");
+        Customer customerToBeAdd = new CustomerBuilder().withNickname("UPPER_jack").createCustomer();
 
         // when
         this.administrator.create(customerToBeAdd);
@@ -57,7 +67,7 @@ public class AdministratorTest
         thrown.expect(InvalidNicknameException.class);
 
         // given
-        Customer customerToBeAdd = new Customer().withNickname("@#$123");
+        Customer customerToBeAdd = new CustomerBuilder().withNickname("@#$123").createCustomer();
 
         // when
         this.administrator.create(customerToBeAdd);
@@ -69,9 +79,10 @@ public class AdministratorTest
         thrown.expect(DuplicateNicknameException.class);
 
         // given
-        Customer existedCustomer = new Customer().withNickname("existed2nickname");
+        Customer customer = new CustomerBuilder().withNickname("jack").createCustomer();
+        this.administrator.create(customer);
 
         // when
-        this.administrator.create(existedCustomer);
+        this.administrator.create(customer);
     }
 }
