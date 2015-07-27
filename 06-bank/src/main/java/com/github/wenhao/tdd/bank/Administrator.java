@@ -17,7 +17,7 @@ public class Administrator
 
     public Customer create(Customer customer) throws CustomerException
     {
-        customerValidator.validate(customer.getNickname());
+        customerValidator.validate(customer);
         persistence.save(customer);
         return customer;
     }

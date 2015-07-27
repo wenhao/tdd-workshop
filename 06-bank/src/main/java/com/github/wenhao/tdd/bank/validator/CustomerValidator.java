@@ -2,6 +2,7 @@ package com.github.wenhao.tdd.bank.validator;
 
 import java.util.List;
 
+import com.github.wenhao.tdd.bank.Customer;
 import com.github.wenhao.tdd.bank.exception.CustomerException;
 
 public class CustomerValidator
@@ -13,10 +14,10 @@ public class CustomerValidator
         this.validators = validators;
     }
 
-    public void validate(String nickname) throws CustomerException
+    public void validate(Customer customer) throws CustomerException
     {
         for (Validator validator : validators) {
-            validator.validate(nickname);
+            validator.validate(customer);
         }
     }
 }

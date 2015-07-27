@@ -82,4 +82,10 @@ project("05-pos") { project ->
 
 project("06-bank") { project ->
     description = "06-bank"
+
+    dependencies {
+        compile(
+                "joda-time:joda-time:2.8.1"
+        )
+    }
 }
