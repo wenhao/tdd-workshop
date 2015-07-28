@@ -19,12 +19,6 @@ Acceptance Criteria:
 
 #####TODO-List
 
-1. should create customer instance with valid customer information.
-2. should raise error if nickname has uppercase letters when create customer instance.
-3. should raise error if nickname has special character when create customer instance.
-4. should raise error if customer didn't have dateOfBirth when create customer instance.
-5. should add customer with valid customer information when add a customer in bank.
-6. should raise error if the nickname already existed when add a customer in bank.
 
 ####Required Tech
 
