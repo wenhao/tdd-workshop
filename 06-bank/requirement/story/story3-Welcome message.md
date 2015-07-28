@@ -19,6 +19,9 @@ Acceptance Criteria:
 
 #####TODO-List
 
+1. provide Bank's Message Gateway API.
+2. should display welcome message after added customer by the Bank's Message Gateway API.
+
 
 ####Required Tech
 
