@@ -30,8 +30,6 @@ Acceptance Criteria:
 
 ####Required Tech
 
-1. 
 
 ####Check
 
-1. 
