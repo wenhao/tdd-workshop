@@ -27,11 +27,5 @@ Acceptance Criteria:
 
 1. Story
 2. TDD
-3. Strategy Pattern
-4. Builder Pattern
 
 ####Check
-
-1. Administrator create method violate SRP & OCP. two validate mechanism violate OCP principle, probably we can use strategy pattern and active object pattern refator the existing code.
-2. Use abstract class instead of interface.
-3. DI principle, class variable always reply on abstract not concrete class.
