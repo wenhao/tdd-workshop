@@ -19,10 +19,10 @@ Acceptance Criteria:
 
 #####TODO-List
 
-1. provide Bank's Message Gateway API.
+1. the Bank's Message Gateway API doesn't exist, so we need a stub.
 2. should display welcome message after added customer by the Bank's Message Gateway API.
-
 
 ####Required Tech
 
 ####Check
+1. email content should be isolate as a template service.

@@ -1,13 +1,16 @@
 package com.github.wenhao.tdd.bank;
 
+import static java.lang.String.format;
+
 import org.joda.time.DateTime;
 
-import com.github.wenhao.tdd.bank.exception.BalanceNotEnoughException;
 import com.github.wenhao.tdd.bank.exception.AmountNotPositiveException;
+import com.github.wenhao.tdd.bank.exception.BalanceNotEnoughException;
 
 public class Customer
 {
     private static final String VALID_CHARACTERS = "([a-z0-9])+";
+    private static final String EMAIL_TEMPLATE = "%s@thebank.com";
     private String nickname;
     private DateTime dateOfBirth;
     private Double balance;
@@ -57,5 +60,10 @@ public class Customer
         if (amount <= 0) {
             throw new AmountNotPositiveException();
         }
+    }
+
+    public String getEmail()
+    {
+        return format(EMAIL_TEMPLATE, getNickname());
     }
 }

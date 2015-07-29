@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import com.github.wenhao.tdd.bank.exception.DuplicateNicknameException;
+import com.github.wenhao.tdd.bank.stub.MessageGatewayStub;
 
 public class BankTest
 {
@@ -17,11 +18,13 @@ public class BankTest
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+    private MessageGatewayStub messageGatewayStub;
 
     @Before
     public void setUp()
     {
-        this.bank = new Bank();
+        messageGatewayStub = new MessageGatewayStub();
+        this.bank = new Bank(messageGatewayStub);
     }
 
     @Test
@@ -35,6 +38,8 @@ public class BankTest
 
         // then
         assertThat(customer.getNickname()).isEqualTo("jack");
+        assertThat(messageGatewayStub.getRecipient()).isEqualTo("jack@thebank.com");
+        assertThat(messageGatewayStub.getContent()).isEqualTo("Dear jack, Welcome to the Bank");
     }
 
     @Test
