@@ -11,6 +11,8 @@ Acceptance Criteria:
 
 #####TODO-List
 
+1. using FasterMessageGateway instead of StandardMessageGateway
+
 
 #####Required Tech
 
