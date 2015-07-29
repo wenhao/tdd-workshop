@@ -22,10 +22,10 @@ Acceptance Criteria:
 1. the Bank's Message Gateway API doesn't exist, so we need a stub.
 2. should display welcome message after added customer by the Bank's Message Gateway API.
 
-####Required Tech
+#####Required Tech
 
 1. Mock vs Stub
 
-####Check
+#####Check
 
 1. email content should be isolate as a template service.

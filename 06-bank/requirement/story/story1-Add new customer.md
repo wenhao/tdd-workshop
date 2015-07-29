@@ -23,9 +23,9 @@ Acceptance Criteria:
 5. should add customer with valid customer information when add a customer in bank.
 6. should raise error if the nickname already existed when add a customer in bank.
 
-####Required Tech
+#####Required Tech
 
 1. Story
 2. TDD
 
-####Check
+#####Check
