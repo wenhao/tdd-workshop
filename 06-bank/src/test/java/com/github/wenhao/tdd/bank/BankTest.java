@@ -19,11 +19,13 @@ public class BankTest
     @Rule
     public ExpectedException thrown = ExpectedException.none();
     private MessageGatewayStub messageGatewayStub;
+    private Customer customer;
 
     @Before
     public void setUp()
     {
         messageGatewayStub = new MessageGatewayStub();
+        customer = new Customer("jack", now(), messageGatewayStub);
         this.bank = new Bank(messageGatewayStub);
     }
 
@@ -31,10 +33,9 @@ public class BankTest
     public void should_add_customer_with_valid_customer_information() throws DuplicateNicknameException
     {
         // given
-        Customer jack = new Customer("jack", now());
 
         // when
-        Customer customer = this.bank.create(jack);
+        Customer customer = this.bank.create(this.customer);
 
         // then
         assertThat(customer.getNickname()).isEqualTo("jack");
@@ -48,9 +49,9 @@ public class BankTest
         thrown.expect(DuplicateNicknameException.class);
 
         // given
-        this.bank.create(new Customer("jack", now()));
+        this.bank.create(customer);
 
         // when
-        this.bank.create(new Customer("jack", now()));
+        this.bank.create(customer);
     }
 }

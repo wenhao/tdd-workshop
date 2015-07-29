@@ -19,6 +19,8 @@ Acceptance Criteria:
 
 #####TODO-List
 
+1. using stub message gateway.
+2. should send email if customer's balance goes over 40000 when deposit by using the Bank's Message Gateway API.
 
 ####Required Tech
 

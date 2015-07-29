@@ -3,24 +3,32 @@ package com.github.wenhao.tdd.bank;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.joda.time.DateTime.now;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import com.github.wenhao.tdd.bank.exception.BalanceNotEnoughException;
 import com.github.wenhao.tdd.bank.exception.AmountNotPositiveException;
+import com.github.wenhao.tdd.bank.stub.MessageGatewayStub;
 
 public class CustomerTest
 {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+    private Customer customer;
+    private MessageGatewayStub messageGatewayStub;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        messageGatewayStub = new MessageGatewayStub();
+        customer = new Customer("jack", now(), messageGatewayStub);
+    }
 
     @Test
     public void should_add_customer_with_valid_customer_information()
     {
-        // when
-        Customer customer = new Customer("jack", now());
-
         // then
         assertThat(customer.getNickname()).isEqualTo("jack");
     }
@@ -31,7 +39,7 @@ public class CustomerTest
         thrown.expect(IllegalArgumentException.class);
 
         // when
-        new Customer("UPPER_jack", now());
+        new Customer("UPPER_jack", now(), messageGatewayStub);
     }
 
     @Test
@@ -40,7 +48,7 @@ public class CustomerTest
         thrown.expect(IllegalArgumentException.class);
 
         // when
-        new Customer("@#$123", now());
+        new Customer("@#$123", now(), messageGatewayStub);
     }
 
     @Test
@@ -49,15 +57,12 @@ public class CustomerTest
         thrown.expect(IllegalArgumentException.class);
 
         // when
-        new Customer("jack", null);
+        new Customer("jack", null, messageGatewayStub);
     }
 
     @Test
     public void should_deposit_money_from_customer_account() throws AmountNotPositiveException
     {
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(50d);
 
@@ -70,9 +75,6 @@ public class CustomerTest
     {
         thrown.expect(AmountNotPositiveException.class);
 
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(-1d);
     }
@@ -80,9 +82,6 @@ public class CustomerTest
     @Test
     public void should_withdraw_money_from_customer_account() throws AmountNotPositiveException, BalanceNotEnoughException
     {
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(100d);
         customer.withdraw(50d);
@@ -94,9 +93,6 @@ public class CustomerTest
     @Test
     public void should_withdraw_all_the_money() throws AmountNotPositiveException, BalanceNotEnoughException
     {
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(100d);
         customer.withdraw(100d);
@@ -110,9 +106,6 @@ public class CustomerTest
     {
         thrown.expect(BalanceNotEnoughException.class);
 
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(100d);
         customer.withdraw(200d);
@@ -123,11 +116,19 @@ public class CustomerTest
     {
         thrown.expect(AmountNotPositiveException.class);
 
-        // given
-        Customer customer = new Customer("jack", now());
-
         // when
         customer.deposit(100d);
         customer.withdraw(-1d);
+    }
+
+    @Test
+    public void should_send_email_if_customer_balance_over_40000_when_deposit() throws AmountNotPositiveException
+    {
+        // when
+        customer.deposit(40001d);
+
+        // then
+        assertThat(this.messageGatewayStub.getRecipient()).isEqualTo("manager@thebank.com");
+        assertThat(this.messageGatewayStub.getContent()).isEqualTo("jack is now a premium customer");
     }
 }

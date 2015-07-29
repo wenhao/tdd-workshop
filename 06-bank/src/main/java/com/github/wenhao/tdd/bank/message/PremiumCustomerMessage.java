@@ -4,17 +4,17 @@ import static java.lang.String.format;
 
 import com.github.wenhao.tdd.bank.Customer;
 
-public class WelcomeMessage
+public class PremiumCustomerMessage
 {
     private final Customer customer;
 
-    public WelcomeMessage(Customer customer)
+    public PremiumCustomerMessage(Customer customer)
     {
         this.customer = customer;
     }
 
     public void send(MessageGateway messageGateway)
     {
-        messageGateway.send(customer.getEmail(), format("Dear %s, Welcome to the Bank", customer.getNickname()));
+        messageGateway.send("manager@thebank.com", format("%s is now a premium customer", customer.getNickname()));
     }
 }

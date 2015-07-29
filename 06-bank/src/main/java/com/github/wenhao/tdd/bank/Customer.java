@@ -6,20 +6,25 @@ import org.joda.time.DateTime;
 
 import com.github.wenhao.tdd.bank.exception.AmountNotPositiveException;
 import com.github.wenhao.tdd.bank.exception.BalanceNotEnoughException;
+import com.github.wenhao.tdd.bank.message.MessageGateway;
+import com.github.wenhao.tdd.bank.message.PremiumCustomerMessage;
 
 public class Customer
 {
     private static final String VALID_CHARACTERS = "([a-z0-9])+";
     private static final String EMAIL_TEMPLATE = "%s@thebank.com";
+    private static final int PREMIUM_BALANCE_MINIMUM = 40000;
+    private MessageGateway messageGateway;
     private String nickname;
     private DateTime dateOfBirth;
     private Double balance;
 
-    public Customer(String nickname, DateTime dateOfBirth)
+    public Customer(String nickname, DateTime dateOfBirth, MessageGateway messageGateway)
     {
         validate(nickname, dateOfBirth);
         this.nickname = nickname;
         this.dateOfBirth = dateOfBirth;
+        this.messageGateway = messageGateway;
         this.balance = 0d;
     }
 
@@ -44,15 +49,28 @@ public class Customer
     {
         shouldRaiseErrorIfNotPositiveAmount(amount);
         this.balance += amount;
+        if (meetPremiumCustomerCriteria()) {
+            new PremiumCustomerMessage(this).send(this.messageGateway);
+        }
+    }
+
+    private boolean meetPremiumCustomerCriteria()
+    {
+        return this.balance > PREMIUM_BALANCE_MINIMUM;
     }
 
     public void withdraw(Double amount) throws BalanceNotEnoughException, AmountNotPositiveException
     {
-        if (this.balance < amount) {
+        if (balanceNotEnough(amount)) {
             throw new BalanceNotEnoughException();
         }
         shouldRaiseErrorIfNotPositiveAmount(amount);
         this.balance -= amount;
+    }
+
+    private boolean balanceNotEnough(Double amount)
+    {
+        return this.balance < amount;
     }
 
     private void shouldRaiseErrorIfNotPositiveAmount(Double amount) throws AmountNotPositiveException
