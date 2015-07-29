@@ -24,5 +24,8 @@ Acceptance Criteria:
 
 ####Required Tech
 
+1. Mock vs Stub
+
 ####Check
+
 1. email content should be isolate as a template service.
