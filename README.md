@@ -13,7 +13,7 @@ tdd-workshop
 ##[03-parking-lot](./03-parking-lot/README.md)
 
 
-##[04-taxi](./04-taxi/README.md)
+##[04-uber](./04-uber/README.md)
 
 
 ##[05-pos](./05-pos/README.md)
