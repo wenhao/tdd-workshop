@@ -54,4 +54,14 @@ public class BankTest
         // when
         this.bank.create(customer);
     }
+
+    @Test
+    public void should_set_join_date_as_today_when_add_customer() throws DuplicateNicknameException
+    {
+        // when
+        Customer customer = this.bank.create(this.customer);
+
+        // then
+        assertThat(customer.getJoinDate().dayOfYear()).isEqualTo(now().dayOfYear());
+    }
 }

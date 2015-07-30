@@ -3,6 +3,8 @@ package com.github.wenhao.tdd.bank;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.joda.time.DateTime.now;
+
 import com.github.wenhao.tdd.bank.exception.DuplicateNicknameException;
 import com.github.wenhao.tdd.bank.message.MessageGateway;
 import com.github.wenhao.tdd.bank.message.WelcomeMessage;
@@ -22,6 +24,7 @@ public class Bank
         if (isExist(customer.getNickname())) {
             throw new DuplicateNicknameException();
         }
+        customer.setJoinDate(now());
         customers.add(customer);
         new WelcomeMessage(customer).send(this.messageGateway);
         return customer;

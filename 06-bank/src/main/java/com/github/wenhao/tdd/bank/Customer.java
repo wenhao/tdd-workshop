@@ -18,6 +18,7 @@ public class Customer
     private String nickname;
     private DateTime dateOfBirth;
     private Double balance;
+    private DateTime joinDate;
 
     public Customer(String nickname, DateTime dateOfBirth, MessageGateway messageGateway)
     {
@@ -83,5 +84,15 @@ public class Customer
     public String getEmail()
     {
         return format(EMAIL_TEMPLATE, getNickname());
+    }
+
+    public DateTime getJoinDate()
+    {
+        return joinDate;
+    }
+
+    public void setJoinDate(DateTime joinDate)
+    {
+        this.joinDate = joinDate;
     }
 }
