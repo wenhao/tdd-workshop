@@ -72,8 +72,8 @@ project("03-parking-lot") { project ->
     description = "03-parking-lot"
 }
 
-project("04-taxi") { project ->
-    description = "04-taxi"
+project("04-uber") { project ->
+    description = "04-uber"
 }
 
 project("05-pos") { project ->
