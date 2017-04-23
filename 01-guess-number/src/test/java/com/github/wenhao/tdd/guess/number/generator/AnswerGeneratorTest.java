@@ -50,12 +50,24 @@ public class AnswerGeneratorTest
         answerGenerator.generate();
     }
 
-    @Test(expected = AnswerNumberDuplicatedException.class)
+    @Test(expected = AnswerNotFourDigitException.class)
     public void should_raise_error_which_size_is_not_4() throws Exception
     {
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 3");
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
+
+        // when
+        answerGenerator.generate();
+    }
+
+    @Test(expected = AnswerNumberDuplicatedException.class)
+    public void should_raise_error_which_contains_duplication() throws Exception
+    {
+        // given
+        RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
+        when(randomIntGenerator.nextInt()).thenReturn("1 2 2 3");
         AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
 
         // when
