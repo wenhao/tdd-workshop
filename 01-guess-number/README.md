@@ -1,7 +1,7 @@
 guess-number
 ============
 
-#需求
+# 需求
 
 ```
 游戏有四个格子，每个格子有一个0到9的数字，任意两个格子的数字都不一样。
@@ -30,4 +30,4 @@ A前面的数字代表位置和数字都对的个数，B前面的数字代表数
 
 
 
-##[Check-points](./requirement/check-points.md)
+## [Check-points](./requirement/check-points.md)
