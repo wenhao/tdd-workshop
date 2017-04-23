@@ -1,21 +1,22 @@
 package com.github.wenhao.tdd.guess.number.validate;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
-import com.github.wenhao.tdd.guess.number.exception.AnswerLengthInvalidException;
-import com.github.wenhao.tdd.guess.number.exception.AnswerOutOfRangeException;
-import com.google.common.base.Predicate;
+import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
+import com.github.wenhao.tdd.guess.number.exception.AnswerNotFourDigitException;
 import com.google.inject.Inject;
 
-import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_RANGE;
 import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
-import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SIZE;
-import static com.google.common.collect.Iterators.all;
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 
 public class AnswerValidator
 {
+
+    private static final String ANSWER_REGEX = "\\d{4}";
+
     @Inject
     public AnswerValidator()
     {
@@ -23,31 +24,27 @@ public class AnswerValidator
 
     public Boolean validate(Answer answer)
     {
-        List<String> numbers = newArrayList(answer.getValue().split(ANSWER_SEPARATOR));
-        checkRange(numbers);
-        checkLength(numbers);
+        checkFourDigit(answer);
+        checkDuplication(answer);
         return true;
     }
 
-    private void checkLength(List<String> numbers)
+    private void checkDuplication(Answer answer)
     {
-        if (numbers.size() != ANSWER_SIZE) {
-            throw new AnswerLengthInvalidException();
+        String[] answerNumbers = answer.getValue().split(ANSWER_SEPARATOR);
+        boolean isDuplicated = newHashSet(answerNumbers).size() != answerNumbers.length;
+        if (isDuplicated) {
+            throw new AnswerNumberDuplicatedException();
         }
     }
 
-    private void checkRange(List<String> numbers)
+    private void checkFourDigit(Answer answer)
     {
-        boolean isBetween0And9 = all(numbers.iterator(), new Predicate<String>()
-        {
-            @Override
-            public boolean apply(String number)
-            {
-                return ANSWER_RANGE.contains(Integer.valueOf(number));
-            }
-        });
-        if (!isBetween0And9) {
-            throw new AnswerOutOfRangeException();
+        String answerWithoutSeparator = newArrayList(answer.getValue().split(ANSWER_SEPARATOR)).stream()
+                .collect(Collectors.joining(""));
+        boolean isMatched = Pattern.matches(ANSWER_REGEX, answerWithoutSeparator);
+        if (!isMatched) {
+            throw new AnswerNotFourDigitException();
         }
     }
 }
