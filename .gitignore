@@ -1,7 +1,7 @@
 *.class
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
@@ -12,7 +12,6 @@
 .idea
 
 # Gradle
-gradle
 .gradle
 build
 
