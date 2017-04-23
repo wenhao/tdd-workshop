@@ -10,7 +10,7 @@ import com.github.wenhao.tdd.guess.number.command.ConsoleInputCommand;
 import com.github.wenhao.tdd.guess.number.command.InputCommand;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
 import com.github.wenhao.tdd.guess.number.generator.RandomIntGenerator;
-import com.github.wenhao.tdd.guess.number.validate.AnswerValidator;
+import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
 import com.github.wenhao.tdd.guess.number.view.ConsoleGameView;
 import com.github.wenhao.tdd.guess.number.view.GameView;
 import com.google.inject.AbstractModule;

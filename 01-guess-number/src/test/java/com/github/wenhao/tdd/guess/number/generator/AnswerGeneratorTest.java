@@ -3,7 +3,7 @@ package com.github.wenhao.tdd.guess.number.generator;
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNotFourDigitException;
-import com.github.wenhao.tdd.guess.number.validate.AnswerValidator;
+import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
 import org.junit.Before;
 import org.junit.Test;
 

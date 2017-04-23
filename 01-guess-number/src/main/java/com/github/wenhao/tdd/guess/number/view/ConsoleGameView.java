@@ -16,9 +16,7 @@ public class ConsoleGameView implements GameView
     public void showGuessHistory(List<GuessResult> guessResults)
     {
         System.out.println("History: ");
-        for (GuessResult guessResult : guessResults) {
-            showCurrentResult(guessResult);
-        }
+        guessResults.forEach(this::showCurrentResult);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.github.wenhao.tdd.guess.number.validate;
+package com.github.wenhao.tdd.guess.number.validator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
