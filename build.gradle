@@ -1,7 +1,7 @@
+apply plugin: 'idea'
+
 configure(subprojects) { project ->
-    apply plugin: 'idea'
     apply plugin: 'java'
-    apply plugin: 'maven'
     apply plugin: 'checkstyle'
 
 
@@ -13,8 +13,8 @@ configure(subprojects) { project ->
     }
 
     compileJava {
-        sourceCompatibility = 1.6
-        targetCompatibility = 1.6
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
     dependencies {
@@ -46,10 +46,6 @@ configure(subprojects) { project ->
             archives javadocJar
         }
 
-        task wrapper(type: Wrapper) {
-            description = "Generates gradlew[.bat] scripts"
-            gradleVersion = "2.2"
-        }
     }
 
     checkstyle {
