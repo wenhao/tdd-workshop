@@ -60,24 +60,28 @@ project("01-guess-number") { project ->
     description = "01-guess-number"
 }
 
-project("02-fizz-buzz-whizz") { project ->
-    description = "02-fizz-buzz-whizz"
+project("02-length") { project ->
+    description = "02-length"
 }
 
-project("03-parking-lot") { project ->
-    description = "03-parking-lot"
+project("03-fizz-buzz-whizz") { project ->
+    description = "03-fizz-buzz-whizz"
 }
 
-project("04-harry-potter") { project ->
-    description = "04-harry-potter"
+project("04-parking-lot") { project ->
+    description = "04-parking-lot"
 }
 
-project("05-pos") { project ->
-    description = "05-pos"
+project("05-harry-potter") { project ->
+    description = "05-harry-potter"
 }
 
-project("06-bank") { project ->
-    description = "06-bank"
+project("06-pos") { project ->
+    description = "06-pos"
+}
+
+project("07-bank") { project ->
+    description = "07-bank"
 
     dependencies {
         compile(

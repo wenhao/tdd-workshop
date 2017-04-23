@@ -1,1 +1,1 @@
-include "01-guess-number", "02-fizz-buzz-whizz", "03-parking-lot", "04-harry-potter", "05-pos", "06-bank"
+include "01-guess-number", "02-length", "03-fizz-buzz-whizz", "04-parking-lot", "05-harry-potter", "06-pos", "07-bank"
