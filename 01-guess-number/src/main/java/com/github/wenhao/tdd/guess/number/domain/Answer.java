@@ -1,6 +1,6 @@
 package com.github.wenhao.tdd.guess.number.domain;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
@@ -29,14 +29,14 @@ public class Answer
     public String compare(final Answer answer)
     {
         return String.format(ANSWER_TEMPLATE, countBy(correctNumberAndPosition(answer.getValue())),
-            countBy(correctNumberButWrongPosition(answer.getValue())));
+                countBy(correctNumberButWrongPosition(answer.getValue())));
     }
 
     private Long countBy(Predicate<String> predicate)
     {
         return getAnswerNumbers(this.value).stream()
-            .filter(predicate)
-            .count();
+                .filter(predicate)
+                .count();
     }
 
     private Predicate<String> correctNumberAndPosition(final String inputAnswer)
@@ -57,10 +57,10 @@ public class Answer
     private boolean isSamePosition(final String inputAnswer, final String number)
     {
         return getAnswerNumbers(this.value).indexOf(number) ==
-            getAnswerNumbers(inputAnswer).indexOf(number);
+                getAnswerNumbers(inputAnswer).indexOf(number);
     }
 
-    private ArrayList<String> getAnswerNumbers(String value)
+    private List<String> getAnswerNumbers(String value)
     {
         return newArrayList(value.split(ANSWER_SEPARATOR));
     }

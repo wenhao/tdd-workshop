@@ -1,13 +1,10 @@
 package com.github.wenhao.tdd.guess.number.validator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
-import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNotFourDigitException;
+import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class AnswerValidatorTest
 {
@@ -18,19 +15,6 @@ public class AnswerValidatorTest
     public void setUp() throws Exception
     {
         answerValidator = new AnswerValidator();
-    }
-
-    @Test
-    public void should_be_able_to_validate_answer() throws Exception
-    {
-        // given
-        Answer answer = Answer.createAnswer("1 2 3 4");
-
-        // when
-        Boolean isValid = answerValidator.validate(answer);
-
-        // then
-        assertThat(isValid, is(true));
     }
 
     @Test(expected = AnswerNotFourDigitException.class)

@@ -1,6 +1,5 @@
 package com.github.wenhao.tdd.guess.number.runner;
 
-import com.github.wenhao.tdd.guess.number.command.ConsoleInputCommand;
 import com.github.wenhao.tdd.guess.number.config.GameModule;
 import com.github.wenhao.tdd.guess.number.controller.GameController;
 import com.google.inject.Guice;
@@ -15,9 +14,8 @@ public final class Application
     public static void main(String[] args)
     {
         Injector injector = Guice.createInjector(new GameModule());
-        ConsoleInputCommand inputCommand = injector.getInstance(ConsoleInputCommand.class);
         GameController gameController = injector.getInstance(GameController.class);
 
-        gameController.play(inputCommand);
+        gameController.play();
     }
 }

@@ -4,7 +4,8 @@ import java.util.Random;
 
 public class RandomIntGenerator
 {
-    public int nextInt() {
+    public int nextInt()
+    {
         return new Random().nextInt(10);
     }
 }
