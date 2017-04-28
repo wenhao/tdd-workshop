@@ -29,7 +29,7 @@ public class AnswerGeneratorTest
     public void should_be_able_to_generate_answer() throws Exception
     {
         // given
-        AnswerGenerator answerGenerator = new AnswerGenerator(new RandomIntGenerator(new Random()), answerValidator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(new RandomIntGenerator(new Random()));
 
         // when
         Answer answer = answerGenerator.generate();
@@ -44,7 +44,7 @@ public class AnswerGeneratorTest
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 3 10");
-        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
 
         // when
         answerGenerator.generate();
@@ -56,7 +56,7 @@ public class AnswerGeneratorTest
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 3");
-        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
 
         // when
         answerGenerator.generate();
@@ -68,7 +68,7 @@ public class AnswerGeneratorTest
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn("1 2 2 3");
-        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator, answerValidator);
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
 
         // when
         answerGenerator.generate();

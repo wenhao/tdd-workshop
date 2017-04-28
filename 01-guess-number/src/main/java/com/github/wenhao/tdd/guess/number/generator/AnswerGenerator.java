@@ -1,25 +1,30 @@
 package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
-import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
-import com.google.inject.Inject;
+import com.google.common.collect.Sets;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SIZE;
 
 public class AnswerGenerator
 {
-    private RandomIntGenerator randomIntGenerator;
-    private AnswerValidator answerValidator;
+    private final RandomIntGenerator randomIntGenerator;
 
-    @Inject
-    public AnswerGenerator(RandomIntGenerator randomIntGenerator, AnswerValidator answerValidator)
+    public AnswerGenerator(RandomIntGenerator randomIntGenerator)
     {
         this.randomIntGenerator = randomIntGenerator;
-        this.answerValidator = answerValidator;
     }
 
     public Answer generate()
     {
-        Answer answer = Answer.createAnswer(randomIntGenerator.nextInt());
-        answerValidator.validate(answer);
-        return answer;
+        Set<String> numbers = Sets.newHashSet();
+        while (numbers.size() < ANSWER_SIZE) {
+            numbers.add(randomIntGenerator.nextInt() + "");
+        }
+        String answerString = numbers.stream().collect(Collectors.joining(" "));
+        return new Answer(answerString);
     }
+
 }

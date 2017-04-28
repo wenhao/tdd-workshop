@@ -13,15 +13,17 @@ public class GameController
 {
     private Game game;
     private GameView gameView;
+    private InputCommand inputCommand;
 
     @Inject
-    public GameController(Game game, GameView gameView)
+    public GameController(Game game, GameView gameView, InputCommand inputCommand)
     {
         this.game = game;
         this.gameView = gameView;
+        this.inputCommand = inputCommand;
     }
 
-    public void play(InputCommand inputCommand)
+    public void play()
     {
         GuessResult guessResult;
         do {

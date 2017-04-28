@@ -1,14 +1,14 @@
 package com.github.wenhao.tdd.guess.number.domain;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.function.Predicate;
 
 import static com.github.wenhao.tdd.guess.number.domain.AnswerConstant.ANSWER_SEPARATOR;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class Answer
 {
-    private static final String CORRECT_NUMBER = "A";
-    private static final String MIX_NUMBER = "B";
+    public static final String ANSWER_TEMPLATE = "%sA%sB";
     private String value;
 
     public Answer(String value)
@@ -16,41 +16,53 @@ public class Answer
         this.value = value;
     }
 
+    public String getValue()
+    {
+        return value;
+    }
+
     public static Answer createAnswer(String value)
     {
         return new Answer(value);
     }
 
-    public String compare(Answer answer)
+    public String compare(final Answer answer)
     {
-        final List<String> actualNumbers = newArrayList(value.split(ANSWER_SEPARATOR));
-        final List<String> inputNumbers = newArrayList(answer.value.split(ANSWER_SEPARATOR));
-        return new StringBuilder()
-                .append(correctNumberAndPosition(actualNumbers, inputNumbers))
-                .append(CORRECT_NUMBER)
-                .append(correctNumberButWrongPosition(actualNumbers, inputNumbers))
-                .append(MIX_NUMBER).toString();
+        return String.format(ANSWER_TEMPLATE, countBy(correctNumberAndPosition(answer.getValue())),
+            countBy(correctNumberButWrongPosition(answer.getValue())));
     }
 
-    private Integer correctNumberButWrongPosition(final List<String> actualNumbers, final List<String> inputNumbers)
+    private Long countBy(Predicate<String> predicate)
     {
-        Long count = inputNumbers.stream()
-                .filter(number -> actualNumbers.contains(number) && actualNumbers.indexOf(number) != inputNumbers.indexOf(number))
-                .count();
-        return count.intValue();
+        return getAnswerNumbers(this.value).stream()
+            .filter(predicate)
+            .count();
     }
 
-    private Integer correctNumberAndPosition(final List<String> actualNumbers, final List<String> inputNumbers)
+    private Predicate<String> correctNumberAndPosition(final String inputAnswer)
     {
-        Long count = inputNumbers.stream()
-                .filter(number -> actualNumbers.contains(number) && actualNumbers.indexOf(number) == inputNumbers.indexOf(number))
-                .count();
-        return count.intValue();
+        return number -> isContains(inputAnswer, number) && isSamePosition(inputAnswer, number);
     }
 
-    public String getValue()
+    private Predicate<String> correctNumberButWrongPosition(final String inputAnswer)
     {
-        return this.value;
+        return number -> isContains(inputAnswer, number) && !isSamePosition(inputAnswer, number);
+    }
+
+    private boolean isContains(final String inputAnswer, final String number)
+    {
+        return getAnswerNumbers(inputAnswer).contains(number);
+    }
+
+    private boolean isSamePosition(final String inputAnswer, final String number)
+    {
+        return getAnswerNumbers(this.value).indexOf(number) ==
+            getAnswerNumbers(inputAnswer).indexOf(number);
+    }
+
+    private ArrayList<String> getAnswerNumbers(String value)
+    {
+        return newArrayList(value.split(ANSWER_SEPARATOR));
     }
 
 }

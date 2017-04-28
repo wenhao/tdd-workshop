@@ -3,6 +3,7 @@ package com.github.wenhao.tdd.guess.number.service;
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
+import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class GameTest
     {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generate()).thenReturn(Answer.createAnswer("1 2 3 4"));
-        game = new Game(answerGenerator);
+        game = new Game(answerGenerator, new AnswerValidator());
     }
 
     @Test
