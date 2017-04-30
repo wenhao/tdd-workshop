@@ -11,10 +11,14 @@ public class Quantity
         this.unit = unit;
     }
 
-    @Override
-    public int hashCode()
+    private int getAmount()
     {
-        return super.hashCode();
+        return amount;
+    }
+
+    private String getUnit()
+    {
+        return unit;
     }
 
     @Override
@@ -24,13 +28,11 @@ public class Quantity
         return amount == quantity.getAmount() && unit.equals(quantity.getUnit());
     }
 
-    private int getAmount()
+    @Override
+    public int hashCode()
     {
-        return amount;
-    }
-
-    private String getUnit()
-    {
-        return unit;
+        int result = amount;
+        result = 31 * result + unit.hashCode();
+        return result;
     }
 }
