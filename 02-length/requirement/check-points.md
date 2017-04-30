@@ -61,9 +61,13 @@
         * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)
     * 问题
         * 单位之间的转换，重构，Unit枚举类，定义基础值。
-    * 建议
-        * 先写断言。如果写不出断言，就说明对行为还不清晰。
-    * 原则
-        * 一次只写一个刚好失败的测试，作为新功能的描述。
-
+4. 不同长度和单位
+    * 需求
+        * 给定的两个不同单位和长度的Quantity，可以比较相等性。
+    * 意图
+        * 
+    * 测试名称
+        * should_not_equal_when_two_quantity_has_different_length_and_unit
+    * 类名及行为名
+        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)
            

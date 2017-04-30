@@ -50,4 +50,16 @@ public class QuantityTest
         assertThat(oneMileQuantity, equalTo(yard1760));
     }
 
+    @Test
+    public void should_not_equal_when_two_quantity_has_different_length_and_unit()
+    {
+        // given
+        Quantity oneMileQuantity = new Quantity(1, MILE);
+        Quantity yard1761 = new Quantity(1761, YARD);
+
+        // when
+
+        // then
+        assertThat(oneMileQuantity, not(equalTo(yard1761)));
+    }
 }
