@@ -70,4 +70,24 @@
         * should_not_equal_when_two_quantity_has_different_length_and_unit
     * 类名及行为名
         * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)
-           
+
+### 需求三
+
+```
+增加两个新的长度单位，Feet和Inch，用户可以以它们为单位表示长度，其中:
+
+* 1 Yard == 3 Feet
+* 1 Feet == 12 Inch
+* 当用Feet为单位表示长度时，精度为1 Feet
+* 当用Inch为单位表示长度时，精度为1 Inch
+```           
+
+5. Yard与Feet之间的转换
+    * 需求
+        * Yard与Feet之间的转换。
+    * 意图
+        * 
+    * 测试名称
+        * should_one_yard_equal_three_feet
+    * 类名及行为名
+        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)

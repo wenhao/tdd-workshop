@@ -2,6 +2,7 @@ package com.github.wenhao.length;
 
 import org.junit.Test;
 
+import static com.github.wenhao.length.QuantityUnit.FEET;
 import static com.github.wenhao.length.QuantityUnit.MILE;
 import static com.github.wenhao.length.QuantityUnit.YARD;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -61,5 +62,18 @@ public class QuantityTest
 
         // then
         assertThat(oneMileQuantity, not(equalTo(yard1761)));
+    }
+
+    @Test
+    public void should_one_yard_equal_three_feet()
+    {
+        // given
+        Quantity oneYard = new Quantity(1, YARD);
+        Quantity threeFeet = new Quantity(3, FEET);
+
+        // when
+
+        // then
+        assertThat(oneYard, equalTo(threeFeet));
     }
 }
