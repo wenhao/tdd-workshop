@@ -91,3 +91,12 @@
         * should_one_yard_equal_three_feet
     * 类名及行为名
         * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)
+6. Feet与Inch之间的转换
+    * 需求
+        * Feet与Inch之间的转换。
+    * 意图
+        * 
+    * 测试名称
+        * should_one_feet_equal_twelve_feet
+    * 类名及行为名
+        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)        
