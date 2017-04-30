@@ -4,7 +4,7 @@ jdk:
 - openjdk7
 install: true
 script:
-- gradle build
+- ./gradlew build
 notifications:
   email:
   - wenhao@126.com
