@@ -7,12 +7,12 @@
 
     <!-- All text file should end with a blank line. -->
     <module name="NewlineAtEndOfFile">
-        <property name="lineSeparator" value="lf" />
+        <property name="lineSeparator" rate="lf" />
     </module>
 
     <!-- The maximum number of lines allow in any source file is 200 -->
     <module name="FileLength" >
-        <property name="max" value="200"/>
+        <property name="max" rate="200"/>
     </module>
 
     <!-- Tab characters are not allowed in source files. -->
@@ -21,34 +21,34 @@
     <module name="TreeWalker">
         <module name="FileContentsHolder" />
 
-        <property name="cacheFile" value="checkstyle.cache" />
+        <property name="cacheFile" rate="checkstyle.cache" />
 
-        <property name="tabWidth" value="4" />
+        <property name="tabWidth" rate="4" />
 
         <!-- only check java files. -->
-        <property name="fileExtensions" value="java" />
+        <property name="fileExtensions" rate="java" />
 
         <!-- HTML modules -->
         <module name="JavadocStyle">
             <!-- We want to ensure that the javadoc is stylistically correct -->
-            <property name="scope" value="protected" />
+            <property name="scope" rate="protected" />
         </module>
 
         <!-- Naming Conventions -->
         <module name="ConstantName">
-            <property name="format" value="^[A-Z]([A-Z0-9_]*[A-Z0-9])?$" />
+            <property name="format" rate="^[A-Z]([A-Z0-9_]*[A-Z0-9])?$" />
         </module>
 
         <module name="MemberName">
-            <property name="format" value="^[_a-z][a-zA-Z0-9]*$" />
+            <property name="format" rate="^[_a-z][a-zA-Z0-9]*$" />
         </module>
 
         <module name="StaticVariableName">
-            <property name="format" value="^[_a-z][a-zA-Z0-9]*$" />
+            <property name="format" rate="^[_a-z][a-zA-Z0-9]*$" />
         </module>
 
         <module name="PackageName">
-            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$" />
+            <property name="format" rate="^[a-z]+(\.[a-z][a-z0-9]*)*$" />
         </module>
 
         <!-- Import check -->
@@ -57,44 +57,44 @@
         <module name="RedundantImport" />
         <module name="UnusedImports"/>
         <!--<module name="ImportOrder">-->
-            <!--<property name="groups" value="java,javax"/>-->
-            <!--<property name="ordered" value="false"/>-->
-            <!--<property name="option" value="top"/>-->
+            <!--<property name="grouratealue="java,javax"/>-->
+            <!--<property name="orderratealue="false"/>-->
+            <!--<property name="optiratealue="top"/>-->
         <!--</module>-->
 
         <!-- Length check -->
         <module name="LineLength">
-            <property name="max" value="150"/>
+            <property name="max" rate="150"/>
         </module>
         <module name="MethodLength">
-            <property name="tokens" value="METHOD_DEF"/>
-            <property name="max" value="20"/>
-            <property name="countEmpty" value="false"/>
-            <property name="severity" value="warning" />
+            <property name="tokens" rate="METHOD_DEF"/>
+            <property name="max" rate="20"/>
+            <property name="countEmpty" rate="false"/>
+            <property name="severity" rate="warning" />
         </module>
         <module name="ParameterNumber">
-            <property name="max" value="5"/>
+            <property name="max" rate="5"/>
         </module>
 
         <!-- Whites Space check -->
         <module name="EmptyForInitializerPad">
-            <property name="severity" value="warning"/>
+            <property name="severity" rate="warning"/>
         </module>
         <module name="NoWhitespaceAfter">
-            <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT,UNARY_MINUS, UNARY_PLUS"/>
-            <property name="allowLineBreaks" value="false"/>
-            <property name="severity" value="warning"/>
+            <property name="tokens" rate="BNOT, DEC, DOT, INC, LNOT,UNARY_MINUS, UNARY_PLUS"/>
+            <property name="allowLineBreaks" rate="false"/>
+            <property name="severity" rate="warning"/>
         </module>
 
         <!-- Line Wrap -->
         <module name="OperatorWrap">
-            <property name="option" value="eol"/>
+            <property name="option" rate="eol"/>
             <property name="tokens"
-                      value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, QUESTION, SL, SR, STAR" />
+                      rate="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, QUESTION, SL, SR, STAR" />
         </module>
         <module name="OperatorWrap">
-            <property name="option" value="nl"/>
-            <property name="tokens" value="COLON"/>
+            <property name="option" rate="nl"/>
+            <property name="tokens" rate="COLON"/>
         </module>
 
         <module name="ParenPad" />
@@ -102,7 +102,7 @@
         <module name="WhitespaceAfter" />
         <module name="WhitespaceAround">
             <property name="tokens"
-                      value="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR, BXOR_ASSIGN, COLON, DIV, DIV_ASSIGN, EQUAL, GE, GT, LAND, LCURLY, LE, LITERAL_ASSERT, LITERAL_CATCH, LITERAL_DO,  LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_RETURN, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS, MINUS_ASSIGN, MOD, MOD_ASSIGN, NOT_EQUAL, PLUS, PLUS_ASSIGN, QUESTION, RCURLY, SL, SLIST, SL_ASSIGN, SR, SR_ASSIGN, STAR, STAR_ASSIGN, TYPE_EXTENSION_AND"/>
+                      rate="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR, BXOR_ASSIGN, COLON, DIV, DIV_ASSIGN, EQUAL, GE, GT, LAND, LCURLY, LE, LITERAL_ASSERT, LITERAL_CATCH, LITERAL_DO,  LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_RETURN, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS, MINUS_ASSIGN, MOD, MOD_ASSIGN, NOT_EQUAL, PLUS, PLUS_ASSIGN, QUESTION, RCURLY, SL, SLIST, SL_ASSIGN, SR, SR_ASSIGN, STAR, STAR_ASSIGN, TYPE_EXTENSION_AND"/>
         </module>
 
         <module name="ModifierOrder" />
@@ -110,8 +110,8 @@
         <module name="EmptyBlock" />
         <module name="NeedBraces" />
         <module name="LeftCurly">
-            <property name="option" value="nl"/>
-            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF,ENUM_DEF,METHOD_DEF"/>
+            <property name="option" rate="nl"/>
+            <property name="tokens" rate="CLASS_DEF,INTERFACE_DEF,ENUM_DEF,METHOD_DEF"/>
         </module>
         <module name="RightCurly" />
         <module name="AvoidNestedBlocks" />
@@ -120,7 +120,7 @@
         <module name="EmptyStatement" />
         <module name="EqualsHashCode" />
         <module name="IllegalInstantiation">
-            <property name="classes" value="java.lang.Boolean"/>
+            <property name="classes" rate="java.lang.Boolean"/>
         </module>
         <module name="InnerAssignment" />
         <module name="MissingSwitchDefault" />
@@ -128,17 +128,17 @@
         <module name="SimplifyBooleanReturn" />
         <module name="StringLiteralEquality" />
         <module name="NestedIfDepth" >
-            <property name="max" value="1"/>
+            <property name="max" rate="1"/>
         </module>
         <module name="NestedTryDepth">
-            <property name="max" value="1"/>
+            <property name="max" rate="1"/>
         </module>
         <module name="SuperClone"/>
         <module name="SuperFinalize" />
         <!--<module name="PackageDeclaration" />-->
         <module name="JUnitTestCase" />
         <module name="ReturnCount" >
-            <property name="max" value="2"/>
+            <property name="max" rate="2"/>
         </module>
         <module name="IllegalType"/>
         <module name="DeclarationOrder" />
@@ -146,24 +146,24 @@
         <module name="VisibilityModifier" />
         <module name="FinalClass" />
         <module name="InterfaceIsType" >
-            <property name="allowMarkerInterfaces" value="true"/>
+            <property name="allowMarkerInterfaces" rate="true"/>
         </module>
         <!--<module name="HideUtilityClassConstructor" />-->
         <module name="MutableException" />
         <module name="ThrowsCount">
-            <property name="max" value="3"/>
+            <property name="max" rate="3"/>
         </module>
         <module name="CyclomaticComplexity">
-            <property name="max" value="7"/>
+            <property name="max" rate="7"/>
         </module>
         <module name="UpperEll"/>
         <module name="ArrayTypeStyle" />
     </module>
 
     <module name="SuppressionCommentFilter">
-        <property name="offCommentFormat" value="CHECKSTYLE\:OFF ([\w\|]+)" />
-        <property name="onCommentFormat" value="CHECKSTYLE\:ON ([\w\|]+)" />
-        <property name="checkFormat" value="$1" />
+        <property name="offCommentFormat" rate="CHECKSTYLE\:OFF ([\w\|]+)" />
+        <property name="onCommentFormat" rate="CHECKSTYLE\:ON ([\w\|]+)" />
+        <property name="checkFormat" rate="$1" />
     </module>
 
 </module>

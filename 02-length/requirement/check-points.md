@@ -99,4 +99,20 @@
     * 测试名称
         * should_one_feet_equal_twelve_feet
     * 类名及行为名
-        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)        
+        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述)  
+
+### 需求五
+
+```
+任意两个长度对象可以进行加法运算
+```              
+
+6. 两个Quantity可以相加，获得具有基础单位的Quantity
+    * 需求
+        * 两个Quantity可以相加，获得具有基础单位的Quantity。
+    * 意图
+        * 
+    * 测试名称
+        * should_one_quantity_plus_another
+    * 类名及行为名
+        * Quantity(既有长度，又有单位在英文中由**量**Quantity这个单词描述) 

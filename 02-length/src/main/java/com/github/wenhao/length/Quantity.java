@@ -1,5 +1,7 @@
 package com.github.wenhao.length;
 
+import static com.github.wenhao.length.QuantityUnit.INCH;
+
 public class Quantity
 {
     private int amount;
@@ -25,8 +27,8 @@ public class Quantity
     public boolean equals(final Object obj)
     {
         Quantity quantity = (Quantity) obj;
-        int myBasicAmount = amount * unit.getValue();
-        int otherBasicAmount = quantity.getAmount() * quantity.getUnit().getValue();
+        int myBasicAmount = amount * unit.getRate();
+        int otherBasicAmount = quantity.getAmount() * quantity.getUnit().getRate();
         return myBasicAmount == otherBasicAmount;
     }
 
@@ -36,5 +38,11 @@ public class Quantity
         int result = amount;
         result = 31 * result + unit.hashCode();
         return result;
+    }
+
+    public Quantity plus(final Quantity quantity)
+    {
+        int plusAmount = amount * unit.getRate() + quantity.getAmount() * quantity.getUnit().getRate();
+        return new Quantity(plusAmount, INCH);
     }
 }

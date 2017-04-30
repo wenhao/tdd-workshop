@@ -7,16 +7,16 @@ public enum QuantityUnit
     FEET(12),
     INCH(1);
 
-    private int value;
+    private int rate;
 
-    QuantityUnit(final int value)
+    QuantityUnit(final int rate)
     {
-        this.value = value;
+        this.rate = rate;
     }
 
 
-    public int getValue()
+    public int getRate()
     {
-        return value;
+        return rate;
     }
 }

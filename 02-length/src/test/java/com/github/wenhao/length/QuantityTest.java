@@ -87,4 +87,19 @@ public class QuantityTest
         // then
         assertThat(oneFeet, equalTo(twelveInch));
     }
+
+    @Test
+    public void should_one_quantity_plus_another()
+    {
+        // given
+        Quantity oneFeet = new Quantity(1, FEET);
+        Quantity twelveInch = new Quantity(12, INCH);
+
+        // when
+        Quantity quantity = oneFeet.plus(twelveInch);
+
+        // then
+        assertThat(quantity, equalTo(new Quantity(24, INCH)));
+
+    }
 }
