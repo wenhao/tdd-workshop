@@ -276,3 +276,112 @@ new InputValidator("1 2 3 5").validate();
 针对第三个任务，验证结果的逻辑不应该由boolean型或错误码来表现。对于表达一种错误规则来说，如果你将其看做是一种业务规则,最好的表达方式是采用自定义异常,除非这门语言允许返回两个值(例如Go语言支持返回多个字, 但并不支持异常)。对此,在第二个任务中已有􏰁述,这里不再赘述。
 
 重构: Answer的验证逻辑
+
+13. 选择0A0B的测试样本。
+    * 需求
+        * 用户输入完全错误的答案，返回0A0B。
+    * 意图
+        * 最核心的功能，简单实现。
+    * 测试名称
+        * should_return_0A0B_when_no_number_guessed_correctly
+        * Game Should Return 0A0B When No Number Guessed Correctly
+    * 类名及行为名
+        * Game，guess
+        * Answer
+14. 使用伪实现通过第一个测试。
+15. 选择4A0B的测试样本
+    * 需求
+        * 用户输入完全正确的答案，返回4A0B。
+    * 意图
+        * 进一步添加需求。
+    * 测试名称
+        * should_return_4A0B_when_all_number_guessed_correctly
+    * 类名及行为名
+        * Game，guess
+        * Answer
+16. 同样使用伪实现，因为还未突破重构的底线，现有的代码没有阻碍我们添加新需求。
+17. 选择2A2B测试样本，三角测试法
+    * 需求
+        * 用户输入4个正确的数字，但是其中两个位置错误，返回2A2B。
+    * 意图
+        * 驱动实现。
+    * 测试名称
+        * should_return_2A2B_when_has_correct_number_but_wrong_position
+    * 类名及行为名
+        * Game，guess
+        * Answer
+18. 测试出现重复代码。
+19. guess()方法里面的职责有点问题，使用的属性基本上都是Answer内的，识别出了代码坏味道"Feature Evny"——依赖情结。
+20. 重构手法-提取函数，移动函数。  
+21. 第二个任务，随机生成答案。
+22. 生成4位数的答案
+    * 需求
+        * 生成四位数的答案。
+    * 意图
+        * 第二核心的需求。
+    * 测试名称
+        * should_generator_answer
+    * 类名及行为名
+        * AnswerGenerator, generator
+23. 重构，将GameTest里面的答案改成由AnswerGenerator生成。
+24. 第三个任务，输入验证。
+    
+    * 重复验证
+    * 长度验证
+    * 数字验证
+    
+25. 重复验证
+    * 需求
+       * 重复验证。
+    * 意图
+       * 重复验证较为简单。
+    * 测试名称
+       * should_raise_error_when_answer_number_duplicated
+    * 类名及行为名
+       * AnswerValidator, validator
+26. 长度验证
+    * 需求
+       * 长度验证。
+    * 意图
+       * 三角实现法则。
+    * 测试名称
+       * should_raise_error_when_answer_length_not_four
+    * 类名及行为名
+       * AnswerValidator, validator  
+27. 数字验证
+    * 需求
+       * 数字验证。
+    * 意图
+       * 三角实现法则。
+    * 测试名称
+       * should_raise_error_when_answer_not_digit
+    * 类名及行为名
+       * AnswerValidator, validator   
+28. 重构AnswerValidator，简化算法。抽方法，使用正则表达式。 
+29. 将AnswerValidator加回到Game的guess()方法。
+30. 第四个任务，显示每次的猜测结果。
+    * 需求
+       * 显示每次的猜测结果。
+    * 意图
+       * 三角实现法则。
+    * 测试名称
+       * should_record_each_guess_result
+    * 类名及行为名
+       * Game, getGuessHistory(), GuessResult
+31. 重构，让guess()方法返回GameResult.   
+32. 判断游戏结果，6次内猜到则获胜，否则失败。
+    从Console输入六次，引入GameController。
+33. 判断游戏结果，6次内猜到则获胜，否则失败。
+    * 需求
+       * 判断游戏结果，6次内猜到则获胜，否则失败。
+    * 意图
+       * 三角实现法则。
+    * 测试名称
+       * should_play_game_maximum_six_times
+    * 类名及行为名
+       * GameController, play()
+34. 会遇到以下问题：
+    
+    1. 如何验证最多只能输入6次。
+    2. 输入来自于console，如何运行测试。
+35. 使用Mockito.verify验证某个方法被调用了6次。抽象出ConsoleInputCommand来隔离输入。

@@ -24,10 +24,8 @@ configure(subprojects) { project ->
         )
 
         testCompile(
-                "org.assertj:assertj-core:$assertjVersion",
                 "junit:junit:$junitVersion",
-                "org.hamcrest:hamcrest-library:$hamcrestVersion",
-                "org.mockito:mockito-all:$mockitoVersion"
+                "org.mockito:mockito-core:$mockitoVersion"
         )
 
         task sourcesJar(type: Jar) {
