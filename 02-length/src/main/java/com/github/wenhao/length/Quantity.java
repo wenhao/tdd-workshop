@@ -3,9 +3,9 @@ package com.github.wenhao.length;
 public class Quantity
 {
     private int amount;
-    private String unit;
+    private QuantityUnit unit;
 
-    public Quantity(final int amount, final String unit)
+    public Quantity(final int amount, final QuantityUnit unit)
     {
         this.amount = amount;
         this.unit = unit;
@@ -16,7 +16,7 @@ public class Quantity
         return amount;
     }
 
-    private String getUnit()
+    private QuantityUnit getUnit()
     {
         return unit;
     }
@@ -25,7 +25,9 @@ public class Quantity
     public boolean equals(final Object obj)
     {
         Quantity quantity = (Quantity) obj;
-        return amount == quantity.getAmount() && unit.equals(quantity.getUnit());
+        int myBasicAmount = amount * unit.getValue();
+        int otherBasicAmount = quantity.getAmount() * quantity.getUnit().getValue();
+        return myBasicAmount == otherBasicAmount;
     }
 
     @Override
