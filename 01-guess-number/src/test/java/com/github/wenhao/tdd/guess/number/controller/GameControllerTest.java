@@ -8,12 +8,14 @@ import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
 import com.github.wenhao.tdd.guess.number.view.GameView;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class GameControllerTest
 {
 
@@ -28,8 +30,6 @@ public class GameControllerTest
     @Before
     public void setUp()
     {
-        MockitoAnnotations.initMocks(this);
-
         when(answerGenerator.generate()).thenReturn(Answer.createAnswer("1 2 3 4"));
         Game game = new Game(answerGenerator, new AnswerValidator());
         gameController = new GameController(game, gameView, inputCommand);
