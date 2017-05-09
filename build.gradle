@@ -66,19 +66,23 @@ project("03-fizz-buzz-whizz") { project ->
     description = "03-fizz-buzz-whizz"
 }
 
-project("04-parking-lot") { project ->
+project("04-taxi") { project ->
+    description = "04-taxi"
+}
+
+project("05-parking-lot") { project ->
     description = "04-parking-lot"
 }
 
-project("05-harry-potter") { project ->
+project("06-harry-potter") { project ->
     description = "05-harry-potter"
 }
 
-project("06-pos") { project ->
+project("07-pos") { project ->
     description = "06-pos"
 }
 
-project("07-bank") { project ->
+project("08-bank") { project ->
     description = "07-bank"
 
     dependencies {
