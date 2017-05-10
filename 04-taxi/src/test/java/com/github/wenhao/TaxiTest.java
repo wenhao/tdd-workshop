@@ -3,6 +3,7 @@ package com.github.wenhao;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalTime;
 
 import static java.math.BigDecimal.ROUND_UP;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -15,9 +16,10 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(2D, LocalTime.of(12, 0));
 
         // when
-        final BigDecimal fee = taxi.chargeFee(2D);
+        final BigDecimal fee = taxi.chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11).setScale(2, ROUND_UP)));
@@ -28,9 +30,10 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(3D, LocalTime.of(12, 0));
 
         // when
-        final BigDecimal fee = taxi.chargeFee(3D);
+        final BigDecimal fee = taxi.chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11).setScale(2, ROUND_UP)));
@@ -41,9 +44,10 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(4D, LocalTime.of(12, 0));
 
         // when
-        final BigDecimal fee = taxi.chargeFee(4D);
+        final BigDecimal fee = taxi.chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(12.6).setScale(2, ROUND_UP)));
@@ -54,11 +58,26 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(3.1D, LocalTime.of(12, 0));
 
         // when
-        final BigDecimal fee = taxi.chargeFee(3.1D);
+        final BigDecimal fee = taxi.chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(12.6).setScale(2, ROUND_UP)));
+    }
+
+    @Test
+    public void should_charge_night_starting_fare_when_travel_at_night_and_distance_less_than_base_distance()
+    {
+        // given
+        final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(3D, LocalTime.of(23, 0));
+
+        // when
+        final BigDecimal fee = taxi.chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(13).setScale(2, ROUND_UP)));
     }
 }
