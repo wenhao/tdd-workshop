@@ -40,4 +40,9 @@
    * 测试名称
      * should_charge_additional_fare_when_travel_distance_more_than_base_distance
    * 类名及行为名
-     * Taxi, chargeFee()。         
+     * Taxi, chargeFee()。
+4. 重构
+   * 魔法数字-可读性较低
+     * BASE_FEE = BigDecimal.valueOf(11)
+     * BASE_DISTANCE = 3
+     * PRICE_PER_MILE = BigDecimal.valueOf(1.6D)                         

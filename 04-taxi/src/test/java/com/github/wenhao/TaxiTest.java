@@ -13,10 +13,10 @@ public class TaxiTest
     public void should_charge_starting_fare_when_travel_distance_less_than_base_distance()
     {
         // given
-        Taxi taxi = new Taxi();
+        final Taxi taxi = new Taxi();
 
         // when
-        BigDecimal fee = taxi.chargeFee(2D);
+        final BigDecimal fee = taxi.chargeFee(2D);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11)));
@@ -42,7 +42,7 @@ public class TaxiTest
         final Taxi taxi = new Taxi();
 
         // when
-        BigDecimal fee = taxi.chargeFee(4D);
+        final BigDecimal fee = taxi.chargeFee(4D);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(12.6)));
