@@ -45,4 +45,12 @@
    * 魔法数字-可读性较低
      * BASE_FEE = BigDecimal.valueOf(11)
      * BASE_DISTANCE = 3
-     * PRICE_PER_MILE = BigDecimal.valueOf(1.6D)                         
+     * PRICE_PER_MILE = BigDecimal.valueOf(1.6D)   
+
+#### 需求二
+
+起步价及单价 以 上车时间的价格为准。
+
+晚上11点之后（含），次日6点前（不含）起步价13元，含3公里。
+
+晚上起步价之后，每公里2.4元。                           
