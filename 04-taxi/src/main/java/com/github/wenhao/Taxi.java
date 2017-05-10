@@ -2,8 +2,6 @@ package com.github.wenhao;
 
 import java.math.BigDecimal;
 
-import static com.sun.javafx.font.FontResource.ZERO;
-
 public class Taxi
 {
     public BigDecimal chargeFee(final double distance)
@@ -11,6 +9,6 @@ public class Taxi
         if (distance <= 3) {
             return BigDecimal.valueOf(11);
         }
-        return BigDecimal.valueOf(ZERO);
+        return BigDecimal.valueOf(11).add(BigDecimal.valueOf((distance - 3) * 1.6));
     }
 }

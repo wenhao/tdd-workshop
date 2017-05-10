@@ -6,6 +6,8 @@
 
 ### 任务分解
 
+#### 需求一
+
 起步价11元，含3公里。
 
 起步价之后，每公里1.6元。
@@ -29,4 +31,13 @@
    * 测试名称
       * should_charge_starting_fare_when_travel_distance_equals_to_base_distance
    * 类名及行为名
-      * Taxi, chargeFee(), 直接实现。      
+      * Taxi, chargeFee(), 直接实现。
+3. 超过3公里的，每公里加收1.6元。
+   * 需求
+     * 超过3公里的，每公里加收1.6元。
+   * 意图
+     * 计算加收费用。
+   * 测试名称
+     * should_charge_additional_fare_when_travel_distance_more_than_base_distance
+   * 类名及行为名
+     * Taxi, chargeFee()。         

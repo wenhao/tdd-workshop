@@ -34,4 +34,17 @@ public class TaxiTest
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11)));
     }
+
+    @Test
+    public void should_charge_additional_fare_when_travel_distance_more_than_base_distance()
+    {
+        // given
+        final Taxi taxi = new Taxi();
+
+        // when
+        BigDecimal fee = taxi.chargeFee(4D);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(12.6)));
+    }
 }
