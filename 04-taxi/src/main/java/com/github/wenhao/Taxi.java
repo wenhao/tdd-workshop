@@ -16,15 +16,17 @@ public class Taxi
     public BigDecimal chargeFee(final Ride ride)
     {
         boolean isNightChargeTime = !((ride.getTime().isAfter(LocalTime.of(6, 0)) || ride.getTime().equals(LocalTime.of(6, 0))) && ride.getTime().isBefore(LocalTime.of(23, 0)));
-        if (ride.getDistance() <= BASE_DISTANCE) {
-            if (isNightChargeTime) {
+        final double additionalDistance = ride.getDistance() - BASE_DISTANCE;
+
+        if (isNightChargeTime) {
+            if (ride.getDistance() <= BASE_DISTANCE) {
                 return NIGHT_BASE_FEE;
             }
-            return DAY_BASE_FEE;
-        }
-        final double additionalDistance = ride.getDistance() - BASE_DISTANCE;
-        if (isNightChargeTime) {
             return NIGHT_BASE_FEE.add(BigDecimal.valueOf(additionalDistance).multiply(NIGHT_PRICE_PER_MILE));
+        }
+
+        if (ride.getDistance() <= BASE_DISTANCE) {
+            return DAY_BASE_FEE;
         }
         return DAY_BASE_FEE.add(BigDecimal.valueOf(additionalDistance).multiply(PRICE_PER_MILE));
     }

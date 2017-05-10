@@ -92,4 +92,5 @@
    * 测试名称
      * should_charge_night_additional_fee_when_travel_at_night_and_distance_more_than_base_distance
    * 类名及行为名
-     * Taxi, chargeFee(), Ride。                                                         
+     * Taxi, chargeFee(), Ride。
+8. 整理一下代码，将相关的代码分块。                 
