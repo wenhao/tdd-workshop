@@ -4,28 +4,28 @@
 tdd-workshop
 ============
 
-##[01-guess-number](./01-guess-number/README.md)
+## [01-guess-number](./01-guess-number/README.md)
 
 
-##[02-length](./01-length/README.md)
+## [02-length](./01-length/README.md)
 
 
-##[03-fizz-buzz-whizz](./03-fizz-buzz-whizz/README.md)
+## [03-fizz-buzz-whizz](./03-fizz-buzz-whizz/README.md)
 
 
-##[04-taxi](./04-taxi/README.md)
+## [04-taxi](./04-taxi/README.md)
 
 
-##[05-parking-lot](./05-parking-lot/README.md)
+## [05-parking-lot](./05-parking-lot/README.md)
 
 
-##[06-harry-potter](./06-harry-potter/README.md)
+## [06-harry-potter](./06-harry-potter/README.md)
 
 
-##[06-pos](./07-pos/README.md)
+## [06-pos](./07-pos/README.md)
 
 
-##[08-bank](./08-bank/README.md)
+## [08-bank](./08-bank/README.md)
 
 
 ## Copyright and license
