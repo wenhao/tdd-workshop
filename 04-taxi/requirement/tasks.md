@@ -21,3 +21,12 @@
       * should_charge_starting_fare_when_travel_distance_less_than_base_distance
    * 类名及行为名
       * Taxi, chargeFee(), 使用伪实现让测试快速通过。
+2. 根据历程计算价格，刚好3公里。
+   * 需求
+      * 刚好3公里，价格为起步价11元。
+   * 意图
+      * 计算价格为主要业务。
+   * 测试名称
+      * should_charge_starting_fare_when_travel_distance_equals_to_base_distance
+   * 类名及行为名
+      * Taxi, chargeFee(), 直接实现。      

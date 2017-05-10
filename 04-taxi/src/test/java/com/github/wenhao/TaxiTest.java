@@ -16,7 +16,20 @@ public class TaxiTest
         Taxi taxi = new Taxi();
 
         // when
-        BigDecimal fee = taxi.chargeFee();
+        BigDecimal fee = taxi.chargeFee(2D);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(11)));
+    }
+
+    @Test
+    public void should_charge_starting_fare_when_travel_distance_equals_to_base_distance()
+    {
+        // given
+        final Taxi taxi = new Taxi();
+
+        // when
+        final BigDecimal fee = taxi.chargeFee(3D);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11)));
