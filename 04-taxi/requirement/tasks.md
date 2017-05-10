@@ -14,7 +14,7 @@
 
 行车里程不为整数的情况下，向上取整。
 
-1. 根据历程计算价格，3公里以内。
+1. 根据里程计算价格，3公里以内。
    * 需求
       * 3公里以内，价格为起步价11元。
    * 意图
@@ -23,7 +23,7 @@
       * should_charge_starting_fare_when_travel_distance_less_than_base_distance
    * 类名及行为名
       * Taxi, chargeFee(), 使用伪实现让测试快速通过。
-2. 根据历程计算价格，刚好3公里。
+2. 根据里程计算价格，刚好3公里。
    * 需求
       * 刚好3公里，价格为起步价11元。
    * 意图
@@ -45,12 +45,15 @@
    * 魔法数字-可读性较低
      * BASE_FEE = BigDecimal.valueOf(11)
      * BASE_DISTANCE = 3
-     * PRICE_PER_MILE = BigDecimal.valueOf(1.6D)   
-
-#### 需求二
-
-起步价及单价 以 上车时间的价格为准。
-
-晚上11点之后（含），次日6点前（不含）起步价13元，含3公里。
-
-晚上起步价之后，每公里2.4元。                           
+     * PRICE_PER_MILE = BigDecimal.valueOf(1.6D) 
+5. 里程向上取整
+   * 需求
+     * 里程向上取整。
+   * 意图
+     * 重要程度次之。
+   * 测试名称
+     * should_charge_fare_when_travel_distance_has_decimal_number
+   * 类名及行为名
+     * Taxi, chargeFee()。
+   * 问题：
+     * 在测试的时候会遇到BigDecimal精度的问题，两个选择：1. 统一所有的精度问题， 2. 暂时忽略，在测试中都乘以100。                                    
