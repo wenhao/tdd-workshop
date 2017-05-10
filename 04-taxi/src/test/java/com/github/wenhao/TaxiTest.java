@@ -80,4 +80,18 @@ public class TaxiTest
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(13).setScale(2, ROUND_UP)));
     }
+
+    @Test
+    public void should_charge_night_additional_fee_when_travel_at_night_and_distance_more_than_base_distance()
+    {
+        // given
+        final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(4D, LocalTime.of(23, 0));
+
+        // when
+        BigDecimal fee = taxi.chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(15.4).setScale(2, ROUND_UP)));
+    }
 }

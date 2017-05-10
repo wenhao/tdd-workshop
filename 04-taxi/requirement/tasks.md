@@ -38,7 +38,7 @@
    * 意图
      * 计算加收费用。
    * 测试名称
-     * should_charge_additional_fare_when_travel_distance_more_than_base_distance
+     * should_charge_additional_fee_when_travel_distance_more_than_base_distance
    * 类名及行为名
      * Taxi, chargeFee()。
 4. 重构
@@ -81,7 +81,15 @@
      * chargeFee需要多传入一个上车时间的参数。
      * (重要)重构将上车时间和里程封装成类Ride，重构步骤：1. 现将LocalTime加到新的测试chargeFee方法中，使用Intellij快捷键之前的测试都会添加这个参数。 2. 在Taxi的chargeFee的参数使用Refactor->Extract->Parameter Object。
      * 重构
-        * NIGHT_BASE_FEE = BigDecimal.valueOf(13).setScale(2, ROUND_UP)
-        * 重命名BASE_FEE为DAY_BASE_FEE
-        * 依恋情结，将里程取整的逻辑放到暂时放到Ride类。
-                                                        
+       * NIGHT_BASE_FEE = BigDecimal.valueOf(13).setScale(2, ROUND_UP)
+       * 重命名BASE_FEE为DAY_BASE_FEE
+       * 依恋情结，将里程取整的逻辑放到暂时放到Ride类。
+7. 晚上起步价之后，每公里2.4元。
+   * 需求
+     * 晚上起步价之后，每公里2.4元。
+   * 意图
+     * 计算费用
+   * 测试名称
+     * should_charge_night_additional_fee_when_travel_at_night_and_distance_more_than_base_distance
+   * 类名及行为名
+     * Taxi, chargeFee(), Ride。                                                         
