@@ -13,16 +13,19 @@ tdd-workshop
 ##[03-fizz-buzz-whizz](./03-fizz-buzz-whizz/README.md)
 
 
-##[04-parking-lot](./04-parking-lot/README.md)
+##[04-taxi](./04-taxi/README.md)
 
 
-##[05-uber](./05-harry-potter/README.md)
+##[05-parking-lot](./05-parking-lot/README.md)
 
 
-##[06-pos](./06-pos/README.md)
+##[06-harry-potter](./06-harry-potter/README.md)
 
 
-##[07-bank](./07-bank/README.md)
+##[06-pos](./07-pos/README.md)
+
+
+##[08-bank](./08-bank/README.md)
 
 
 ## Copyright and license
