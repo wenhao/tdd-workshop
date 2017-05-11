@@ -16,7 +16,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(2D, LocalTime.of(12, 0));
+        final Ride ride = new Ride(2D, 12);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
@@ -30,7 +30,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(3D, LocalTime.of(12, 0));
+        final Ride ride = new Ride(3D, 12);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
@@ -44,7 +44,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(4D, LocalTime.of(12, 0));
+        final Ride ride = new Ride(4D, 12);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
@@ -58,7 +58,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(3.1D, LocalTime.of(12, 0));
+        final Ride ride = new Ride(3.1D, 12);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
@@ -72,7 +72,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(3D, LocalTime.of(23, 0));
+        final Ride ride = new Ride(3D, 12);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
@@ -86,10 +86,10 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(4D, LocalTime.of(23, 0));
+        final Ride ride = new Ride(4D, 23);
 
         // when
-        BigDecimal fee = taxi.chargeFee(ride);
+        final BigDecimal fee = taxi.chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(15.4).setScale(2, ROUND_UP)));

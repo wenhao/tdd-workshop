@@ -1,16 +1,14 @@
 package com.github.wenhao;
 
-import java.time.LocalTime;
-
 public class Ride
 {
     private final double distance;
-    private final LocalTime time;
+    private final int hourOfDay;
 
-    public Ride(final double distance, final LocalTime time)
+    public Ride(final double distance, final int hourOfDay)
     {
         this.distance = distance;
-        this.time = time;
+        this.hourOfDay = hourOfDay;
     }
 
     public double getDistance()
@@ -18,8 +16,8 @@ public class Ride
         return Math.ceil(distance);
     }
 
-    public LocalTime getTime()
+    public int getHourOfDay()
     {
-        return time;
+        return hourOfDay;
     }
 }

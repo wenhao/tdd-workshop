@@ -1,7 +1,6 @@
 package com.github.wenhao;
 
 import java.math.BigDecimal;
-import java.time.LocalTime;
 
 import static java.math.BigDecimal.ROUND_UP;
 
@@ -15,7 +14,7 @@ public class Taxi
 
     public BigDecimal chargeFee(final Ride ride)
     {
-        boolean isNightChargeTime = !((ride.getTime().isAfter(LocalTime.of(6, 0)) || ride.getTime().equals(LocalTime.of(6, 0))) && ride.getTime().isBefore(LocalTime.of(23, 0)));
+        final boolean isNightChargeTime = ride.getHourOfDay() >= 6 && ride.getHourOfDay() < 23;
         final double additionalDistance = ride.getDistance() - BASE_DISTANCE;
 
         if (isNightChargeTime) {

@@ -8,7 +8,7 @@ So that I can have confidence in the bank
 Notes:
 
 * Only dealing with whole numbers
-* A customer only has one account at a time
+* A customer only has one account at a hourOfDay
 
 Acceptance Criteria:
 

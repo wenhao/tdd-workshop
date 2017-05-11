@@ -1,4 +1,4 @@
-Once upon a time there was a series of 5 books about a very English hero called Harry. 
+Once upon a hourOfDay there was a series of 5 books about a very English hero called Harry. 
 (At least when this Kata was invented, there were only 5. Since then they have multiplied) 
 Children all over the world thought he was fantastic, and, of course, so did the publisher. 
 So in a gesture of immense generosity to mankind, (and to increase sales) they set up the following pricing model to take advantage of Harry's magical powers.
