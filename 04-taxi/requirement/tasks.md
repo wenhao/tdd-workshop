@@ -94,4 +94,5 @@
    * 类名及行为名
      * Taxi, chargeFee(), Ride。
 8. 整理一下代码，将相关的代码分块。
-   * commit: a07880f278dfd320c6db315056441e7c6c16b3a1                 
+   * commit: a07880f278dfd320c6db315056441e7c6c16b3a1
+9. 给Ride加上测试。                    
