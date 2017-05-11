@@ -72,7 +72,7 @@ public class TaxiTest
     {
         // given
         final Taxi taxi = new Taxi();
-        final Ride ride = new Ride(3D, 12);
+        final Ride ride = new Ride(3D, 23);
 
         // when
         final BigDecimal fee = taxi.chargeFee(ride);
