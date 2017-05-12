@@ -29,7 +29,7 @@ public class Taxi
         BigDecimal baseFare = new BaseFareTaxiCharge(DAY_BASE_FEE).chargeFee(ride);
         total = total.add(baseFare);
 
-        BigDecimal additionalFee = new AdditionalFeeTaxiCharge(PRICE_PER_MILE).getAdditionalFee(ride);
+        BigDecimal additionalFee = new AdditionalFeeTaxiCharge(PRICE_PER_MILE).chargeFee(ride);
         total = total.add(additionalFee);
         return total;
     }
@@ -40,7 +40,7 @@ public class Taxi
         BigDecimal baseFare = new BaseFareTaxiCharge(NIGHT_BASE_FEE).chargeFee(ride);
         total = total.add(baseFare);
 
-        BigDecimal additionalFee = new AdditionalFeeTaxiCharge(NIGHT_PRICE_PER_MILE).getAdditionalFee(ride);
+        BigDecimal additionalFee = new AdditionalFeeTaxiCharge(NIGHT_PRICE_PER_MILE).chargeFee(ride);
         total = total.add(additionalFee);
         return total;
     }

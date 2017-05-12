@@ -15,7 +15,7 @@ public class AdditionalFeeTaxiCharge
         this.pricePerMile = pricePerMile;
     }
 
-    public BigDecimal getAdditionalFee(final Ride ride)
+    public BigDecimal chargeFee(final Ride ride)
     {
         if (ride.getDistance() <= BASE_DISTANCE) {
             return ZERO.setScale(2, ROUND_UP);
