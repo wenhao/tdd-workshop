@@ -119,7 +119,7 @@
     * Refactor->Extract->Delegate委托getBaseFare()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
     * 这个地方chargeFee()不应该有第二个参数，第二个参数应该出现在BaseFareTaxiCharge的构造参数内。
     * 同样的Refactor->Extract->Delegate委托getAdditionalFee()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
-    
+14. BaseFareTaxiCharge和AdditionalFeeTaxiCharge拥有相同的行为，可以抽象接口。Refactor->Extract->Interface。    
     
     
     

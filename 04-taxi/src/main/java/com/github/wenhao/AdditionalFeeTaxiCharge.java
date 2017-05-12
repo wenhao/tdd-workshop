@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.ROUND_UP;
 import static java.math.BigDecimal.ZERO;
 
-public class AdditionalFeeTaxiCharge
+public class AdditionalFeeTaxiCharge implements TaxiCharge
 {
     private static final int BASE_DISTANCE = 3;
     private BigDecimal pricePerMile;
@@ -15,6 +15,7 @@ public class AdditionalFeeTaxiCharge
         this.pricePerMile = pricePerMile;
     }
 
+    @Override
     public BigDecimal chargeFee(final Ride ride)
     {
         if (ride.getDistance() <= BASE_DISTANCE) {
