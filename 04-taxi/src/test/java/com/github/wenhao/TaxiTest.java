@@ -11,6 +11,20 @@ import static org.junit.Assert.assertThat;
 public class TaxiTest
 {
     @Test
+    public void should_charge_zero_when_travel_distance_is_zero()
+    {
+        // given
+        final Taxi taxi = new Taxi();
+        final Ride ride = new Ride(0, 12);
+
+        // when
+        final BigDecimal fee = taxi.chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(0).setScale(2, ROUND_UP)));
+    }
+
+    @Test
     public void should_charge_starting_fare_when_travel_distance_less_than_base_distance()
     {
         // given

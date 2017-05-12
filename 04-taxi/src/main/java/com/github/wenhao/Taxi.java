@@ -3,6 +3,7 @@ package com.github.wenhao;
 import java.math.BigDecimal;
 
 import static java.math.BigDecimal.ROUND_UP;
+import static java.math.BigDecimal.ZERO;
 
 public class Taxi
 {
@@ -15,18 +16,47 @@ public class Taxi
     public BigDecimal chargeFee(final Ride ride)
     {
         final boolean isDayChargeTime = ride.getHourOfDay() >= 6 && ride.getHourOfDay() < 23;
-        final double additionalDistance = ride.getDistance() - BASE_DISTANCE;
 
         if (!isDayChargeTime) {
-            if (ride.getDistance() <= BASE_DISTANCE) {
-                return NIGHT_BASE_FEE;
-            }
-            return NIGHT_BASE_FEE.add(BigDecimal.valueOf(additionalDistance).multiply(NIGHT_PRICE_PER_MILE));
+            return getNightCharge(ride);
         }
 
+        return getDayCharge(ride);
+    }
+
+    private BigDecimal getDayCharge(final Ride ride)
+    {
+        BigDecimal total = BigDecimal.ZERO;
+
+        BigDecimal baseFare = getBaseFare(ride, DAY_BASE_FEE);
+        total = total.add(baseFare);
+
+        BigDecimal additionalFee = getAdditionalFee(ride, PRICE_PER_MILE);
+        total = total.add(additionalFee);
+        return total;
+    }
+
+    private BigDecimal getNightCharge(final Ride ride)
+    {
+        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal baseFare = getBaseFare(ride, NIGHT_BASE_FEE);
+        total = total.add(baseFare);
+
+        BigDecimal additionalFee = getAdditionalFee(ride, NIGHT_PRICE_PER_MILE);
+        total = total.add(additionalFee);
+        return total;
+    }
+
+    private BigDecimal getAdditionalFee(final Ride ride, final BigDecimal pricePerMile)
+    {
         if (ride.getDistance() <= BASE_DISTANCE) {
-            return DAY_BASE_FEE;
+            return ZERO.setScale(2, ROUND_UP);
         }
-        return DAY_BASE_FEE.add(BigDecimal.valueOf(additionalDistance).multiply(PRICE_PER_MILE));
+        return BigDecimal.valueOf(ride.getDistance() - BASE_DISTANCE).multiply(pricePerMile);
+    }
+
+    private BigDecimal getBaseFare(final Ride ride, final BigDecimal baseFare)
+    {
+        return Double.compare(ride.getDistance(), 0) == 0 ? ZERO.setScale(2, ROUND_UP) : baseFare;
     }
 }
