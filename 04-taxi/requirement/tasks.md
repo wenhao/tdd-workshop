@@ -115,7 +115,10 @@
     * 将白天和晚上的抽成两个方法：getDayCharge()和getNightCharge()。Refactor->Extract->Method。
     * getDayCharge()抽成两个方法：getBaseFare()和getAdditionalFee()。
     * getNightCharge()同样有这个问题，需要消除重复代码。将变化的BASE_FEE作为getBaseFare()方法的参数，PRICE_PER_MILE作为getAdditionalFee()方法的参数。Change Signature。
-    
+13. 第12步重构之后，可以发现getDayCharge()和getNightCharge()极其相似。但先把getBaseFare()和getAdditionalFee()抽离Taxi类。
+    * Refactor->Extract->Delegate委托getBaseFare()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
+    * 这个地方chargeFee()不应该有第二个参数，第二个参数应该出现在BaseFareTaxiCharge的构造参数内。
+    * 同样的Refactor->Extract->Delegate委托getAdditionalFee()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
     
     
     
