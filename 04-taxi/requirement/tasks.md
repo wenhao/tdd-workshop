@@ -119,7 +119,9 @@
     * Refactor->Extract->Delegate委托getBaseFare()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
     * 这个地方chargeFee()不应该有第二个参数，第二个参数应该出现在BaseFareTaxiCharge的构造参数内。
     * 同样的Refactor->Extract->Delegate委托getAdditionalFee()到类BaseFareTaxiCharge。修改方法名为chargeFee()。
-14. BaseFareTaxiCharge和AdditionalFeeTaxiCharge拥有相同的行为，可以抽象接口。Refactor->Extract->Interface。    
+14. BaseFareTaxiCharge和AdditionalFeeTaxiCharge拥有相同的行为，可以抽象接口。Refactor->Extract->Interface。
+15. getDayCharge()方法可以简化List<TaxiCharge> taxiCharges。然后遍历。
+16. 价格是多个TaxiCharge的组合。使用组合模式。重构getDayCharge()方法。抽离变化，DAY_BASE_FEE和PRICE_PER_MILE。    
     
     
     
