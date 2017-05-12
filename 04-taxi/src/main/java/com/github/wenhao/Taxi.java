@@ -2,9 +2,7 @@ package com.github.wenhao;
 
 import java.math.BigDecimal;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static java.math.BigDecimal.ROUND_UP;
-import static java.math.BigDecimal.ZERO;
 
 public class Taxi
 {
@@ -25,18 +23,12 @@ public class Taxi
 
     private BigDecimal getDayCharge(final Ride ride)
     {
-        BigDecimal total = newArrayList(new BaseFareTaxiCharge(DAY_BASE_FEE), new AdditionalFeeTaxiCharge(PRICE_PER_MILE)).stream()
-                .map(taxiCharge -> taxiCharge.chargeFee(ride))
-                .reduce(ZERO, BigDecimal::add);
-        return total.setScale(2, ROUND_UP);
+        return new CompositeTaxiCharge().withBaseFee(DAY_BASE_FEE).withAdditionalFee(PRICE_PER_MILE).chargeFee(ride);
     }
 
     private BigDecimal getNightCharge(final Ride ride)
     {
-        BigDecimal total = newArrayList(new BaseFareTaxiCharge(NIGHT_BASE_FEE), new AdditionalFeeTaxiCharge(NIGHT_PRICE_PER_MILE)).stream()
-                .map(taxiCharge -> taxiCharge.chargeFee(ride))
-                .reduce(ZERO, BigDecimal::add);
-        return total.setScale(2, ROUND_UP);
+        return new CompositeTaxiCharge().withBaseFee(NIGHT_BASE_FEE).withAdditionalFee(NIGHT_PRICE_PER_MILE).chargeFee(ride);
     }
 
 }
