@@ -5,7 +5,7 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-public class CompositeTaxiCharge
+public class CompositeTaxiCharge implements TaxiCharge
 {
     private List<TaxiCharge> taxiCharges = newArrayList();
 
@@ -25,6 +25,7 @@ public class CompositeTaxiCharge
         return this;
     }
 
+    @Override
     public BigDecimal chargeFee(final Ride ride)
     {
         BigDecimal total = taxiCharges.stream()
