@@ -7,20 +7,29 @@ import static java.math.BigDecimal.ZERO;
 
 public class AdditionalFeeTaxiCharge implements TaxiCharge
 {
-    private static final int BASE_DISTANCE = 3;
+    private double baseMeter;
+    private double maxMeter;
     private BigDecimal pricePerMile;
 
-    public AdditionalFeeTaxiCharge(final BigDecimal pricePerMile)
+    public AdditionalFeeTaxiCharge(final double baseMeter, final BigDecimal pricePerMile)
     {
+        this(baseMeter, Integer.MAX_VALUE, pricePerMile);
+    }
+
+    public AdditionalFeeTaxiCharge(final double minMeter, final double maxMeter, final BigDecimal pricePerMile)
+    {
+        this.baseMeter = minMeter;
+        this.maxMeter = maxMeter;
         this.pricePerMile = pricePerMile;
     }
 
     @Override
     public BigDecimal chargeFee(final Ride ride)
     {
-        if (ride.getDistance() <= BASE_DISTANCE) {
+        if (ride.getDistance() <= baseMeter) {
             return ZERO.setScale(2, ROUND_UP);
         }
-        return BigDecimal.valueOf(ride.getDistance() - BASE_DISTANCE).multiply(pricePerMile);
+        double additionalDistance = Math.min(ride.getDistance(), maxMeter) - baseMeter;
+        return BigDecimal.valueOf(additionalDistance).multiply(pricePerMile);
     }
 }

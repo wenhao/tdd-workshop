@@ -141,4 +141,17 @@ public class TaxiChargeFactoryTest
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(21).setScale(2, ROUND_UP)));
     }
+
+    @Test
+    public void should_charge_additional_fare_for_shanghai_inner_taxi_when_travel_distance_more_than_base_distance()
+    {
+        // given
+        final Ride ride = new Ride(11, 12);
+
+        // when
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("shangHaiInner").chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(35).setScale(2, ROUND_UP)));
+    }
 }

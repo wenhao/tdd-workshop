@@ -17,7 +17,7 @@ public class CompositeTaxiChargeTest
         // given
         CompositeTaxiCharge taxiCharge = new CompositeTaxiCharge()
                 .withBaseFee(BigDecimal.valueOf(11))
-                .withAdditionalFee(BigDecimal.valueOf(1.6));
+                .withAdditionalFee(3D, BigDecimal.valueOf(1.6));
 
         // when
         BigDecimal fee = taxiCharge.chargeFee(new Ride(4, 12));

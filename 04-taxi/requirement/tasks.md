@@ -183,5 +183,8 @@
       * should_charge_starting_fare_for_shanghai_outer_taxi_when_travel_distance_less_than_base_distance
     * 类名及行为名
       * TaxiChargeFactory, getTaxiCharge("shangHaiOuter")。
-23. 写上所有上海外环出租车的需求。      
-    
+23. 写上所有上海外环出租车的需求。
+24. 上海内环出租车的需求：10公里之后，白天每公里3.5，晚上每公里4.7。
+    * 也就是说10公里以内按照3公里之后的价格收取，10公里以外按照3.5收取，会多一个额外的附加费用。
+    * 为CompositeTaxiCharge类的添加一个withAdditionalFee(minMeter, maxMeter, pricePerMile)方法。
+25. 写上所有上海内环出租车的需求。    

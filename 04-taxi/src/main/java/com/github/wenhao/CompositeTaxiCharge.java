@@ -14,9 +14,14 @@ public class CompositeTaxiCharge implements TaxiCharge
         return with(new BaseFareTaxiCharge(baseFee));
     }
 
-    public CompositeTaxiCharge withAdditionalFee(final BigDecimal pricePerMile)
+    public CompositeTaxiCharge withAdditionalFee(final double baseFee, final BigDecimal pricePerMile)
     {
-        return with(new AdditionalFeeTaxiCharge(pricePerMile));
+        return with(new AdditionalFeeTaxiCharge(baseFee, pricePerMile));
+    }
+
+    public CompositeTaxiCharge withAdditionalFee(final double min, final double max, final BigDecimal pricePerMile)
+    {
+        return with(new AdditionalFeeTaxiCharge(min, max, pricePerMile));
     }
 
     private CompositeTaxiCharge with(final TaxiCharge taxiCharge)

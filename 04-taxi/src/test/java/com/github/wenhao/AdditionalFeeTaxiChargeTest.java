@@ -18,7 +18,7 @@ public class AdditionalFeeTaxiChargeTest
     @Before
     public void setUp()
     {
-        taxiCharge = new AdditionalFeeTaxiCharge(BigDecimal.valueOf(1.6));
+        taxiCharge = new AdditionalFeeTaxiCharge(3D, BigDecimal.valueOf(1.6));
     }
 
     @Test
