@@ -13,7 +13,7 @@ public class AdditionalFeeTaxiCharge implements TaxiCharge
 
     public AdditionalFeeTaxiCharge(final double baseMeter, final BigDecimal pricePerMile)
     {
-        this(baseMeter, Integer.MAX_VALUE, pricePerMile);
+        this(baseMeter, Double.MAX_VALUE, pricePerMile);
     }
 
     public AdditionalFeeTaxiCharge(final double minMeter, final double maxMeter, final BigDecimal pricePerMile)

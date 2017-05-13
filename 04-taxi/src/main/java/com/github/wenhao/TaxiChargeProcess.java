@@ -2,9 +2,7 @@ package com.github.wenhao;
 
 public interface TaxiChargeProcess
 {
-    boolean isApplicable(String taxiType);
+    TaxiCharge getNightCharge(final String taxiType);
 
-    TaxiCharge getNightCharge();
-
-    TaxiCharge getDayCharge();
+    TaxiCharge getDayCharge(final String taxiType);
 }

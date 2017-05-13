@@ -1,22 +1,15 @@
 package com.github.wenhao;
 
-import java.util.List;
-
-import static com.google.common.collect.Lists.newArrayList;
-
 public class TaxiChargeFactory
 {
 
     public TaxiCharge getTaxiCharge(final String taxiType)
     {
-        List<TaxiChargeProcess> taxiChargeProcesses = newArrayList(new NormalTaxiCharge(), new ShangHaiOuterTaxiCharge(), new ShangHaiInnerTaxiCharge());
-        TaxiChargeProcess chargeProcess = taxiChargeProcesses.stream()
-                .filter(taxiChargeProcess -> taxiChargeProcess.isApplicable(taxiType))
-                .findFirst()
-                .get();
+        TaxiConfig taxiConfig = new TaxiConfig();
+        MultipleTaxiChargeFactory taxiCharge = new MultipleTaxiChargeFactory(taxiConfig);
 
-        TaxiCharge dayCharge = chargeProcess.getDayCharge();
-        TaxiCharge nightCharge = chargeProcess.getNightCharge();
+        TaxiCharge dayCharge = taxiCharge.getDayCharge(taxiType);
+        TaxiCharge nightCharge = taxiCharge.getNightCharge(taxiType);
         return new TimeTaxiCharge(dayCharge, nightCharge);
     }
 
