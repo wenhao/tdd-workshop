@@ -187,4 +187,7 @@
 24. 上海内环出租车的需求：10公里之后，白天每公里3.5，晚上每公里4.7。
     * 也就是说10公里以内按照3公里之后的价格收取，10公里以外按照3.5收取，会多一个额外的附加费用。
     * 为CompositeTaxiCharge类的添加一个withAdditionalFee(minMeter, maxMeter, pricePerMile)方法。
-25. 写上所有上海内环出租车的需求。    
+25. 写上所有上海内环出租车的需求。
+26. TaxiChargeFactory类典型的变种"switch case"，使用多态的方式重构。
+    * 先抽出方法，然后委托到新对象。
+    * 抽象接口
