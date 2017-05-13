@@ -17,6 +17,6 @@ public class BaseFareTaxiCharge implements TaxiCharge
     @Override
     public BigDecimal chargeFee(final Ride ride)
     {
-        return Double.compare(ride.getDistance(), 0) == 0 ? ZERO.setScale(2, ROUND_UP) : baseFee;
+        return Double.compare(ride.getDistance(), 0) == 0 ? ZERO.setScale(2, ROUND_UP) : baseFee.setScale(2, ROUND_UP);
     }
 }
