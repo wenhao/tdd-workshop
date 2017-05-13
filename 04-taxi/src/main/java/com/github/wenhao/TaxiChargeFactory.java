@@ -6,15 +6,28 @@ import static java.math.BigDecimal.ROUND_UP;
 
 public class TaxiChargeFactory
 {
-    private static final BigDecimal DAY_BASE_FEE = BigDecimal.valueOf(11).setScale(2, ROUND_UP);
-    private static final BigDecimal PRICE_PER_MILE = BigDecimal.valueOf(1.6D);
-    private static final BigDecimal NIGHT_BASE_FEE = BigDecimal.valueOf(13).setScale(2, ROUND_UP);
-    private static final BigDecimal NIGHT_PRICE_PER_MILE = BigDecimal.valueOf(2.4D);
+    private static final BigDecimal NORMAL_DAY_BASE_FEE = BigDecimal.valueOf(11).setScale(2, ROUND_UP);
+    private static final BigDecimal NORMAL_DAY_PRICE_PER_MILE = BigDecimal.valueOf(1.6D);
+    private static final BigDecimal NORMAL_NIGHT_BASE_FEE = BigDecimal.valueOf(13).setScale(2, ROUND_UP);
+    private static final BigDecimal NORMAL_NIGHT_PRICE_PER_MILE = BigDecimal.valueOf(2.4D);
 
-    public TaxiCharge getTaxiCharge()
+    public static final BigDecimal SHANGHAI_OUTER_DAY_BASE_FEE = BigDecimal.valueOf(14);
+    public static final BigDecimal SHANGHAI_OUTER_DAY_PRICE_PER_MILE = BigDecimal.valueOf(2.5);
+    public static final BigDecimal SHANGHAI_OUTER_NIGHT_BASE_FEE = BigDecimal.valueOf(18);
+    public static final BigDecimal SHANGHAI_OUTER_NIGHT_PRICE_PER_MILE = BigDecimal.valueOf(3);
+
+    public TaxiCharge getTaxiCharge(final String taxiType)
     {
-        final TaxiCharge dayCharge = new CompositeTaxiCharge().withBaseFee(DAY_BASE_FEE).withAdditionalFee(PRICE_PER_MILE);
-        final TaxiCharge nightCharge = new CompositeTaxiCharge().withBaseFee(NIGHT_BASE_FEE).withAdditionalFee(NIGHT_PRICE_PER_MILE);
+        TaxiCharge dayCharge = null;
+        TaxiCharge nightCharge = null;
+        if (taxiType.equals("normal")) {
+            dayCharge = new CompositeTaxiCharge().withBaseFee(NORMAL_DAY_BASE_FEE).withAdditionalFee(NORMAL_DAY_PRICE_PER_MILE);
+            nightCharge = new CompositeTaxiCharge().withBaseFee(NORMAL_NIGHT_BASE_FEE).withAdditionalFee(NORMAL_NIGHT_PRICE_PER_MILE);
+        }
+        if (taxiType.equals("shangHaiOuter")) {
+            dayCharge = new CompositeTaxiCharge().withBaseFee(SHANGHAI_OUTER_DAY_BASE_FEE).withAdditionalFee(SHANGHAI_OUTER_DAY_PRICE_PER_MILE);
+            nightCharge = new CompositeTaxiCharge().withBaseFee(SHANGHAI_OUTER_NIGHT_BASE_FEE).withAdditionalFee(SHANGHAI_OUTER_NIGHT_PRICE_PER_MILE);
+        }
         return new TimeTaxiCharge(dayCharge, nightCharge);
     }
 

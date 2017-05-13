@@ -1,6 +1,5 @@
 package com.github.wenhao;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -12,14 +11,6 @@ import static org.junit.Assert.assertThat;
 public class TaxiChargeFactoryTest
 {
 
-    private TaxiCharge taxiCharge;
-
-    @Before
-    public void setUp()
-    {
-        taxiCharge = new TaxiChargeFactory().getTaxiCharge();
-    }
-
     @Test
     public void should_charge_zero_when_travel_distance_is_zero()
     {
@@ -27,7 +18,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(0, 12);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(0).setScale(2, ROUND_UP)));
@@ -40,7 +31,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(2D, 12);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11).setScale(2, ROUND_UP)));
@@ -53,7 +44,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(3D, 12);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(11).setScale(2, ROUND_UP)));
@@ -66,7 +57,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(4D, 12);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(12.6).setScale(2, ROUND_UP)));
@@ -79,7 +70,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(3.1D, 12);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(12.6).setScale(2, ROUND_UP)));
@@ -92,7 +83,7 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(3D, 23);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(13).setScale(2, ROUND_UP)));
@@ -105,9 +96,36 @@ public class TaxiChargeFactoryTest
         final Ride ride = new Ride(4D, 23);
 
         // when
-        final BigDecimal fee = taxiCharge.chargeFee(ride);
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("normal").chargeFee(ride);
 
         // then
         assertThat(fee, equalTo(BigDecimal.valueOf(15.4).setScale(2, ROUND_UP)));
+    }
+
+    @Test
+    public void should_charge_starting_fare_for_shanghai_outer_taxi_when_travel_distance_less_than_base_distance()
+    {
+        // given
+        final Ride ride = new Ride(3D, 12);
+
+        // when
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("shangHaiOuter").chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(14).setScale(2, ROUND_UP)));
+
+    }
+
+    @Test
+    public void should_charge_additional_fare__for_shanghai_outer_taxi_when_travel_distance_more_than_base_distance()
+    {
+        // given
+        final Ride ride = new Ride(4D, 12);
+
+        // when
+        final BigDecimal fee = new TaxiChargeFactory().getTaxiCharge("shangHaiOuter").chargeFee(ride);
+
+        // then
+        assertThat(fee, equalTo(BigDecimal.valueOf(16.5).setScale(2, ROUND_UP)));
     }
 }

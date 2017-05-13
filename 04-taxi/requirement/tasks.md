@@ -167,4 +167,20 @@
     * 将时间选择委托给另外一个类TimeTaxiCharge。TimeTaxiCharge构造函数接收两个参数dayCharge和nightCharge。
 19. 对象的创建应该与使用分开，使用工厂模式。如果抽离出去就感觉Taxi类就没有存在的意义了。违反了重构中的坏味道：Lazy Class(冗赘类)。故修改Taxi类名为TaxiChargeFactory。
     并且TaxiChargeFactory暴露chargeFee有点多余，暴露getTaxiCharge()就可以了。
+20. 后面有有需求上海内环和上海外环的出租车，当前是普通的出租车。
+    * 普通的出租车为normal
+    * 上海内环的出租车为shangHaiInner
+    * 上海外环出租车为shangHaiOuter
+21. 上海外环出租车需求：起步价14元，含3公里。 起步价之后，每公里2.5元，晚上11点之后(含)，次日6点前(不含)起步价18元，含3公里。晚上起步价之后，每公里3元。
+    * 3公里内14元。
+    * TaxiChargeFactory的getTaxiCharge()方法需要支持出租车类型。
+22.上海外环出租车 3公里内14元。
+    * 需求
+      * 上海外环出租车3公里内14元。
+    * 意图
+      * 上海外环出租车，那么之前需要处理之前的出租车类型"normal"
+    * 测试名称
+      * should_charge_starting_fare_for_shanghai_outer_taxi_when_travel_distance_less_than_base_distance
+    * 类名及行为名
+      * TaxiChargeFactory, getTaxiCharge("shangHaiOuter")。
     
