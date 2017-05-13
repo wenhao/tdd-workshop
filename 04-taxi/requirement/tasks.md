@@ -165,4 +165,6 @@
 18. 目前Taxi类根据时间来判断收费，而且包括了两个类的创建。代理模式(委托)重构。
     * 类的创建和使用需要分开，先抽取连个成员变量dayCharge和nightCharge。
     * 将时间选择委托给另外一个类TimeTaxiCharge。TimeTaxiCharge构造函数接收两个参数dayCharge和nightCharge。
+19. 对象的创建应该与使用分开，使用工厂模式。如果抽离出去就感觉Taxi类就没有存在的意义了。违反了重构中的坏味道：Lazy Class(冗赘类)。故修改Taxi类名为TaxiChargeFactory。
+    并且TaxiChargeFactory暴露chargeFee有点多余，暴露getTaxiCharge()就可以了。
     
