@@ -174,7 +174,7 @@
 21. 上海外环出租车需求：起步价14元，含3公里。 起步价之后，每公里2.5元，晚上11点之后(含)，次日6点前(不含)起步价18元，含3公里。晚上起步价之后，每公里3元。
     * 3公里内14元。
     * TaxiChargeFactory的getTaxiCharge()方法需要支持出租车类型。
-22.上海外环出租车 3公里内14元。
+22. 上海外环出租车，3公里内14元。
     * 需求
       * 上海外环出租车3公里内14元。
     * 意图
@@ -183,4 +183,5 @@
       * should_charge_starting_fare_for_shanghai_outer_taxi_when_travel_distance_less_than_base_distance
     * 类名及行为名
       * TaxiChargeFactory, getTaxiCharge("shangHaiOuter")。
+23. 写上所有上海外环出租车的需求。      
     
