@@ -1,4 +1,4 @@
-package com.github.wenhao;
+package com.github.wenhao.config;
 
 import java.io.IOException;
 import java.util.Properties;

@@ -1,5 +1,6 @@
 package com.github.wenhao;
 
+import com.github.wenhao.domain.Ride;
 import org.junit.Test;
 
 import java.math.BigDecimal;

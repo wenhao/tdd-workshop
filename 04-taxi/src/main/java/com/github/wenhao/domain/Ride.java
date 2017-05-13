@@ -1,4 +1,4 @@
-package com.github.wenhao;
+package com.github.wenhao.domain;
 
 public class Ride
 {

@@ -1,5 +1,6 @@
-package com.github.wenhao;
+package com.github.wenhao.domain;
 
+import com.github.wenhao.domain.Ride;
 import org.junit.Test;
 
 import static org.hamcrest.core.IsEqual.equalTo;

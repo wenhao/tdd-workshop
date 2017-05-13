@@ -1,4 +1,6 @@
-package com.github.wenhao;
+package com.github.wenhao.charge;
+
+import com.github.wenhao.domain.Ride;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.github.wenhao;
+package com.github.wenhao.charge;
 
+import com.github.wenhao.domain.Ride;
 import org.junit.Before;
 import org.junit.Test;
 

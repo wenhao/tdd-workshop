@@ -1,5 +1,10 @@
 package com.github.wenhao;
 
+import com.github.wenhao.charge.TaxiCharge;
+import com.github.wenhao.charge.TimeTaxiCharge;
+import com.github.wenhao.config.TaxiConfig;
+import com.github.wenhao.factory.MultipleTaxiChargeFactory;
+
 public class TaxiChargeFactory
 {
 
