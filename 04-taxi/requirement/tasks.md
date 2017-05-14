@@ -57,7 +57,7 @@
      * Taxi, chargeFee()。
    * 问题：
      * 在测试的时候会遇到BigDecimal精度的问题，两个选择：1. 统一所有的精度问题， 2. 暂时忽略，在测试中都乘以100。
-   * commit: 8625073bd6c8350622957fbd0cddcd18c34014eb
+   * commit: 3eb90b9f50336f60a0b9b77fa8861cb5075dc6e9
    
 #### 需求二
 
