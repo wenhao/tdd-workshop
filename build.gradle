@@ -25,6 +25,7 @@ configure(subprojects) { project ->
 
         testCompile(
                 "junit:junit:$junitVersion",
+                "org.assertj:assertj-core:$assertjVersion",
                 "org.mockito:mockito-core:$mockitoVersion"
         )
 
