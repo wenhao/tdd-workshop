@@ -109,10 +109,6 @@
         <module name="RedundantModifier"/>
         <module name="EmptyBlock" />
         <module name="NeedBraces" />
-        <module name="LeftCurly">
-            <property name="option" value="nl"/>
-            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF,ENUM_DEF,METHOD_DEF"/>
-        </module>
         <module name="RightCurly" />
         <module name="AvoidNestedBlocks" />
 

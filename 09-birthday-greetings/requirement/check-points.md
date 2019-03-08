@@ -17,3 +17,11 @@
 * 对象: Employee, EmployeeFinder
 * 行为: findAll
 * 测试名称: should_find_all_employees_by_birthday_date
+
+查询的结果中不应该包含非指定日期的employee。
+
+### 任务二
+
+能够找出闰年2.29号生日在平年2.28号的employee。
+
+* 测试名称: should_find_all_employees_include_leap_year_birthday

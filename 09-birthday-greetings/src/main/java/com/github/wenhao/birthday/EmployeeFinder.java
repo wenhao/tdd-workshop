@@ -1,13 +1,21 @@
 package com.github.wenhao.birthday;
 
-import com.google.common.collect.Lists;
-
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmployeeFinder {
 
-    public List<Employee> findAll(final Date today) {
-        return Lists.newArrayList(new Employee());
+    private List<Employee> employees;
+
+    public EmployeeFinder(final List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Employee> findAll(final LocalDate date) {
+        return employees.stream()
+                .filter(employee -> employee.getBirthDay().getMonth() == date.getMonth() &&
+                        employee.getBirthDay().getDayOfYear() == date.getDayOfYear())
+                .collect(Collectors.toList());
     }
 }
