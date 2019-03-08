@@ -25,4 +25,19 @@ public class EmployeeFinderTest {
         assertThat(birthdayEmployees.size()).isEqualTo(1);
         assertThat(birthdayEmployees.contains(mary)).isFalse();
     }
+
+    @Test
+    public void should_find_all_employees_include_leap_year_birthday() {
+        // given
+        final LocalDate date =  LocalDate.of(2019, 2, 28);
+        Employee john = new Employee("Doe", "John", LocalDate.of(2000, 2, 29), "john.doe@foobar.com");
+        List<Employee> employees = Lists.newArrayList(john);
+
+        // when
+        EmployeeFinder employeeFinder = new EmployeeFinder(employees);
+        List<Employee> birthdayEmployees = employeeFinder.findAll(date);
+
+        // then
+        assertThat(birthdayEmployees.size()).isEqualTo(1);
+    }
 }
