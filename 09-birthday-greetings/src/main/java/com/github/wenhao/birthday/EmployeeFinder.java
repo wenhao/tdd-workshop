@@ -16,14 +16,15 @@ public class EmployeeFinder {
 
     public List<Employee> findAll(final LocalDate date) {
         List<Employee> findEmployees = new ArrayList<>();
+        List<Employee> employees = this.employeeRepository.getEmployees();
         if (date.getMonth().equals(Month.FEBRUARY) && date.getDayOfMonth() == 28) {
-            List<Employee> leapEmployees = this.employeeRepository.getEmployees().stream()
+            List<Employee> leapEmployees = employees.stream()
                     .filter(employee -> employee.getBirthDay().getMonth().equals(date.getMonth()) &&
                             employee.getBirthDay().getDayOfMonth() == 29 && employee.getBirthDay().isLeapYear())
                     .collect(Collectors.toList());
             findEmployees.addAll(leapEmployees);
         }
-        List<Employee> searchEmployees = this.employeeRepository.getEmployees().stream()
+        List<Employee> searchEmployees = employees.stream()
                 .filter(employee -> employee.getBirthDay().getMonth().equals(date.getMonth()) &&
                         employee.getBirthDay().getDayOfYear() == date.getDayOfYear())
                 .collect(Collectors.toList());
