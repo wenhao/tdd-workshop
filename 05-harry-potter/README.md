@@ -30,7 +30,12 @@ For example, how much does this basket of books cost?
 1 copy of the fourth book
 1 copy of the fifth book
 
-(answer: 51.20 EUR) 
+answer :
+
+  (4 * 8) - 20% [first book, second book, third book, fourth book]
++ (4 * 8) - 20% [first book, second book, third book, fifth book]
+= 25.6 * 2
+= 51.20
 
 为了促进《哈利·波特》全系列5本书的销量，现在实行打折活动：
 
