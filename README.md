@@ -1,34 +1,87 @@
 [![Build Status](https://travis-ci.org/wenhao/tdd-workshop.svg)](https://travis-ci.org/wenhao/tdd-workshop)
 
 
-tdd-workshop
-============
+### tdd-workshop
 
-## [01-guess-number](./01-guess-number/README.md)
+The TDD and Refactoring Workshop offers a comprehensive, hands-on introduction to 
 
+evolutionary design, clean code and automated testing.
 
-## [02-length](./01-length/README.md)
+Over the past decade, eXtreme Programming practices like User Stories, Test-Driven 
 
+Development (TDD), Behavior Driven Developer (BDD), Refactoring, Continuous Integration 
 
-## [03-fizz-buzz-whizz](./03-fizz-buzz-whizz/README.md)
+and Automation have fundamentally changed software development processes and 
 
+inherently how engineers work.
 
-## [04-taxi](./04-taxi/README.md)
+This workshop explores the foundations of TDD, unit testing, automated refactoring and 
 
+improving the design of legacy code with the help of various patterns, strategies, tools and 
 
-## [05-parking-lot](./05-parking-lot/README.md)
+techniques. Students will learn essential test-first approaches via interactive discussions, 
 
+multimedia content, hands-on exercises and quizzes.
 
-## [06-harry-potter](05-harry-potter/README.md)
+#### Learning Outcomes
 
+* Understand the thought process and steps involved during a typical test-driven session.
+* Drive the development (design and implementation) of a User Story using automated tests.
+* Discover improved confidence and increase in development speed by writing automated tests first!
+* Identify poorly designed code by using our elaborate code smell vocabulary.
+* Learn various automated refactoring techniques and strategies to carefully clean the identified code smells.
+* Practice key techniques to break coupling between classes and micro-test each component independently.
+* Incrementally transform complex and difficult classes into readable, well-structured, and well-designed code, while keeping them running at all times
 
-## [06-pos](06-pos/README.md)
+#### Course Outline
 
+**Unit Testing**
 
-## [08-bank](./08-bank/README.md)
+* Philosophy of Developer Unit Testing
+* Anatomy of Unit Testing Framework
+* Automated Tests
+* Overview of xUnit
+* Levels of Testing
 
-## [09-birthday-greetings](./09-birthday-greetings/README.md)
+**Code Smells**
 
+* Common Code Smells
+* Dealing with Code Smells
+
+**Refactoring**
+
+* Purpose of Refactoring
+* Refactoring Patterns
+* Using Automated Refactoring
+
+**Inside Out Test First - Test Driven Development** 
+
+* Introduction to TDD
+* Test First Vs Test Last
+* TDD Rhythm: Red, Green, Refactor
+* Crucial Design Principles
+* Driving Design using TDD
+* Different Styles of TDD
+
+![TDD](./docs/images/tdd.png)
+
+**Outside In Behaviour First - Behaviour Driven Development**
+
+* Driving Implementation and Design from Scenarios
+* Creating an Application from Scratch using Scenarios
+* Crafting acceptance criteria for user stories
+* Writing executable examples for each criteria
+* Documenting Scenarios with Gherkin
+* Demo of BDD frameworks (Cucumber, FitNesse, SpecFlow, Jasmine)
+* Automation Hazards
+* Safe Automation Practices
+
+**Beyond Basics**
+
+* Test Doubles/Fakes - Stubs, Mocks, Spy, Simulators...
+* TDD in Legacy Code
+* Breaking Dependencies in Legacy Code
+* Patterns for writing effective tests
 
 ## Copyright and license
 
