@@ -3,11 +3,22 @@ package com.github.wenhao.birthday;
 import com.google.common.collect.Lists;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.when;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@RunWith(MockitoJUnitRunner.class)
 public class EmployeeFinderTest {
+
+    @InjectMocks
+    private EmployeeFinder employeeFinder;
+    @Mock
+    private EmployeeRepository employeeRepository;
 
     @Test
     public void should_find_all_employees_by_birthday_date() {
@@ -18,7 +29,7 @@ public class EmployeeFinderTest {
         List<Employee> employees = Lists.newArrayList(john, mary);
 
         // when
-        EmployeeFinder employeeFinder = new EmployeeFinder(employees);
+        when(employeeRepository.getEmployees()).thenReturn(employees);
         List<Employee> birthdayEmployees = employeeFinder.findAll(date);
 
         // then
@@ -34,7 +45,7 @@ public class EmployeeFinderTest {
         List<Employee> employees = Lists.newArrayList(john);
 
         // when
-        EmployeeFinder employeeFinder = new EmployeeFinder(employees);
+        when(employeeRepository.getEmployees()).thenReturn(employees);
         List<Employee> birthdayEmployees = employeeFinder.findAll(date);
 
         // then

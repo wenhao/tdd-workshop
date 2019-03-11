@@ -25,3 +25,7 @@
 能够找出闰年2.29号生日在平年2.28号的employee。
 
 * 测试名称: should_find_all_employees_include_leap_year_birthday
+
+### 任务三
+
+从文件读取employee信息。目前EmployeeFinder接收的是employees，重构为从文件读取。
