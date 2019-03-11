@@ -37,4 +37,4 @@ Uber 高级车(UberBLACK)
 2. 跨州起步价翻倍
 
 
-##[Check-points](./requirement/check-points.md)
+##[Check-points](requirement/tasks.md)

@@ -27,10 +27,12 @@ tdd-workshop
 
 ## [08-bank](./08-bank/README.md)
 
+## [09-birthday-greetings](./09-birthday-greetings/README.md)
+
 
 ## Copyright and license
 
-Copyright 2014 ~ 2017 Wen Hao
+Copyright 2014 ~ 2019 Wen Hao
 
 Licensed under [Apache License][1]
 
