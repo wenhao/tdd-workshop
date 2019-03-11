@@ -19,4 +19,8 @@ public class Employee {
     public LocalDate getBirthDay() {
         return this.birthday;
     }
+
+    public String getLastName() {
+        return this.lastName;
+    }
 }

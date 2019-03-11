@@ -29,3 +29,15 @@
 ### 任务三
 
 从文件读取employee信息。目前EmployeeFinder接收的是employees，重构为从文件读取。
+
+* 对象: EmployeeRepository
+* 行为: getEmployees
+
+### 任务四
+
+给过生日的employee发邮件。
+
+* 对象: BirthdayGreetings, EmailService, Email
+* 行为: sendGreetings, send
+* 参数: 日期
+* 测试名称: should_send_birthday_greetings_base_on_given_date
