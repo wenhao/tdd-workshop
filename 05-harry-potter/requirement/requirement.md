@@ -1,3 +1,5 @@
+### Problem: [harry-potter](http://codingdojo.org/kata/Potter/)
+
 Once upon a hourOfDay there was a series of 5 books about a very English hero called Harry. 
 (At least when this Kata was invented, there were only 5. Since then they have multiplied) 
 Children all over the world thought he was fantastic, and, of course, so did the publisher. 
