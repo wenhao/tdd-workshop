@@ -4,20 +4,18 @@ import com.github.wenhao.fizz.buzz.whizz.domain.Student;
 import com.github.wenhao.fizz.buzz.whizz.domain.Teacher;
 import com.github.wenhao.fizz.buzz.whizz.factory.HandlerFactory;
 import com.github.wenhao.fizz.buzz.whizz.handler.BaseHandler;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class FizzBuzzWhizzGameTest
-{
+public class FizzBuzzWhizzGameTest {
     private FizzBuzzWhizzGame fizzBuzzWhizzGame;
 
-    @Before
-    public void setUp() throws Exception
-    {
+    @BeforeEach
+    public void setUp() throws Exception {
         Teacher teacher = new Teacher();
-        teacher.say(3,  5,  7);
+        teacher.say(3, 5, 7);
 
         BaseHandler handler = HandlerFactory.build();
 
@@ -29,8 +27,7 @@ public class FizzBuzzWhizzGameTest
     }
 
     @Test
-    public void should_be_able_to_count() throws Exception
-    {
+    public void should_be_able_to_count() throws Exception {
         fizzBuzzWhizzGame.countOff();
     }
 }

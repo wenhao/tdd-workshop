@@ -1,32 +1,28 @@
 package com.github.wenhao.tdd.guess.number.view;
 
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class ConsoleGameViewTest
-{
+public class ConsoleGameViewTest {
 
     private ConsoleGameView consoleGameView;
 
-    @Before
-    public void setUp() throws Exception
-    {
+    @BeforeEach
+    public void setUp() throws Exception {
         consoleGameView = new ConsoleGameView();
     }
 
     @Test
-    public void should_be_able_to_show_message() throws Exception
-    {
+    public void should_be_able_to_show_message() throws Exception {
         // when
         consoleGameView.showMessage("message");
     }
 
     @Test
-    public void should_be_able_to_show_current_result() throws Exception
-    {
+    public void should_be_able_to_show_current_result() throws Exception {
         // when
         GuessResult guessResult = new GuessResult();
         guessResult.setInputAnswer("1 2 3 4");
@@ -35,8 +31,7 @@ public class ConsoleGameViewTest
     }
 
     @Test
-    public void should_be_able_to_show_guess_results() throws Exception
-    {
+    public void should_be_able_to_show_guess_results() throws Exception {
         // when
         GuessResult guessResult = new GuessResult();
         guessResult.setInputAnswer("1 2 3 4");

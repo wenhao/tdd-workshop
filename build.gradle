@@ -24,7 +24,9 @@ configure(subprojects) { project ->
         )
 
         testCompile(
-                "junit:junit:$junitVersion",
+                "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+                "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+                "org.mockito:mockito-junit-jupiter:2.21.0",
                 "org.assertj:assertj-core:$assertjVersion",
                 "org.mockito:mockito-core:$mockitoVersion"
         )
@@ -88,6 +90,5 @@ project("08-bank") { project ->
 
     dependencies {
         compile"joda-time:joda-time:2.8.1"
-        testCompile 'org.assertj:assertj-core:3.7.0'
     }
 }

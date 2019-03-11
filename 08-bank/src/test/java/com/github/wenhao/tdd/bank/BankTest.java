@@ -1,37 +1,28 @@
 package com.github.wenhao.tdd.bank;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.joda.time.DateTime.now;
-
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
 import com.github.wenhao.tdd.bank.exception.DuplicateNicknameException;
 import com.github.wenhao.tdd.bank.stub.MessageGatewayStub;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.joda.time.DateTime.now;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class BankTest
-{
+public class BankTest {
 
     private Bank bank;
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
     private MessageGatewayStub messageGatewayStub;
     private Customer customer;
 
-    @Before
-    public void setUp()
-    {
+    @BeforeEach
+    public void setUp() {
         messageGatewayStub = new MessageGatewayStub();
         customer = new Customer("jack", now(), messageGatewayStub);
         this.bank = new Bank(messageGatewayStub);
     }
 
     @Test
-    public void should_add_customer_with_valid_customer_information() throws DuplicateNicknameException
-    {
+    public void should_add_customer_with_valid_customer_information() throws DuplicateNicknameException {
         // given
 
         // when
@@ -44,20 +35,16 @@ public class BankTest
     }
 
     @Test
-    public void should_raise_error_if_nickname_already_existed() throws DuplicateNicknameException
-    {
-        thrown.expect(DuplicateNicknameException.class);
-
+    public void should_raise_error_if_nickname_already_existed() throws DuplicateNicknameException {
         // given
         this.bank.create(customer);
 
         // when
-        this.bank.create(customer);
+        assertThrows(DuplicateNicknameException.class, () -> this.bank.create(customer));
     }
 
     @Test
-    public void should_set_join_date_as_today_when_add_customer() throws DuplicateNicknameException
-    {
+    public void should_set_join_date_as_today_when_add_customer() throws DuplicateNicknameException {
         // when
         Customer customer = this.bank.create(this.customer);
 

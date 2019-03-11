@@ -6,16 +6,17 @@ import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
 import com.github.wenhao.tdd.guess.number.service.Game;
 import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
 import com.github.wenhao.tdd.guess.number.view.GameView;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.Matchers.anyList;
-import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class GameControllerTest
 {
 
@@ -27,7 +28,7 @@ public class GameControllerTest
     @Mock
     private AnswerGenerator answerGenerator;
 
-    @Before
+    @BeforeEach
     public void setUp()
     {
         when(answerGenerator.generate()).thenReturn(Answer.createAnswer("1 2 3 4"));

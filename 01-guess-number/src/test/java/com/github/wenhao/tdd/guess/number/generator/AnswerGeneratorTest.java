@@ -1,19 +1,15 @@
 package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class AnswerGeneratorTest
-{
+public class AnswerGeneratorTest {
 
     @Test
-    public void should_generator_answer()
-    {
+    public void should_generator_answer() {
         // given
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
         when(randomIntGenerator.nextInt()).thenReturn(1, 2, 3, 4);
@@ -23,6 +19,6 @@ public class AnswerGeneratorTest
         Answer answer = answerGenerator.generate();
 
         // then
-        assertThat(answer.getValue(), is("1 2 3 4"));
+        assertThat(answer.getValue()).isEqualTo("1 2 3 4");
     }
 }

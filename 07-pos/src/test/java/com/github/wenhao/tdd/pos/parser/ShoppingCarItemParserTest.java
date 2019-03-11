@@ -1,18 +1,14 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import com.github.wenhao.tdd.pos.domain.ShoppingCarItem;
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import com.github.wenhao.tdd.pos.domain.ShoppingCarItem;
-import org.junit.Test;
-
-public class ShoppingCarItemParserTest
-{
+public class ShoppingCarItemParserTest {
     @Test
-    public void should_be_able_to_parse_shopping_car_item()
-    {
+    public void should_be_able_to_parse_shopping_car_item() {
         // given
 
         // when
@@ -20,14 +16,13 @@ public class ShoppingCarItemParserTest
         List<ShoppingCarItem> shoppingCarItems = shoppingCarItemParser.parse("cart.txt");
 
         // then
-        assertThat(shoppingCarItems.size(), is(7));
-        assertThat(shoppingCarItems.get(2).getName(), is("ITEM000001"));
-        assertThat(shoppingCarItems.get(2).getAmount(), is(3));
+        assertThat(shoppingCarItems.size()).isEqualTo(7);
+        assertThat(shoppingCarItems.get(2).getName()).isEqualTo("ITEM000001");
+        assertThat(shoppingCarItems.get(2).getAmount()).isEqualTo(3);
     }
 
     @Test
-    public void should_be_able_to_parse_shopping_car_item_by_using_default()
-    {
+    public void should_be_able_to_parse_shopping_car_item_by_using_default() {
         // given
 
         // when
@@ -35,7 +30,7 @@ public class ShoppingCarItemParserTest
         List<ShoppingCarItem> shoppingCarItems = shoppingCarItemParser.parse("cart.txt");
 
         // then
-        assertThat(shoppingCarItems.get(0).getName(), is("ITEM000001"));
-        assertThat(shoppingCarItems.get(0).getAmount(), is(1));
+        assertThat(shoppingCarItems.get(0).getName()).isEqualTo("ITEM000001");
+        assertThat(shoppingCarItems.get(0).getAmount()).isEqualTo(1);
     }
 }

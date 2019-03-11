@@ -2,33 +2,28 @@ package com.github.wenhao.factory;
 
 import com.github.wenhao.charge.TaxiCharge;
 import com.github.wenhao.config.TaxiConfig;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class MultipleTaxiChargeFactoryTest
-{
+@ExtendWith(MockitoExtension.class)
+public class MultipleTaxiChargeFactoryTest {
 
     private MultipleTaxiChargeFactory taxiChargeFactory;
     @Mock
     private TaxiConfig taxiConfig;
 
-    @Before
-    public void setUp()
-    {
+    @BeforeEach
+    public void setUp() {
         taxiChargeFactory = new MultipleTaxiChargeFactory(taxiConfig);
     }
 
     @Test
-    public void should_get_day_charge()
-    {
+    public void should_get_day_charge() {
         // given
         when(taxiConfig.get("normal", "day", "baseFee")).thenReturn("11");
         when(taxiConfig.get("normal", "day", "range")).thenReturn("3");
@@ -38,12 +33,11 @@ public class MultipleTaxiChargeFactoryTest
         TaxiCharge dayCharge = taxiChargeFactory.getDayCharge("normal");
 
         // then
-        assertThat(dayCharge, notNullValue());
+        assertThat(dayCharge).isNotNull();
     }
 
     @Test
-    public void should_get_night_charge()
-    {
+    public void should_get_night_charge() {
         // given
         when(taxiConfig.get("normal", "night", "baseFee")).thenReturn("11");
         when(taxiConfig.get("normal", "night", "range")).thenReturn("3");
@@ -53,7 +47,7 @@ public class MultipleTaxiChargeFactoryTest
         TaxiCharge nightCharge = taxiChargeFactory.getNightCharge("normal");
 
         // then
-        assertThat(nightCharge, notNullValue());
+        assertThat(nightCharge).isNotNull();
 
     }
 }

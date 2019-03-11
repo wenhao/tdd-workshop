@@ -1,15 +1,11 @@
 package com.github.wenhao.fizz.buzz.whizz.handler;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-public class DefaultHandlerTest
-{
+public class DefaultHandlerTest {
     @Test
-    public void should_be_able_to_return_self_when_student_count_is_4() throws Exception
-    {
+    public void should_be_able_to_return_self_when_student_count_is_4() throws Exception {
         // given
         Integer number = 4;
         DefaultHandler defaultHandler = new DefaultHandler();
@@ -18,7 +14,7 @@ public class DefaultHandlerTest
         String result = defaultHandler.handle(number, null);
 
         // then
-        assertThat(result, is("4"));
+        assertThat(result).isEqualTo("4");
     }
 
 }
