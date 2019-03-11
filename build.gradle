@@ -1,90 +1,43 @@
-apply plugin: 'idea'
+plugins {
+    id 'idea'
+    id 'checkstyle'
+    id 'java-library'
+//    id 'application'
+}
 
-configure(subprojects) { project ->
-    apply plugin: 'java'
+allprojects {
+    apply plugin: 'java-library'
     apply plugin: 'checkstyle'
 
+    project.buildDir = buildDir
 
-    group = "com.github.wenhao"
-    version = '1.0.0'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     repositories {
-        mavenCentral()
-    }
-
-    compileJava {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        jcenter()
     }
 
     dependencies {
-        compile(
-                "com.google.guava:guava:$guavaVersion",
-                "com.google.inject:guice:$guiceVersion"
-        )
+        implementation "com.google.guava:guava:$guavaVersion"
+        implementation "com.google.inject:guice:$guiceVersion"
 
-        testCompile(
-                "org.junit.jupiter:junit-jupiter-api:$junitVersion",
-                "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
-                "org.mockito:mockito-junit-jupiter:2.21.0",
-                "org.assertj:assertj-core:$assertjVersion",
-                "org.mockito:mockito-core:$mockitoVersion"
-        )
-
-        task sourcesJar(type: Jar) {
-            from sourceSets.main.allSource
-            classifier = 'sources'
-        }
-
-        task javadocJar(type: Jar, dependsOn: javadoc){
-            classifier = 'javadoc'
-            from javadoc.destinationDir
-        }
-
-        artifacts {
-            archives jar
-            archives sourcesJar
-            archives javadocJar
-        }
-
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+        testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+        testImplementation "org.mockito:mockito-junit-jupiter:2.21.0"
+        testImplementation "org.assertj:assertj-core:$assertjVersion"
+        testImplementation "org.mockito:mockito-core:$mockitoVersion"
     }
 
     checkstyle {
-        configFile = file('../config/checkstyle/checkstyle.xml')
+        toolVersion '8.1'
+        ignoreFailures = false
+        configFile file("$project.rootDir/config/checkstyle/checkstyle.xml")
+        sourceSets = [sourceSets.main]
+
+        checkstyleMain {
+            source = 'src/main/java'
+        }
+        checkstyleTest.exclude '**/*.*'
     }
-
-    checkstyleTest.exclude '**/*.*'
-
-}
-
-project("01-guess-number") { project ->
-    description = "01-guess-number"
-}
-
-project("02-length") { project ->
-    description = "02-length"
-}
-
-project("03-fizz-buzz-whizz") { project ->
-    description = "03-fizz-buzz-whizz"
-}
-
-project("04-taxi") { project ->
-    description = "04-taxi"
-}
-
-project("05-parking-lot") { project ->
-    description = "04-parking-lot"
-}
-
-project("06-harry-potter") { project ->
-    description = "05-harry-potter"
-}
-
-project("07-pos") { project ->
-    description = "06-pos"
-}
-
-project("08-birthday-greetings") { project ->
-    description = "08-birthday-greetings"
 }

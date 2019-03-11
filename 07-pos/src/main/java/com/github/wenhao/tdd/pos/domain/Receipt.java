@@ -1,16 +1,13 @@
 package com.github.wenhao.tdd.pos.domain;
 
-public class Receipt
-{
+public class Receipt {
     private Double totalPrice;
 
-    public Double getTotalPrice()
-    {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Double totalPrice)
-    {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

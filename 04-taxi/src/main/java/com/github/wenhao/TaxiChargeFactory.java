@@ -5,11 +5,9 @@ import com.github.wenhao.charge.TimeTaxiCharge;
 import com.github.wenhao.config.TaxiConfig;
 import com.github.wenhao.factory.MultipleTaxiChargeFactory;
 
-public class TaxiChargeFactory
-{
+public class TaxiChargeFactory {
 
-    public TaxiCharge getTaxiCharge(final String taxiType)
-    {
+    public TaxiCharge getTaxiCharge(final String taxiType) {
         TaxiConfig taxiConfig = new TaxiConfig();
         MultipleTaxiChargeFactory taxiCharge = new MultipleTaxiChargeFactory(taxiConfig);
 

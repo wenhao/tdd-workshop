@@ -5,14 +5,11 @@ import com.github.wenhao.tdd.guess.number.controller.GameController;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public final class Application
-{
-    private Application()
-    {
+public final class Application {
+    private Application() {
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Injector injector = Guice.createInjector(new GameModule());
         GameController gameController = injector.getInstance(GameController.class);
 

@@ -6,20 +6,17 @@ import com.google.inject.Inject;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ConsoleInputCommand implements InputCommand
-{
+public class ConsoleInputCommand implements InputCommand {
 
     private BufferedReader bufferedReader;
 
     @Inject
-    public ConsoleInputCommand(BufferedReader bufferedReader)
-    {
+    public ConsoleInputCommand(BufferedReader bufferedReader) {
         this.bufferedReader = bufferedReader;
     }
 
     @Override
-    public Answer input()
-    {
+    public Answer input() {
         try {
             String answerString = bufferedReader.readLine();
             return Answer.createAnswer(answerString);

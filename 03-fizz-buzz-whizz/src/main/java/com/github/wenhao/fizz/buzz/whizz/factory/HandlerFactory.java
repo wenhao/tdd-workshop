@@ -11,14 +11,11 @@ import com.github.wenhao.fizz.buzz.whizz.handler.FizzWhizzHandler;
 import com.github.wenhao.fizz.buzz.whizz.handler.SpecialFizzHandler;
 import com.github.wenhao.fizz.buzz.whizz.handler.WhizzHandler;
 
-public final class HandlerFactory
-{
-    private HandlerFactory()
-    {
+public final class HandlerFactory {
+    private HandlerFactory() {
     }
 
-    public static BaseHandler build()
-    {
+    public static BaseHandler build() {
         DefaultHandler defaultHandler = new DefaultHandler();
         WhizzHandler whizzHandler = new WhizzHandler(defaultHandler);
         BuzzHandler buzzHandler = new BuzzHandler(whizzHandler);

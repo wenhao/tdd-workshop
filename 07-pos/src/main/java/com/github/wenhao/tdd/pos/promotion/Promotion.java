@@ -2,30 +2,25 @@ package com.github.wenhao.tdd.pos.promotion;
 
 import com.github.wenhao.tdd.pos.domain.ShoppingItem;
 
-public abstract class Promotion extends ShoppingItem
-{
+public abstract class Promotion extends ShoppingItem {
     private ShoppingItem shoppingItem;
 
-    protected Promotion(ShoppingItem shoppingItem)
-    {
+    protected Promotion(ShoppingItem shoppingItem) {
         this.shoppingItem = shoppingItem;
     }
 
     @Override
-    public Double getPrice()
-    {
+    public Double getPrice() {
         return shoppingItem.getPrice();
     }
 
     @Override
-    public Double getAmount()
-    {
+    public Double getAmount() {
         return shoppingItem.getAmount();
     }
 
     @Override
-    public Double cost()
-    {
+    public Double cost() {
         return shoppingItem.cost();
     }
 }

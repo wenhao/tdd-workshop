@@ -1,45 +1,37 @@
 package com.github.wenhao.tdd.pos.domain;
 
-public class ShoppingItem
-{
+public class ShoppingItem {
     private String name;
     private Double price;
     private Double amount;
 
-    public ShoppingItem(String name, Double price)
-    {
+    public ShoppingItem(String name, Double price) {
         this.name = name;
         this.price = price;
     }
 
-    public ShoppingItem(String name, double price, Double amount)
-    {
+    public ShoppingItem(String name, double price, Double amount) {
         this.name = name;
         this.price = price;
         this.amount = amount;
     }
 
-    public ShoppingItem()
-    {
+    public ShoppingItem() {
     }
 
-    public Double getPrice()
-    {
+    public Double getPrice() {
         return price;
     }
 
-    public Double getAmount()
-    {
+    public Double getAmount() {
         return amount;
     }
 
-    public Double cost()
-    {
+    public Double cost() {
         return price * amount;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 }

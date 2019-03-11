@@ -5,29 +5,24 @@ import com.google.inject.Inject;
 
 import java.util.List;
 
-public class ConsoleGameView implements GameView
-{
+public class ConsoleGameView implements GameView {
     @Inject
-    public ConsoleGameView()
-    {
+    public ConsoleGameView() {
     }
 
     @Override
-    public void showGuessHistory(List<GuessResult> guessResults)
-    {
+    public void showGuessHistory(List<GuessResult> guessResults) {
         System.out.println("History: ");
         guessResults.forEach(this::showCurrentResult);
     }
 
     @Override
-    public void showMessage(String message)
-    {
+    public void showMessage(String message) {
         System.out.println(message);
     }
 
     @Override
-    public void showCurrentResult(GuessResult guessResult)
-    {
+    public void showCurrentResult(GuessResult guessResult) {
         System.out.println(guessResult.getInputAnswer() + ":" + guessResult.getResult());
     }
 }

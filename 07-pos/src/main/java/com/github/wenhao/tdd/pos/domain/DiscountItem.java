@@ -1,34 +1,28 @@
 package com.github.wenhao.tdd.pos.domain;
 
-public class DiscountItem
-{
+public class DiscountItem {
 
     private String name;
     private Integer rate;
 
-    public DiscountItem(String name, Integer rate)
-    {
+    public DiscountItem(String name, Integer rate) {
         this.name = name;
         this.rate = rate;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getRate()
-    {
+    public Integer getRate() {
         return rate;
     }
 
-    public void setRate(Integer rate)
-    {
+    public void setRate(Integer rate) {
         this.rate = rate;
     }
 }

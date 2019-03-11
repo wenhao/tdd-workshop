@@ -3,15 +3,13 @@ package com.github.wenhao.factory;
 import com.github.wenhao.charge.CompositeTaxiCharge;
 import com.github.wenhao.charge.TaxiCharge;
 import com.github.wenhao.config.TaxiConfig;
+import static java.util.stream.Collectors.toList;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static java.util.stream.Collectors.toList;
-
-public class MultipleTaxiChargeFactory
-{
+public class MultipleTaxiChargeFactory {
     private static final String DAY = "day";
     private static final String NIGHT = "night";
     private static final String BASE_FEE = "baseFee";
@@ -19,23 +17,19 @@ public class MultipleTaxiChargeFactory
     private static final String PRICE_PER_MILE = "pricePerMile";
     private TaxiConfig taxiConfig;
 
-    public MultipleTaxiChargeFactory(final TaxiConfig taxiConfig)
-    {
+    public MultipleTaxiChargeFactory(final TaxiConfig taxiConfig) {
         this.taxiConfig = taxiConfig;
     }
 
-    public TaxiCharge getDayCharge(final String taxiType)
-    {
+    public TaxiCharge getDayCharge(final String taxiType) {
         return withCharges(taxiType, DAY);
     }
 
-    public TaxiCharge getNightCharge(final String taxiType)
-    {
+    public TaxiCharge getNightCharge(final String taxiType) {
         return withCharges(taxiType, NIGHT);
     }
 
-    private CompositeTaxiCharge withCharges(final String taxiType, final String time)
-    {
+    private CompositeTaxiCharge withCharges(final String taxiType, final String time) {
         CompositeTaxiCharge taxiCharge = new CompositeTaxiCharge();
         taxiCharge.withBaseFee(new BigDecimal(taxiConfig.get(taxiType, time, BASE_FEE)));
 

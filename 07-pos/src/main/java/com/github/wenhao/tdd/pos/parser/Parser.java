@@ -1,5 +1,6 @@
 package com.github.wenhao.tdd.pos.parser;
 
+import static com.google.common.collect.Lists.newArrayList;
 import com.google.common.io.Resources;
 
 import java.io.IOException;
@@ -8,12 +9,8 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.google.common.collect.Lists.newArrayList;
-
-public abstract class Parser<T>
-{
-    public List<T> parse(String name)
-    {
+public abstract class Parser<T> {
+    public List<T> parse(String name) {
 
         URL url = Resources.getResource(name);
         try {

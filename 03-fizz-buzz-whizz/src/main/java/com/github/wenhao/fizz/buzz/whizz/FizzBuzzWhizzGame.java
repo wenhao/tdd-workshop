@@ -5,27 +5,23 @@ import com.github.wenhao.fizz.buzz.whizz.domain.Teacher;
 
 import java.util.List;
 
-public class FizzBuzzWhizzGame
-{
+public class FizzBuzzWhizzGame {
 
     private List<Student> students;
     private Teacher teacher;
 
-    public void countOff()
-    {
+    public void countOff() {
         for (Student student : students) {
             System.out.println(student.countOff(teacher.getWords()));
         }
 
     }
 
-    public void setStudents(List<Student> students)
-    {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
-    public void setTeacher(Teacher teacher)
-    {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 

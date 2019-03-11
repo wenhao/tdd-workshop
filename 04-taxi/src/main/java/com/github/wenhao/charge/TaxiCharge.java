@@ -4,7 +4,6 @@ import com.github.wenhao.domain.Ride;
 
 import java.math.BigDecimal;
 
-public interface TaxiCharge
-{
+public interface TaxiCharge {
     BigDecimal chargeFee(Ride ride);
 }

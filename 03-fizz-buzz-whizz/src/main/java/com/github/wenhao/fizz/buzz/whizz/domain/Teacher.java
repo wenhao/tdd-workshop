@@ -1,24 +1,20 @@
 package com.github.wenhao.fizz.buzz.whizz.domain;
 
 import com.github.wenhao.fizz.buzz.whizz.validator.NumbersValidator;
+import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
-
-public class Teacher
-{
+public class Teacher {
     private Words words;
     private NumbersValidator numbersValidator;
 
-    public Teacher()
-    {
+    public Teacher() {
         words = new Words();
         numbersValidator = new NumbersValidator();
     }
 
-    public void say(Integer... numbers)
-    {
+    public void say(Integer... numbers) {
         List<Integer> number = newArrayList(numbers);
         numbersValidator.validate(number);
         words.setFirst(number.get(0));
@@ -26,8 +22,7 @@ public class Teacher
         words.setThird(number.get(2));
     }
 
-    public Words getWords()
-    {
+    public Words getWords() {
         return words;
     }
 
