@@ -19,10 +19,10 @@ tdd-workshop
 ## [05-parking-lot](./05-parking-lot/README.md)
 
 
-## [06-harry-potter](./06-harry-potter/README.md)
+## [06-harry-potter](05-harry-potter/README.md)
 
 
-## [06-pos](./07-pos/README.md)
+## [06-pos](06-pos/README.md)
 
 
 ## [08-bank](./08-bank/README.md)

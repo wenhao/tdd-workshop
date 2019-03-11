@@ -1,15 +1,7 @@
-plugins {
-    id 'idea'
-    id 'checkstyle'
-    id 'java-library'
-//    id 'application'
-}
-
 allprojects {
     apply plugin: 'java-library'
     apply plugin: 'checkstyle'
-
-    project.buildDir = buildDir
+    apply plugin: 'idea'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
