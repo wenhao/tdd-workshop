@@ -23,10 +23,9 @@
 package com.github.wenhao.birthday;
 
 import com.google.common.collect.Lists;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.BDDMockito.then;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.when;
@@ -36,27 +35,42 @@ import java.time.LocalDate;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class BirthdayGreetingsTest {
+public class EmployeeFinderTest {
 
     @InjectMocks
-    private BirthdayGreetings birthDayGreetings;
-    @Mock
-    private EmailService emailService;
-    @Mock
     private EmployeeFinder employeeFinder;
+    @Mock
+    private EmployeeRepository employeeRepository;
 
     @Test
-    void should_send_birthday_greetings_base_on_given_date() {
+    public void should_find_all_employees_by_birthday_date() {
         // given
-        final LocalDate today = LocalDate.of(2019, 3, 11);
-        Employee john = new Employee("Doe", "John", LocalDate.of(1982, 3, 11), "john.doe@foobar.com");
+        final LocalDate date = LocalDate.of(2019, 10, 8);
+        Employee john = new Employee("Doe", "John", LocalDate.of(1982, 10, 8), "john.doe@foobar.com");
+        Employee mary = new Employee("Ann", "Mary", LocalDate.of(1975, 9, 11), "mary.ann@foobar.com");
+        List<Employee> employees = Lists.newArrayList(john, mary);
+
+        // when
+        when(employeeRepository.getEmployees()).thenReturn(employees);
+        List<Employee> birthdayEmployees = employeeFinder.find(date);
+
+        // then
+        assertThat(birthdayEmployees.size()).isEqualTo(1);
+        assertThat(birthdayEmployees.contains(mary)).isFalse();
+    }
+
+    @Test
+    public void should_find_all_employees_include_leap_year_birthday() {
+        // given
+        final LocalDate date = LocalDate.of(2019, 2, 28);
+        Employee john = new Employee("Doe", "John", LocalDate.of(2000, 2, 29), "john.doe@foobar.com");
         List<Employee> employees = Lists.newArrayList(john);
 
         // when
-        when(employeeFinder.findAll(today)).thenReturn(employees);
-        birthDayGreetings.sendGreetings(today);
+        when(employeeRepository.getEmployees()).thenReturn(employees);
+        List<Employee> birthdayEmployees = employeeFinder.find(date);
 
         // then
-        then(emailService).should().send(argThat(email -> email.getSubject().equals("Happy birthday!") && email.getContent().equals("Happy birthday, dear John!")));
+        assertThat(birthdayEmployees.size()).isEqualTo(1);
     }
 }

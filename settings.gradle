@@ -1,9 +1,8 @@
 rootProject.name = 'tdd-workshop'
 
-include "01-guess-number",
-        "02-length",
+include "01-length",
+        "02-birthday-greetings",
         "03-fizz-buzz-whizz",
-        "04-taxi",
-        "05-harry-potter",
-        "06-pos",
-        "07-birthday-greetings"
+        "04-guess-number",
+        "05-taxi",
+        "06-pos"

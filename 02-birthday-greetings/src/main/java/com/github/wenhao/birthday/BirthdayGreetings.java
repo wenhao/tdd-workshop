@@ -24,25 +24,22 @@ package com.github.wenhao.birthday;
 
 import java.time.LocalDate;
 
-public class Employee {
+public class BirthdayGreetings {
+    private final EmailService emailService;
+    private final EmployeeFinder employeeFinder;
 
-    private String fistName;
-    private String lastName;
-    private LocalDate birthday;
-    private String email;
-
-    public Employee(final String fistName, final String lastName, final LocalDate birthday, final String email) {
-        this.fistName = fistName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.email = email;
+    public BirthdayGreetings(final EmployeeFinder employeeFinder, final EmailService emailService) {
+        this.emailService = emailService;
+        this.employeeFinder = employeeFinder;
     }
 
-    public LocalDate getBirthDay() {
-        return this.birthday;
+    public void sendGreetings(final LocalDate date) {
+        employeeFinder.find(date).stream()
+                .map(this::toEmail)
+                .forEach(emailService::send);
     }
 
-    public String getLastName() {
-        return this.lastName;
+    private Email toEmail(final Employee employee) {
+        return new Email("Happy birthday!", String.format("Happy birthday, dear %s!", employee.getLastName()));
     }
 }

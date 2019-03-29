@@ -16,9 +16,16 @@ allprojects {
 
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
         testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-        testImplementation "org.mockito:mockito-junit-jupiter:2.21.0"
+        testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
         testImplementation "org.assertj:assertj-core:$assertjVersion"
         testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    }
+
+    test {
+        testLogging {
+            events 'PASSED', 'FAILED', 'SKIPPED'
+        }
+        useJUnitPlatform()
     }
 
     checkstyle {
