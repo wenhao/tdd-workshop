@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/wenhao/tdd-workshop.svg)](https://travis-ci.org/wenhao/tdd-workshop)
 
+![TDD](./docs/images/tdd-logo.png)
 
 ### tdd-workshop
 
