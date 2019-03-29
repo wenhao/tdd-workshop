@@ -32,7 +32,7 @@ multimedia content, hands-on exercises and quizzes.
 * Identify poorly designed code by using our elaborate code smell vocabulary.
 * Learn various automated refactoring techniques and strategies to carefully clean the identified code smells.
 * Practice key techniques to break coupling between classes and micro-test each component independently.
-* Incrementally transform complex and difficult classes into readable, well-structured, and well-designed code, while keeping them running at all times
+* Incrementally transform complex and difficult classes into readable, well-structured, and well-designed code, while keeping them running at all times.
 
 #### Course Outline
 
