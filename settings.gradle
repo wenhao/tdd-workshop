@@ -5,4 +5,5 @@ include "01-length",
         "03-fizz-buzz-whizz",
         "04-guess-number",
         "05-taxi",
+        "05-taxi2",
         "06-pos"
