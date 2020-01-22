@@ -2,7 +2,7 @@ package com.github.wenhao;
 
 import java.math.BigDecimal;
 
-public class LongDistanceCalculator implements FeeCalculator{
+public class LongDistanceCalculator implements FeeCalculator {
 
     private static final int LONG_DISTANCE = 8;
     private static final double EXTRA_FEE = 0.5;

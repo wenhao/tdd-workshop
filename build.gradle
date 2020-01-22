@@ -29,7 +29,6 @@ allprojects {
     }
 
     checkstyle {
-        toolVersion '8.1'
         ignoreFailures = false
         configFile file("$project.rootDir/config/checkstyle/checkstyle.xml")
         sourceSets = [sourceSets.main]
@@ -37,6 +36,5 @@ allprojects {
         checkstyleMain {
             source = 'src/main/java'
         }
-        checkstyleTest.exclude '**/*.*'
     }
 }

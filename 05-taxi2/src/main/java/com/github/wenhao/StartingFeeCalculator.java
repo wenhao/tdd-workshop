@@ -2,7 +2,7 @@ package com.github.wenhao;
 
 import java.math.BigDecimal;
 
-public class StartingFeeCalculator implements FeeCalculator{
+public class StartingFeeCalculator implements FeeCalculator {
     public StartingFeeCalculator() {
     }
 
