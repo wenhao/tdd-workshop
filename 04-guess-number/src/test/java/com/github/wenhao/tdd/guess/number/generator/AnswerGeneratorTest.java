@@ -23,8 +23,9 @@
 package com.github.wenhao.tdd.guess.number.generator;
 
 import com.github.wenhao.tdd.guess.number.domain.Answer;
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

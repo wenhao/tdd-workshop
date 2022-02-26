@@ -25,15 +25,16 @@ package com.github.wenhao.tdd.guess.number.validator;
 import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNotFourDigitException;
 import com.github.wenhao.tdd.guess.number.exception.AnswerNumberDuplicatedException;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertThrows;
 
 public class AnswerValidatorTest {
 
     private AnswerValidator answerValidator;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         answerValidator = new AnswerValidator();
     }

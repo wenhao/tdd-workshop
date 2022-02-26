@@ -1,11 +1,12 @@
 package com.github.wenhao.charge;
 
 import com.github.wenhao.domain.Ride;
-import static java.math.BigDecimal.ROUND_UP;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.math.BigDecimal;
+
+import static java.math.BigDecimal.ROUND_UP;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CompositeTaxiChargeTest {
 

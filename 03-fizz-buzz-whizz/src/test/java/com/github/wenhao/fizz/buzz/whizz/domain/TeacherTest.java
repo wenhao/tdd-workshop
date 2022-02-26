@@ -23,16 +23,17 @@
 package com.github.wenhao.fizz.buzz.whizz.domain;
 
 import com.github.wenhao.fizz.buzz.whizz.exception.IllegalWordsException;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertThrows;
 
 public class TeacherTest {
 
     private Teacher teacher;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         teacher = new Teacher();
     }
 

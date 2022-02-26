@@ -22,12 +22,13 @@
 
 package com.github.wenhao.length;
 
+import org.junit.Test;
+
 import static com.github.wenhao.length.QuantityUnit.FEET;
 import static com.github.wenhao.length.QuantityUnit.INCH;
 import static com.github.wenhao.length.QuantityUnit.MILE;
 import static com.github.wenhao.length.QuantityUnit.YARD;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 
 public class QuantityTest {
     @Test

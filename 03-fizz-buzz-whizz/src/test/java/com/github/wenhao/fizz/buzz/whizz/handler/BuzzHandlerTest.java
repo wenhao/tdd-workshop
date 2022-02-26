@@ -25,9 +25,10 @@ package com.github.wenhao.fizz.buzz.whizz.handler;
 import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.BUZZ;
 import static com.github.wenhao.fizz.buzz.whizz.domain.Constants.WHIZZ;
 import com.github.wenhao.fizz.buzz.whizz.domain.Words;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -36,7 +37,7 @@ public class BuzzHandlerTest {
     private BuzzHandler buzzHandler;
     private Words words;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         words = mock(Words.class);
         when(words.getFirst()).thenReturn(3);

@@ -26,19 +26,20 @@ import com.github.wenhao.tdd.guess.number.domain.Answer;
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
 import com.github.wenhao.tdd.guess.number.generator.AnswerGenerator;
 import com.github.wenhao.tdd.guess.number.validator.AnswerValidator;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class GameTest {
 
     private Game game;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
         when(answerGenerator.generate()).thenReturn(Answer.createAnswer("1 2 3 4"));

@@ -1,7 +1,8 @@
 package com.github.wenhao.domain;
 
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 
 public class RideTest {
     @Test

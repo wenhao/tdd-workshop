@@ -22,7 +22,7 @@
 
 package com.github.wenhao.tdd.guess.number.domain;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 

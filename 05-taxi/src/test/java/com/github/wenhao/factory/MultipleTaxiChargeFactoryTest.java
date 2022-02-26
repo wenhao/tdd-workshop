@@ -2,22 +2,23 @@ package com.github.wenhao.factory;
 
 import com.github.wenhao.charge.TaxiCharge;
 import com.github.wenhao.config.TaxiConfig;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import static org.mockito.Mockito.when;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 
-@ExtendWith(MockitoExtension.class)
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
 public class MultipleTaxiChargeFactoryTest {
 
     private MultipleTaxiChargeFactory taxiChargeFactory;
     @Mock
     private TaxiConfig taxiConfig;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         taxiChargeFactory = new MultipleTaxiChargeFactory(taxiConfig);
     }

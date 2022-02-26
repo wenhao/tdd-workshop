@@ -23,10 +23,11 @@
 package com.github.wenhao.tdd.pos.parser;
 
 import com.github.wenhao.tdd.pos.domain.ShoppingCarItem;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShoppingCarItemParserTest {
     @Test

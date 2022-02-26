@@ -27,15 +27,16 @@ import com.github.wenhao.tdd.pos.domain.ShoppingCart;
 import com.github.wenhao.tdd.pos.domain.ShoppingItem;
 import com.github.wenhao.tdd.pos.promotion.DiscountPromotion;
 import com.github.wenhao.tdd.pos.promotion.SecondHalfPricePromotion;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class PosTest {
 
     private Pos pos;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         pos = new Pos();
     }

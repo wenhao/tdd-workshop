@@ -1,18 +1,19 @@
 package com.github.wenhao.charge;
 
 import com.github.wenhao.domain.Ride;
-import static java.math.BigDecimal.ROUND_UP;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import static org.mockito.Mockito.when;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 
-@ExtendWith(MockitoExtension.class)
+import static java.math.BigDecimal.ROUND_UP;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
 public class TimeTaxiChargeTest {
 
     private TimeTaxiCharge taxiCharge;
@@ -21,7 +22,7 @@ public class TimeTaxiChargeTest {
     @Mock
     private TaxiCharge nightCharge;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         taxiCharge = new TimeTaxiCharge(dayCharge, nightCharge);
     }

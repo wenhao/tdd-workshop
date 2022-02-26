@@ -23,8 +23,8 @@
 package com.github.wenhao.tdd.guess.number.view;
 
 import com.github.wenhao.tdd.guess.number.domain.GuessResult;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Arrays;
 
@@ -32,7 +32,7 @@ public class ConsoleGameViewTest {
 
     private ConsoleGameView consoleGameView;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         consoleGameView = new ConsoleGameView();
     }

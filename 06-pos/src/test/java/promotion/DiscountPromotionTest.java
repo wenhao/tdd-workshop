@@ -24,8 +24,9 @@ package promotion;
 
 import com.github.wenhao.tdd.pos.domain.ShoppingItem;
 import com.github.wenhao.tdd.pos.promotion.DiscountPromotion;
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 
 public class DiscountPromotionTest {
     @Test
