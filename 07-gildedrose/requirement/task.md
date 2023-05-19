@@ -48,4 +48,22 @@
                  
 **测试分析**
 
-1. should_decrease_sellin_and_increase_quality_if_product_is_backstage_pass_when_update                 
+1. should_decrease_sellin_and_increase_quality_if_product_is_backstage_pass_and_sellin_large_than_ten_when_update 
+
+#### Task 8: 后台通行证（Backstage pass）和陈年干酪有相似之处：越是接近演出日，随着"SellIn"值的减少，商品价值"Quality"值反而上升。当离演出开始不足10天时，品质值每日提高2。
+
+**测试分析**
+
+1. should_decrease_sellin_and_double_increase_quality_if_product_is_backstage_pass_and_sellin_less_than_ten_bigger_than_five_when_update  
+
+#### Task 9: 后台通行证（Backstage pass）和陈年干酪有相似之处：越是接近演出日，随着"SellIn"值的减少，商品价值"Quality"值反而上升。当不足5天时，品质值每日提高3。
+
+**测试分析**
+
+1. should_decrease_sellin_and_triple_increase_quality_if_product_is_backstage_pass_and_sellin_less_than_five_when_update
+
+#### Task 10: 后台通行证（Backstage pass）和陈年干酪有相似之处：越是接近演出日，随着"SellIn"值的减少，商品价值"Quality"值反而上升。当演出结束后，品质值下降到0。
+
+**测试分析**
+
+1. should_decrease_sellin_and_zero_quality_if_product_is_backstage_pass_and_sellin_less_than_zero_when_update
